@@ -5,8 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Server"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="服务端" Height="240" Width="360" Closing="Window_Closing">
+    <DockPanel>
+        <Border DockPanel.Dock="Top" Style="{StaticResource BorderStyle}">
+            <TextBlock Text="你画我猜服务端" Style="{StaticResource TitleStyle}"/>
+        </Border>
+        <StackPanel DockPanel.Dock="Top" Background="White">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Height="30">
+                <Button Name="btnStart" Width="70" Content="启动" Click="btnStart_Click"/>
+                <Button Name="btnStop" Margin="20 0 0 0" Width="70" Content="停止" Click="btnStop_Click"/>
+            </StackPanel>
+            <Separator/>
+        </StackPanel>
+        <GroupBox Header="运行信息">
+            <ScrollViewer>
+                <StackPanel Background="White" TextBlock.LineHeight="20">
+                    <TextBlock x:Name="textBlock1" Margin="5" TextWrapping="Wrap"/>
+                </StackPanel>
+            </ScrollViewer>
+        </GroupBox>
+    </DockPanel>
 </Window>
