@@ -27,6 +27,7 @@ namespace Client
     public partial class MainWindow : Window,IServiceCallback
     {
         ServiceClient client;
+        int room;//暂用
         public MainWindow()
         { 
             InitializeComponent();
@@ -83,7 +84,7 @@ namespace Client
             StrokeCollection sc = inkcanvas.Strokes;
             string inkData = (new StrokeCollectionConverter()).ConvertToString(sc);
 
-            client.SendInk(user, inkData);
+            client.SendInk(room, inkData);
         }
         public void ShowInk(string inkData)
         {
@@ -104,44 +105,46 @@ namespace Client
             //rrbPen.IsChecked = true;
             inkcanvas.DefaultDrawingAttributes = inkDA;
         }
-        private void RibbonRadioButton_Checked(object sender, RoutedEventArgs e)
+        private void Button_Checked(object sender, RoutedEventArgs e)
         {
-            string name = (e.Source as RibbonRadioButton).Label;
+            string name = (e.Source as Button).Name;
             switch (name)
             {
-                case "钢笔":
-                    InitColor();
+                case "red":
                     inkcanvas.EditingMode = InkCanvasEditingMode.Ink;
-                    break;
-                case "荧光笔":
-                    inkcanvas.DefaultDrawingAttributes = highlighterDA;
-                    break;
-                case "红色":
                     currentColor = Colors.Red;
                     InitColor();
                     break;
-                case "绿色":
-                    currentColor = Colors.Green;
+                case "yellow":
+                    inkcanvas.EditingMode = InkCanvasEditingMode.Ink;
+                    currentColor = Colors.Yellow;
                     InitColor();
                     break;
-                case "蓝色":
+                case "blue":
+                    inkcanvas.EditingMode = InkCanvasEditingMode.Ink;
                     currentColor = Colors.Blue;
                     InitColor();
                     break;
-                case "墨迹":
+                case "green":
                     inkcanvas.EditingMode = InkCanvasEditingMode.Ink;
+                    currentColor = Colors.Green;
+                    InitColor();
                     break;
-                case "手势":
-                    inkcanvas.EditingMode = InkCanvasEditingMode.GestureOnly;
+                case "pink":
+                    inkcanvas.EditingMode = InkCanvasEditingMode.Ink;
+                    currentColor = Colors.Pink;
+                    InitColor();
                     break;
-                case "套索选择":
-                    inkcanvas.EditingMode = InkCanvasEditingMode.Select;
+                case "black":
+                    inkcanvas.EditingMode = InkCanvasEditingMode.Ink;
+                    currentColor = Colors.Black;
+                    InitColor();
                     break;
-                case "点擦除":
+                case "delete":
                     inkcanvas.EditingMode = InkCanvasEditingMode.EraseByPoint;
                     break;
-                case "笔画擦除":
-                    inkcanvas.EditingMode = InkCanvasEditingMode.EraseByStroke;
+                case "clear":
+                    //
                     break;
             }
         }
