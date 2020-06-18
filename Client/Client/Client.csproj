@@ -128,5 +128,39 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\black.png" />
+    <Resource Include="image\blue.png" />
+    <Resource Include="image\clear.png" />
+    <Resource Include="image\delete.png" />
+    <Resource Include="image\green.png" />
+    <Resource Include="image\pink.png" />
+    <Resource Include="image\red.png" />
+    <Resource Include="image\yellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="yellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pink.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="clear.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
