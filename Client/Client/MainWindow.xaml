@@ -5,8 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Client"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="你画我猜" Height="450" Width="800">
     <Grid>
-        
+        <DockPanel HorizontalAlignment="Left" Height="422" LastChildFill="False" VerticalAlignment="Top" Width="795">
+            <Grid Height="422" VerticalAlignment="Top" Width="162"/>
+            <InkCanvas x:Name="inkcanvas" Width="473" VerticalAlignment="Center" Height="286" Margin="0,86,0,50"></InkCanvas>
+            <Grid Height="422" VerticalAlignment="Top" Width="176" DockPanel.Dock="Right"/>
+        </DockPanel>
+
     </Grid>
 </Window>
