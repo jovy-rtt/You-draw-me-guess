@@ -21,8 +21,9 @@ namespace Server
         void test();
 
         #region 画板的服务接口
-        [OperationContract]
-        void test0();
+        //发送数字墨迹
+        [OperationContract(IsOneWay = true)]
+        void SendInk(int room, string ink);
         #endregion
 
         #region 聊天室的服务接口
@@ -35,8 +36,9 @@ namespace Server
     public interface IServiceCallback
     {
         #region 画板的回调接口
-        [OperationContract]
-        void test2();
+        //回调显示墨迹 
+        [OperationContract(IsOneWay = true)]
+        void ShowInk(string ink);
         #endregion
 
         #region 聊天室的回调接口

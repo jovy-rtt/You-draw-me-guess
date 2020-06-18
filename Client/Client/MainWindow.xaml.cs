@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Ink;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -26,15 +27,47 @@ namespace Client
     public partial class MainWindow : Window,IServiceCallback
     {
         ServiceClient client;
+        int room;//暂用
         public MainWindow()
         { 
             InitializeComponent();
             client = new ServiceClient(new InstanceContext(this));
         }
 
+        //画板相关
+        private DrawingAttributes inkDA;
+        private DrawingAttributes highlighterDA;
+        private Color currentColor;
+
         /*----------------------------------------------------- 分割线  ----------------------------------------------------------------*/
         #region 客户端内的方法
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            //创建客户端代理类
+            InstanceContext context = new InstanceContext(this);
+            client = new ServiceClient(context);
 
+            //初始化墨迹和画板
+            currentColor = Colors.Red;
+            inkDA = new DrawingAttributes()
+            {
+                Color = currentColor,
+                Height = 6,
+                Width = 6,
+                FitToCurve = false
+            };
+            highlighterDA = new DrawingAttributes()
+            {
+                Color = Colors.Orchid,
+                IsHighlighter = true,
+                IgnorePressure = false,
+                StylusTip = StylusTip.Rectangle,
+                Height = 30,
+                Width = 10
+            };
+            inkcanvas.DefaultDrawingAttributes = inkDA;
+            inkcanvas.EditingMode = InkCanvasEditingMode.Ink;
+        }
 
         #endregion
 
@@ -42,9 +75,78 @@ namespace Client
 
         /*----------------------------------------------------- 分割线  ----------------------------------------------------------------*/
         #region 画板的回调函数实现
-        public void test2()
+        /// <summary>
+        /// 5、画板
+        /// </summary>
+        private void ink1_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            throw new NotImplementedException();
+            //将InkCanvas的墨迹转换为String
+            StrokeCollection sc = inkcanvas.Strokes;
+            string inkData = (new StrokeCollectionConverter()).ConvertToString(sc);
+
+            client.SendInk(room, inkData);
+        }
+        public void ShowInk(string inkData)
+        {
+            //删除原有的Strokes
+            inkcanvas.Strokes.Clear();
+
+            //将String转换为InkCanvas的墨迹
+            Type tp = typeof(StrokeCollection);
+            StrokeCollection sc =
+                (StrokeCollection)(new StrokeCollectionConverter()).ConvertFrom(inkData);
+
+            //新Strokes添加到InkCanvas中
+            inkcanvas.Strokes = sc;
+        }
+        private void InitColor()
+        {//初始化画笔和画板
+            inkDA.Color = currentColor;
+            //rrbPen.IsChecked = true;
+            inkcanvas.DefaultDrawingAttributes = inkDA;
+        }
+        private void Button_Checked(object sender, RoutedEventArgs e)
+        {
+            string name = (e.Source as Button).Name;
+            switch (name)
+            {
+                case "red":
+                    inkcanvas.EditingMode = InkCanvasEditingMode.Ink;
+                    currentColor = Colors.Red;
+                    InitColor();
+                    break;
+                case "yellow":
+                    inkcanvas.EditingMode = InkCanvasEditingMode.Ink;
+                    currentColor = Colors.Yellow;
+                    InitColor();
+                    break;
+                case "blue":
+                    inkcanvas.EditingMode = InkCanvasEditingMode.Ink;
+                    currentColor = Colors.Blue;
+                    InitColor();
+                    break;
+                case "green":
+                    inkcanvas.EditingMode = InkCanvasEditingMode.Ink;
+                    currentColor = Colors.Green;
+                    InitColor();
+                    break;
+                case "pink":
+                    inkcanvas.EditingMode = InkCanvasEditingMode.Ink;
+                    currentColor = Colors.Pink;
+                    InitColor();
+                    break;
+                case "black":
+                    inkcanvas.EditingMode = InkCanvasEditingMode.Ink;
+                    currentColor = Colors.Black;
+                    InitColor();
+                    break;
+                case "delete":
+                    inkcanvas.EditingMode = InkCanvasEditingMode.EraseByPoint;
+                    break;
+                case "clear":
+                    //
+                    break;
+            }
         }
         #endregion
 

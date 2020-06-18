@@ -10,14 +10,12 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="test0">
+  <xs:element name="SendInk">
     <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="test0Response">
-    <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="room" type="xs:int" />
+        <xs:element minOccurs="0" name="ink" nillable="true" type="xs:string" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="test1">
@@ -30,14 +28,11 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="test2">
+  <xs:element name="ShowInk">
     <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="test2Response">
-    <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ink" nillable="true" type="xs:string" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="test3">
