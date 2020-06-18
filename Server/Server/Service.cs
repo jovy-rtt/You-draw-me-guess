@@ -25,9 +25,15 @@ namespace Server
         /*-----------------------------------------------------  分割线   ---------------------------------------------------------------*/
         
         #region 画板的服务端函数实现
-        public void test0()
+        /// <summary>
+        /// 发送数字墨迹
+        /// </summary>
+        public void SendInk(int room, string ink) 
         {
-            throw new NotImplementedException();
+            foreach (var v in CC.Users)
+            {
+                v.callback.ShowInk(ink);
+            }
         }
         #endregion
 

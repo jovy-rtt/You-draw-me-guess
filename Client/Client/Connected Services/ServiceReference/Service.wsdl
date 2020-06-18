@@ -43,14 +43,11 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="test0">
-      <soap12:operation soapAction="MyService/IService/test0" style="document" />
+    <wsdl:operation name="SendInk">
+      <soap12:operation soapAction="MyService/IService/SendInk" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="test1">
       <soap12:operation soapAction="MyService/IService/test1" style="document" />
@@ -61,11 +58,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="test2">
-      <soap12:operation soapAction="MyService/IService/test2" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
+    <wsdl:operation name="ShowInk">
+      <soap12:operation soapAction="MyService/IService/ShowInk" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>

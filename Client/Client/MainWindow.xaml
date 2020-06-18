@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Client"
         mc:Ignorable="d"
-        Title="你画我猜" Height="450" Width="800">
+        Title="你画我猜" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
         <DockPanel HorizontalAlignment="Left" Height="422" LastChildFill="False" VerticalAlignment="Top" Width="795">
             <Grid Height="422" VerticalAlignment="Top" Width="162"/>

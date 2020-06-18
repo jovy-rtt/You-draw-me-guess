@@ -21,11 +21,11 @@ namespace Client.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="MyService/IService/test", ReplyAction="MyService/IService/testResponse")]
         System.Threading.Tasks.Task testAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="MyService/IService/test0", ReplyAction="MyService/IService/test0Response")]
-        void test0();
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/SendInk")]
+        void SendInk(int room, string ink);
         
-        [System.ServiceModel.OperationContractAttribute(Action="MyService/IService/test0", ReplyAction="MyService/IService/test0Response")]
-        System.Threading.Tasks.Task test0Async();
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/SendInk")]
+        System.Threading.Tasks.Task SendInkAsync(int room, string ink);
         
         [System.ServiceModel.OperationContractAttribute(Action="MyService/IService/test1", ReplyAction="MyService/IService/test1Response")]
         void test1();
@@ -37,8 +37,8 @@ namespace Client.ServiceReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IServiceCallback {
         
-        [System.ServiceModel.OperationContractAttribute(Action="MyService/IService/test2", ReplyAction="MyService/IService/test2Response")]
-        void test2();
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/ShowInk")]
+        void ShowInk(string ink);
         
         [System.ServiceModel.OperationContractAttribute(Action="MyService/IService/test3", ReplyAction="MyService/IService/test3Response")]
         void test3();
@@ -80,12 +80,12 @@ namespace Client.ServiceReference {
             return base.Channel.testAsync();
         }
         
-        public void test0() {
-            base.Channel.test0();
+        public void SendInk(int room, string ink) {
+            base.Channel.SendInk(room, ink);
         }
         
-        public System.Threading.Tasks.Task test0Async() {
-            return base.Channel.test0Async();
+        public System.Threading.Tasks.Task SendInkAsync(int room, string ink) {
+            return base.Channel.SendInkAsync(room, ink);
         }
         
         public void test1() {
