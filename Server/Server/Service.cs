@@ -39,7 +39,6 @@ namespace Server
         #endregion
 
         /*-----------------------------------------------------  分割线   ---------------------------------------------------------------*/
-
         #region 远程登录服务函数实现
         //远程登录
         public bool Login(string id, string pw)
@@ -82,7 +81,7 @@ namespace Server
             {
                 return false;
             }
-            return false;
+            //return false;
         }
         //修改密码
         public bool ForgetPassword(string id,string pw)

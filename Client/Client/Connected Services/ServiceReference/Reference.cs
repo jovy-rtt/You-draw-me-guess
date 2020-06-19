@@ -21,6 +21,24 @@ namespace Client.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="MyService/IService/test", ReplyAction="MyService/IService/testResponse")]
         System.Threading.Tasks.Task testAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="MyService/IService/Login", ReplyAction="MyService/IService/LoginResponse")]
+        bool Login(string id, string pw);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="MyService/IService/Login", ReplyAction="MyService/IService/LoginResponse")]
+        System.Threading.Tasks.Task<bool> LoginAsync(string id, string pw);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="MyService/IService/Registered", ReplyAction="MyService/IService/RegisteredResponse")]
+        bool Registered(string id, string pw, byte[] phote, string sn, string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="MyService/IService/Registered", ReplyAction="MyService/IService/RegisteredResponse")]
+        System.Threading.Tasks.Task<bool> RegisteredAsync(string id, string pw, byte[] phote, string sn, string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="MyService/IService/ForgetPassword", ReplyAction="MyService/IService/ForgetPasswordResponse")]
+        bool ForgetPassword(string id, string ps);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="MyService/IService/ForgetPassword", ReplyAction="MyService/IService/ForgetPasswordResponse")]
+        System.Threading.Tasks.Task<bool> ForgetPasswordAsync(string id, string ps);
+        
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/SendInk")]
         void SendInk(int room, string ink);
         
@@ -78,6 +96,30 @@ namespace Client.ServiceReference {
         
         public System.Threading.Tasks.Task testAsync() {
             return base.Channel.testAsync();
+        }
+        
+        public bool Login(string id, string pw) {
+            return base.Channel.Login(id, pw);
+        }
+        
+        public System.Threading.Tasks.Task<bool> LoginAsync(string id, string pw) {
+            return base.Channel.LoginAsync(id, pw);
+        }
+        
+        public bool Registered(string id, string pw, byte[] phote, string sn, string name) {
+            return base.Channel.Registered(id, pw, phote, sn, name);
+        }
+        
+        public System.Threading.Tasks.Task<bool> RegisteredAsync(string id, string pw, byte[] phote, string sn, string name) {
+            return base.Channel.RegisteredAsync(id, pw, phote, sn, name);
+        }
+        
+        public bool ForgetPassword(string id, string ps) {
+            return base.Channel.ForgetPassword(id, ps);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ForgetPasswordAsync(string id, string ps) {
+            return base.Channel.ForgetPasswordAsync(id, ps);
         }
         
         public void SendInk(int room, string ink) {

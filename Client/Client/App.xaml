@@ -2,11 +2,11 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Client"
-             StartupUri="RoomWindow.xaml">
+             StartupUri="StartWindow.xaml">
     <Application.Resources>
         <!--style样式-->
         <!--window-->
-        <Style x:Key="StyleAll" TargetType="Window">
+        <!--<Style x:Key="StyleAll" TargetType="Window">
             <Setter Property="Background" >
                 <Setter.Value>
                     <RadialGradientBrush>
@@ -24,6 +24,6 @@
                 </Setter.Value>
             </Setter>
             <Setter Property="FontSize" Value="20"></Setter>
-        </Style>
+        </Style>-->
     </Application.Resources>
 </Application>

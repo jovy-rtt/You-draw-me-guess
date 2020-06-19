@@ -21,10 +21,15 @@ namespace Server
         void test();
         #region 远程登录服务接口
         //登录
+        [OperationContract]
         bool Login(string id, string pw);
+
         //注册
+        [OperationContract]
         bool Registered(string id, string pw, byte[] phote, string sn, string name);
+
         //修改密码
+        [OperationContract]
         bool ForgetPassword(string id,string ps);
         #endregion
 

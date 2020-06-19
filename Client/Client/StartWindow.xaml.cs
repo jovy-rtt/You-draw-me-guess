@@ -23,10 +23,28 @@ namespace Client
         {
             InitializeComponent();
         }
-
-        private void btnStart_Click(object sender, RoutedEventArgs e)
+        private void btn1_Click(object sender, RoutedEventArgs e)
         {
-            (new MainWindow()).Show();
+            StartNewWindow(580, 300);
+            StartNewWindow(0, 0);
+        }
+
+        private void StartNewWindow(int left, int top)
+        {
+            Login w = new Login();
+            w.Left = left;
+            w.Top = top;
+            w.Owner = this;
+            w.Closed += (sender, e) => this.Activate();
+            w.Show();
+        }
+
+        private void btn2_Click(object sender, RoutedEventArgs e)
+        {
+            Login w = new Login();
+            w.Owner = this;
+            w.Closed += (sendObj, args) => this.Activate();
+            w.Show();
         }
     }
 }
