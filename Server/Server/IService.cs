@@ -19,6 +19,14 @@ namespace Server
         /// </summary>
         [OperationContract]
         void test();
+        #region 远程登录服务接口
+        //登录
+        bool Login(string id, string pw);
+        //注册
+        bool Registered(string id, string pw, byte[] phote, string sn, string name);
+        //修改密码
+        bool ForgetPassword(string id,string ps);
+        #endregion
 
         #region 画板的服务接口
         //发送数字墨迹

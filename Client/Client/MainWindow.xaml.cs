@@ -36,7 +36,6 @@ namespace Client
 
         //画板相关
         private DrawingAttributes inkDA;
-        private DrawingAttributes highlighterDA;
         private Color currentColor;
 
         /*----------------------------------------------------- 分割线  ----------------------------------------------------------------*/
@@ -55,15 +54,6 @@ namespace Client
                 Height = 6,
                 Width = 6,
                 FitToCurve = false
-            };
-            highlighterDA = new DrawingAttributes()
-            {
-                Color = Colors.Orchid,
-                IsHighlighter = true,
-                IgnorePressure = false,
-                StylusTip = StylusTip.Rectangle,
-                Height = 30,
-                Width = 10
             };
             inkcanvas.DefaultDrawingAttributes = inkDA;
             inkcanvas.EditingMode = InkCanvasEditingMode.Ink;
@@ -144,7 +134,7 @@ namespace Client
                     inkcanvas.EditingMode = InkCanvasEditingMode.EraseByPoint;
                     break;
                 case "clear":
-                    //
+                    inkcanvas.Strokes.Clear();
                     break;
             }
         }
