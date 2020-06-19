@@ -66,7 +66,7 @@ namespace Client
         /*----------------------------------------------------- 分割线  ----------------------------------------------------------------*/
         #region 画板的回调函数实现
         /// <summary>
-        /// 5、画板
+        /// 画板
         /// </summary>
         private void ink1_MouseUp(object sender, MouseButtonEventArgs e)
         {
