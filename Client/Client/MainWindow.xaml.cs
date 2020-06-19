@@ -143,12 +143,11 @@ namespace Client
 
         /*----------------------------------------------------- 分割线  ----------------------------------------------------------------*/
         #region 聊天室的回调函数实现
-        public void test3()
-        {
-            throw new NotImplementedException();
-        }
-        #endregion
-
        
-    }
+    #endregion
+
+
+
+
+}
 }
