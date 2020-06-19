@@ -32,6 +32,7 @@ namespace Client
         { 
             InitializeComponent();
             client = new ServiceClient(new InstanceContext(this));
+            CC.MainWindow = this;
         }
 
         //画板相关
@@ -58,7 +59,22 @@ namespace Client
             inkcanvas.DefaultDrawingAttributes = inkDA;
             inkcanvas.EditingMode = InkCanvasEditingMode.Ink;
         }
+        private void user1Btn1_Click(object sender, RoutedEventArgs e)
+        {
 
+        }
+        private void user1Btn2_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void user1Btn3_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void send_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
         #endregion
 
 
@@ -138,16 +154,25 @@ namespace Client
                     break;
             }
         }
+
+        public void test3()
+        {
+            throw new NotImplementedException();
+        }
+
+
+
+
+
+
         #endregion
 
 
         /*----------------------------------------------------- 分割线  ----------------------------------------------------------------*/
         #region 聊天室的回调函数实现
-       
-    #endregion
 
+        #endregion
 
-
-
-}
+        
+    }
 }

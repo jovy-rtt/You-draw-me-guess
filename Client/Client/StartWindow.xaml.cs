@@ -22,6 +22,7 @@ namespace Client
         public StartWindow()
         {
             InitializeComponent();
+            CC.StartWindow = this;
         }
         private void btn1_Click(object sender, RoutedEventArgs e)
         {
@@ -31,7 +32,7 @@ namespace Client
 
         private void StartNewWindow(int left, int top)
         {
-            Login w = new Login();
+            LoginWindow w = new LoginWindow();
             w.Left = left;
             w.Top = top;
             w.Owner = this;
@@ -41,7 +42,7 @@ namespace Client
 
         private void btn2_Click(object sender, RoutedEventArgs e)
         {
-            Login w = new Login();
+            LoginWindow w = new LoginWindow();
             w.Owner = this;
             w.Closed += (sendObj, args) => this.Activate();
             w.Show();
