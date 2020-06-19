@@ -10,8 +10,8 @@
             <Setter Property="Background" >
                 <Setter.Value>
                     <RadialGradientBrush>
-                        <GradientStop Color="#FFEFDFB3" Offset="0.978"/>
-                        <GradientStop Color="#FFF1EB89" Offset="0.341"/>
+                        <GradientStop Color="#FFFDFCE7" Offset="0.978"/>
+                        <GradientStop Color="#FFF2D738" Offset="0.341"/>
                     </RadialGradientBrush>
                 </Setter.Value>
             </Setter>

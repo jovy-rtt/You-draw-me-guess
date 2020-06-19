@@ -168,8 +168,5 @@
     <Resource Include="image\boy.png" />
     <Resource Include="image\game.png" />
   </ItemGroup>
-  <ItemGroup>
-    <SplashScreen Include="image\screen.jpg" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

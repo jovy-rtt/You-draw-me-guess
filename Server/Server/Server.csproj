@@ -163,6 +163,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="image\樱桃小丸子2.jpg" />
     <Content Include="MyDb.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>MyDb.edmx</DependentUpon>

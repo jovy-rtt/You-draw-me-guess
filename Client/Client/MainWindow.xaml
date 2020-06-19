@@ -6,33 +6,53 @@
         xmlns:local="clr-namespace:Client"
         mc:Ignorable="d"
         Title="你画我猜" Height="449" Width="804" Loaded="Window_Loaded" Style="{StaticResource StyleAll}">
-
     <Grid>
+        <Frame x:Name="frame1" Margin="0,3,0.333,-2" BorderThickness="2" BorderBrush="#FFA6C9FD" NavigationUIVisibility="Hidden" >
+            <Frame.Background>
+                <ImageBrush AlignmentX="Right" ImageSource="image\樱桃小丸子.jpg" Opacity="0.7" AlignmentY="Bottom"/>
+            </Frame.Background>
+        </Frame>
         <DockPanel HorizontalAlignment="Left" Height="422" LastChildFill="False" VerticalAlignment="Top" Width="795">
             <Grid Height="422" VerticalAlignment="Top" Width="162">
-                <ListBox HorizontalAlignment="Left" Height="309" Margin="0,85,0,0" VerticalAlignment="Top" Width="162" Background="#FFF1EAD3"/>
-                <Label Content="用户名单" HorizontalAlignment="Center" Margin="0,52,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.164,0.447" Height="33" Width="162" FontSize="15" HorizontalContentAlignment="Center" Background="#FFEDC573"/>
-                <Label Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,-635,0" Width="797" Height="52" Foreground="#FF584318">
+                <ListBox HorizontalAlignment="Left" Height="309" Margin="0,85,0,0" VerticalAlignment="Top" Width="162">
+                    <ListBox.Background>
+                        <SolidColorBrush Color="#FFF5F5E9" Opacity="0.7"/>
+                    </ListBox.Background>
+                </ListBox>
+                <Label Content="用户名单"  Margin="0,52,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.164,0.447" Height="33" Width="162" FontSize="15" HorizontalContentAlignment="Center">
                     <Label.Background>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="#FF7C3607" Offset="0"/>
-                            <GradientStop Color="#FFC77E0B" Offset="1"/>
-                        </LinearGradientBrush>
+                        <SolidColorBrush Color="#FFF5EC87" Opacity="0.7"/>
+                    </Label.Background>
+                </Label>
+                <Label Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,-635,0" Width="797" Height="52">
+                    <Label.Background>
+                        <SolidColorBrush Color="#FFF2D738" Opacity="0.6"/>
                     </Label.Background>
                 </Label>
             </Grid>
-            <InkCanvas x:Name="inkcanvas" Width="436" VerticalAlignment="Center" Height="308" Margin="0,85,0,29" ></InkCanvas>
-            <Grid Height="339" VerticalAlignment="Top" Width="196" DockPanel.Dock="Right" Margin="0,54,0,0" Background="#FFF1EAD3">
-                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="310" Width="194"/>
+            <InkCanvas x:Name="inkcanvas" Width="436" VerticalAlignment="Center" Height="308" Margin="0,85,0,29" >
+                <InkCanvas.Background>
+                    <SolidColorBrush Color="White" Opacity="0.95"/>
+                </InkCanvas.Background>
+            </InkCanvas>
+            <Grid Height="339" VerticalAlignment="Top" Width="196" DockPanel.Dock="Right" Margin="0,54,0,0">
+                <Grid.Background>
+                    <SolidColorBrush Color="#FFF3F5E9" Opacity="0.7"/>
+                </Grid.Background>
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="310" Width="194" Focusable="True"/>
                 <Border BorderBrush="Brown" BorderThickness ="1" CornerRadius="10" Margin="0,310,2,0" >
                     <Grid>
-                        <TextBox Background="#FFF1EAD3" BorderThickness="0,0,1,0" Text="" VerticalAlignment="Center" Height="26" Margin="9,0,53.333,0" />
-                        <Button FontSize="13" Background="#FFF1EAD3" BorderThickness="0,0,0,0" Content="send" HorizontalAlignment="Right" Margin="0,3,5.333,0" VerticalAlignment="Top" Width="43" Height="23" RenderTransformOrigin="-0.014,0.321" Foreground="#FF4E280F"/>
+                        <TextBox Background="#FFF5F4E9" BorderThickness="0,0,1,0" Text="" VerticalAlignment="Center" Height="26" Margin="9,0,53.333,0" />
+                        <Button FontSize="13" BorderThickness="0,0,0,0" Content="send" HorizontalAlignment="Right" Margin="0,3,5.333,0" VerticalAlignment="Top" Width="43" Height="23" RenderTransformOrigin="-0.014,0.321" Foreground="#FF4E280F">
+                            <Button.Background>
+                                <SolidColorBrush Color="#FFF4F5E9" Opacity="0.2"/>
+                            </Button.Background>
+                        </Button>
 
                     </Grid>
                 </Border>
             </Grid>
-            <Grid Height="85" VerticalAlignment="Top" DockPanel.Dock="Top" Margin="-436,0,-0.333,0" >
+            <Grid  Height="85" VerticalAlignment="Top" DockPanel.Dock="Top" Margin="-436,0,-0.333,0" >
                 <Button x:Name="red" HorizontalAlignment="Left" Margin="0,51,0,0" VerticalAlignment="Top" Width="36" Height="36" Background="White" BorderBrush="White" Foreground="White">
                     <Image Height="36" Width="36" Source="image/red.png"/>
                 </Button>

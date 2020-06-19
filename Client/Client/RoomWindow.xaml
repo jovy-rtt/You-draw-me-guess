@@ -7,12 +7,17 @@
         mc:Ignorable="d"
         Title="RoomWindow" Height="450" Width="800">
     <Grid Background="#FFFDFCE7">
+        <Frame x:Name="frame1" Margin="0,71,0.333,-1.333" BorderThickness="2" BorderBrush="#FFA6C9FD" NavigationUIVisibility="Hidden" >
+            <Frame.Background>
+                <ImageBrush AlignmentX="Right" ImageSource="image\timg.jpg" Opacity="0.7" AlignmentY="Bottom"/>
+            </Frame.Background>
+        </Frame>
         <DockPanel HorizontalAlignment="Left" Height="422" LastChildFill="False" VerticalAlignment="Top" Width="795">
             <Grid Height="64" VerticalAlignment="Top" DockPanel.Dock="Top">
                 <Image x:Name="photo" HorizontalAlignment="Left" Height="64" VerticalAlignment="Top" Width="64" Source="image/girl.png"/>
                 <Label x:Name="username" Content="" HorizontalAlignment="Left" Margin="64,0,0,0" VerticalAlignment="Top" Width="90" Height="32" FontSize="18" VerticalContentAlignment="Center"/>
             </Grid>
-            <Grid Height="358" VerticalAlignment="Top" DockPanel.Dock="Bottom" Margin="0,0,1,0">
+            <Grid Height="344" VerticalAlignment="Top" DockPanel.Dock="Bottom" Margin="0,0,0.667,0">
                 <Grid HorizontalAlignment="Left" Height="128" VerticalAlignment="Bottom" Width="128" Margin="2,0,0,202">
                     <Image HorizontalAlignment="Left" Height="64" Margin="34,31,0,0" VerticalAlignment="Top" Width="64" Source="image/table.png"/>
                     <Button x:Name="room1user1Btn" HorizontalAlignment="Center" Margin="48,0" VerticalAlignment="Top" Width="32" Height="32" Background="#FFF9F7A6" BorderBrush="White" Foreground="White">

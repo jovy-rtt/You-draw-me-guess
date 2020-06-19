@@ -9,11 +9,13 @@
             <Setter Property="Height" Value="35"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="Background" Value="AliceBlue"/>
+            <Setter Property="Opacity" Value="20"/>
         </Style>
         <Style x:Key="TitleStyle" TargetType="TextBlock">
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="TextAlignment" Value="Center"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Opacity" Value="20"/>
         </Style>
     </Application.Resources>
 </Application>
