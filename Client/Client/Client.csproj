@@ -61,11 +61,11 @@
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PlayerInfo.xaml.cs">
+      <DependentUpon>PlayerInfo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RoomWindow.xaml.cs">
       <DependentUpon>RoomWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="StartWindow.xaml.cs">
-      <DependentUpon>StartWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="Login.xaml">
       <SubType>Designer</SubType>
@@ -88,13 +88,13 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="RoomWindow.xaml">
+    <Page Include="PlayerInfo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="StartWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="RoomWindow.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -167,6 +167,18 @@
     <Resource Include="image\girl.png" />
     <Resource Include="image\boy.png" />
     <Resource Include="image\game.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\小丸.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\1.png" />
+    <Resource Include="image\2.PNG" />
+    <Resource Include="image\3.PNG" />
+    <Resource Include="image\4.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\你画我猜.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

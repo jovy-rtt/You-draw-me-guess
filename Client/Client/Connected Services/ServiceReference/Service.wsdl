@@ -34,15 +34,6 @@
   <wsdl:binding name="NetTcpBinding_IService" type="i0:IService">
     <wsp:PolicyReference URI="#NetTcpBinding_IService_policy" />
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
-    <wsdl:operation name="test">
-      <soap12:operation soapAction="MyService/IService/test" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="Login">
       <soap12:operation soapAction="MyService/IService/Login" style="document" />
       <wsdl:input>
@@ -76,14 +67,17 @@
         <soap12:body use="literal" />
       </wsdl:input>
     </wsdl:operation>
-    <wsdl:operation name="test1">
-      <soap12:operation soapAction="MyService/IService/test1" style="document" />
+    <wsdl:operation name="Logout">
+      <soap12:operation soapAction="MyService/IService/Logout" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
-      <wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Talk">
+      <soap12:operation soapAction="MyService/IService/Talk" style="document" />
+      <wsdl:input>
         <soap12:body use="literal" />
-      </wsdl:output>
+      </wsdl:input>
     </wsdl:operation>
     <wsdl:operation name="ShowInk">
       <soap12:operation soapAction="MyService/IService/ShowInk" style="document" />
@@ -91,11 +85,20 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="test3">
-      <soap12:operation soapAction="MyService/IService/test3" style="document" />
-      <wsdl:input>
+    <wsdl:operation name="ShowLogin">
+      <soap12:operation soapAction="MyService/IService/ShowLogin" style="document" />
+      <wsdl:output>
         <soap12:body use="literal" />
-      </wsdl:input>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowLogout">
+      <soap12:operation soapAction="MyService/IService/ShowLogout" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowTalk">
+      <soap12:operation soapAction="MyService/IService/ShowTalk" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>

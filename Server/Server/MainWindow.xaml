@@ -19,7 +19,7 @@
             <Border DockPanel.Dock="Top" Style="{StaticResource BorderStyle}">
                 <TextBlock Text="你画我猜服务端" Style="{StaticResource TitleStyle}"/>
             </Border>
-            <StackPanel DockPanel.Dock="Top" Background="White">
+            <StackPanel DockPanel.Dock="Top" Background="White" >
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Height="30">
                     <Button Name="btnStart" Width="70" Content="启动" Click="btnStart_Click"/>
                     <Button Name="btnStop" Margin="20 0 0 0" Width="70" Content="停止" Click="btnStop_Click"/>

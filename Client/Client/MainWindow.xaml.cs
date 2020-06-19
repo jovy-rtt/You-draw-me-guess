@@ -28,10 +28,23 @@ namespace Client
     {
         ServiceClient client;
         int room;//暂用
+
         public MainWindow()
         { 
             InitializeComponent();
             client = new ServiceClient(new InstanceContext(this));
+        }
+
+        //用户信息显示
+        private void user1Btn1_Click(object sender, RoutedEventArgs e)
+        {
+            Button item = e.Source as Button;
+            if (item != null)
+            {
+                //this.U1.Source = new Uri(item.Tag.ToString(), UriKind.Relative);
+                PlayerInfo pi = new PlayerInfo();
+                pi.ShowDialog();
+            }
         }
 
         //画板相关
@@ -138,16 +151,68 @@ namespace Client
                     break;
             }
         }
+
+        public void test3()
+        {
+            throw new NotImplementedException();
+        }
+
+
+
         #endregion
 
 
         /*----------------------------------------------------- 分割线  ----------------------------------------------------------------*/
         #region 聊天室的回调函数实现
+       // private ServiceClient client;
+
+        public string UserName
+        {
+            get { return textBoxUserName.Text; }
+            set { textBoxUserName.Text = value; }
+        }
+
+
+        private void send_Click(object sender, RoutedEventArgs e)
+        {
+            client.Talk(UserName, this.SendBox.Text);
+        }
+
+
+        public void ShowLogin(string loginUserName)
+        {
+            this.ConversationBox.Text += "[" + loginUserName + "]" + "进入房间" + '\n';
+        }
+
+        /// <summary>其他用户退出</summary>
+        public void ShowLogout(string userName)
+        {
+            this.ConversationBox.Text += "[" + userName + "]" + "退出房间" + '\n';
+        }
+
+
+        public void ShowTalk(string userName, string message)
+        {
+            AddColorMessage(userName, message);
+        }
+        private void AddColorMessage(string userName, string str)
+        {
+            this.ConversationBox.Text += "[" + userName + "]说：" + str + '\n';
+        }
+
        
+
+        private void exitBnt_Click(object sender, RoutedEventArgs e)
+        {
+            client.Logout(textBoxUserName.Text);
+            this.Close();
+        }
+    }
+
+
+
     #endregion
 
 
-
-
 }
-}
+

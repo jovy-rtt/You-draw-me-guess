@@ -15,12 +15,6 @@ namespace Client.ServiceReference {
     [System.ServiceModel.ServiceContractAttribute(Namespace="MyService", ConfigurationName="ServiceReference.IService", CallbackContract=typeof(Client.ServiceReference.IServiceCallback))]
     public interface IService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="MyService/IService/test", ReplyAction="MyService/IService/testResponse")]
-        void test();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="MyService/IService/test", ReplyAction="MyService/IService/testResponse")]
-        System.Threading.Tasks.Task testAsync();
-        
         [System.ServiceModel.OperationContractAttribute(Action="MyService/IService/Login", ReplyAction="MyService/IService/LoginResponse")]
         bool Login(string id, string pw);
         
@@ -45,11 +39,17 @@ namespace Client.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/SendInk")]
         System.Threading.Tasks.Task SendInkAsync(int room, string ink);
         
-        [System.ServiceModel.OperationContractAttribute(Action="MyService/IService/test1", ReplyAction="MyService/IService/test1Response")]
-        void test1();
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/Logout")]
+        void Logout(string userName);
         
-        [System.ServiceModel.OperationContractAttribute(Action="MyService/IService/test1", ReplyAction="MyService/IService/test1Response")]
-        System.Threading.Tasks.Task test1Async();
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/Logout")]
+        System.Threading.Tasks.Task LogoutAsync(string userName);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/Talk")]
+        void Talk(string userName, string message);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/Talk")]
+        System.Threading.Tasks.Task TalkAsync(string userName, string message);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -58,8 +58,14 @@ namespace Client.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/ShowInk")]
         void ShowInk(string ink);
         
-        [System.ServiceModel.OperationContractAttribute(Action="MyService/IService/test3", ReplyAction="MyService/IService/test3Response")]
-        void test3();
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/ShowLogin")]
+        void ShowLogin(string loginUserName);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/ShowLogout")]
+        void ShowLogout(string userName);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/ShowTalk")]
+        void ShowTalk(string userName, string message);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -88,14 +94,6 @@ namespace Client.ServiceReference {
         
         public ServiceClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(callbackInstance, binding, remoteAddress) {
-        }
-        
-        public void test() {
-            base.Channel.test();
-        }
-        
-        public System.Threading.Tasks.Task testAsync() {
-            return base.Channel.testAsync();
         }
         
         public bool Login(string id, string pw) {
@@ -130,12 +128,20 @@ namespace Client.ServiceReference {
             return base.Channel.SendInkAsync(room, ink);
         }
         
-        public void test1() {
-            base.Channel.test1();
+        public void Logout(string userName) {
+            base.Channel.Logout(userName);
         }
         
-        public System.Threading.Tasks.Task test1Async() {
-            return base.Channel.test1Async();
+        public System.Threading.Tasks.Task LogoutAsync(string userName) {
+            return base.Channel.LogoutAsync(userName);
+        }
+        
+        public void Talk(string userName, string message) {
+            base.Channel.Talk(userName, message);
+        }
+        
+        public System.Threading.Tasks.Task TalkAsync(string userName, string message) {
+            return base.Channel.TalkAsync(userName, message);
         }
     }
 }

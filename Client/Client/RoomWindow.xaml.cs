@@ -23,5 +23,11 @@ namespace Client
         {
             InitializeComponent();
         }
+
+        public string UserName
+        {
+            get { return username.Text; }
+            set { username.Text = value +"快选择一个房间开始游戏吧！"; }
+        }
     }
 }
