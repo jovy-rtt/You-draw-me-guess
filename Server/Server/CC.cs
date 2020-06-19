@@ -6,21 +6,17 @@ using System.Threading.Tasks;
 
 namespace Server
 {
-    class CC
+    public class CC
     {
-        public static List<User> Users { get; set; }
-        static CC()
+        public static List<MyUser> Users { get; set; }
+        public static MyUser GetUser(string username)
         {
-            Users = new List<User>();
-        }
-        public static User GetUser(string userName)
-        {
-            User user = null;
-            foreach (var v in Users)
+            MyUser user = null;
+            foreach (var item in Users)
             {
-                if (v.UserName == userName)
+                if (item.Name== username)
                 {
-                    user = v;
+                    user = item;
                     break;
                 }
             }

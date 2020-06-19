@@ -146,43 +146,10 @@
     <Resource Include="image\yellow.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="red.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="yellow.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="blue.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="green.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="pink.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="black.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="delete.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="clear.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="image\table.png" />
     <Resource Include="image\girl.png" />
     <Resource Include="image\boy.png" />
     <Resource Include="image\game.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="girl.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="table.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="game.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
