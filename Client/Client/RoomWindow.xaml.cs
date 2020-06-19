@@ -22,6 +22,7 @@ namespace Client
         public RoomWindow()
         {
             InitializeComponent();
+            CC.RoomWindow = this;
         }
 
         public string UserName
