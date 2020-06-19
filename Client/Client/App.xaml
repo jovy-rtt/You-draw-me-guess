@@ -4,6 +4,26 @@
              xmlns:local="clr-namespace:Client"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <!--style样式-->
+        <!--window-->
+        <Style x:Key="StyleAll" TargetType="Window">
+            <Setter Property="Background" >
+                <Setter.Value>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#FFEFDFB3" Offset="0.978"/>
+                        <GradientStop Color="#FFF1EB89" Offset="0.341"/>
+                    </RadialGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Foreground">
+                <Setter.Value>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF744523" Offset="0"/>
+                        <GradientStop Color="#FF0E0C0C" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="FontSize" Value="20"></Setter>
+        </Style>
     </Application.Resources>
 </Application>
