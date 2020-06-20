@@ -27,6 +27,12 @@ namespace Client.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/SendInk")]
         System.Threading.Tasks.Task SendInkAsync(int room, string ink);
         
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/Login")]
+        void Login(string userName);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/Login")]
+        System.Threading.Tasks.Task LoginAsync(string userName);
+        
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/Logout")]
         void Logout(string userName);
         
@@ -107,6 +113,14 @@ namespace Client.ServiceReference {
         
         public System.Threading.Tasks.Task SendInkAsync(int room, string ink) {
             return base.Channel.SendInkAsync(room, ink);
+        }
+        
+        public void Login(string userName) {
+            base.Channel.Login(userName);
+        }
+        
+        public System.Threading.Tasks.Task LoginAsync(string userName) {
+            return base.Channel.LoginAsync(userName);
         }
         
         public void Logout(string userName) {

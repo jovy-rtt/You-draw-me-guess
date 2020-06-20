@@ -49,6 +49,12 @@
         <soap12:body use="literal" />
       </wsdl:input>
     </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="MyService/IService/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
     <wsdl:operation name="Logout">
       <soap12:operation soapAction="MyService/IService/Logout" style="document" />
       <wsdl:input>

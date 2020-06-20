@@ -15,6 +15,9 @@
   <wsdl:message name="IService_SendInk_InputMessage">
     <wsdl:part name="parameters" element="tns:SendInk" />
   </wsdl:message>
+  <wsdl:message name="IService_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
   <wsdl:message name="IService_Logout_InputMessage">
     <wsdl:part name="parameters" element="tns:Logout" />
   </wsdl:message>
@@ -46,6 +49,9 @@
     </wsdl:operation>
     <wsdl:operation name="SendInk">
       <wsdl:input wsaw:Action="MyService/IService/SendInk" message="tns:IService_SendInk_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="MyService/IService/Login" message="tns:IService_Login_InputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Logout">
       <wsdl:input wsaw:Action="MyService/IService/Logout" message="tns:IService_Logout_InputMessage" />

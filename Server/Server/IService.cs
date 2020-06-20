@@ -9,15 +9,15 @@ namespace Server
 {
     // 服务端等整体框架已建好，服务接口和回调接口框架已建好，数据协定等用到时自建
     // 操作协定
-    [ServiceContract(Namespace ="MyService",CallbackContract =typeof(IServiceCallback))]
+    [ServiceContract(Namespace = "MyService", CallbackContract = typeof(IServiceCallback))]
 
-        //服务接口
-        public interface IService
+    //服务接口
+    public interface IService
     {
-        
+
         [OperationContract]
         bool test();
-        
+
 
         #region 画板的服务接口
         //发送数字墨迹
@@ -26,18 +26,14 @@ namespace Server
         #endregion
 
         #region 聊天室的服务接口
-            //[OperationContract(IsOneWay = true)]
-            //void Login(string userName);
+        [OperationContract(IsOneWay = true)]
+        void Login(string userName);
 
-            [OperationContract(IsOneWay = true)]
-            void Logout(string userName);
+        [OperationContract(IsOneWay = true)]
+        void Logout(string userName);
 
-            [OperationContract(IsOneWay = true)]
-            void Talk(string userName, string message);
-
-            [OperationContract(IsOneWay = true)]
-            void Checkin(string userName, int roomnum);
-
+        [OperationContract(IsOneWay = true)]
+        void Talk(string userName, string message);
 
         #endregion
     }
@@ -52,18 +48,14 @@ namespace Server
         #endregion
 
         #region 聊天室的回调接口
-                [OperationContract(IsOneWay = true)]
-                void ShowLogin(string loginUserName);
+        [OperationContract(IsOneWay = true)]
+        void ShowLogin(string loginUserName);
 
-                [OperationContract(IsOneWay = true)]
-                void ShowLogout(string userName);
+        [OperationContract(IsOneWay = true)]
+        void ShowLogout(string userName);
 
-                [OperationContract(IsOneWay = true)]
-                void ShowTalk(string userName, string message);
-
-                [OperationContract(IsOneWay = true)]
-                void ShowCheckin(string userName, int roomnum);
-
+        [OperationContract(IsOneWay = true)]
+        void ShowTalk(string userName, string message);
 
         #endregion
     }
