@@ -87,6 +87,8 @@ namespace Client
         {
 
         }
+
+
         private void send_Click(object sender, RoutedEventArgs e)
         {
             client.Talk(UserName, this.SendBox.Text);

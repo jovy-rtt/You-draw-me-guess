@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Client"
         mc:Ignorable="d"
-        Title="RoomWindow" Height="450" Width="800">
+        Title="RoomWindow" Height="450" Width="800" Closing="Window_Closing_1">
     <Grid Background="#FFFDFCE7">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="132*"/>
@@ -155,14 +155,12 @@
                     </Button>
                 </Grid>
                 <Grid HorizontalAlignment="Left" Height="344" Margin="581,0,0,0" VerticalAlignment="Top" Width="213">
-                    <TextBlock x:Name="PlayerInfo" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="334" Width="193">
+                    <TextBlock x:Name="PlayerInfo" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="344" Width="193">
                         <TextBlock.Background>
                             <SolidColorBrush Color="#FFF8F6E2" Opacity="0.8"/>
                         </TextBlock.Background>
                     </TextBlock>
                 </Grid>
-
-
             </Grid>
         </DockPanel>
 

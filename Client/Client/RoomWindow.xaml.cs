@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Client.ServiceReference;
 
 namespace Client
 {
@@ -31,11 +32,26 @@ namespace Client
             item = CC.GetUser(id);
         }
 
+        private ServiceClient client;
+
         public string UserName
         {
             get { return username.Text; }
             set { username.Text = value +"快选择一个房间开始游戏吧！"; }
         }
+
+        public void ShowLogin(string loginUserName)
+        {
+            this.PlayerInfo.Text += "[" + loginUserName + "]" + "进入游戏" + '\n';
+        }
+
+        /// <summary>其他用户退出</summary>
+        public void ShowLogout(string userName)
+        {
+            this.PlayerInfo.Text += "[" + userName + "]" + "退出游戏" + '\n';
+        }
+
+
         /// <summary>
         /// 进入房间的按钮事件
         /// </summary>
@@ -58,6 +74,11 @@ namespace Client
 
             ////回调进入房间
             //client.EnterRoom(user.name, idx);
+        }
+
+        private void Window_Closing_1(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            client.Logout(PlayerInfo.Text);
         }
         //public void ShowRoom(Room room)
         //{
