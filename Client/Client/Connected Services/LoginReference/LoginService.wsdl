@@ -33,6 +33,7 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/LoginServiceService/?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/LoginServiceService/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/LoginServiceService/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Server" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="ILoginService_Login_InputMessage">
@@ -53,6 +54,12 @@
   <wsdl:message name="ILoginService_ForgetPassword_OutputMessage">
     <wsdl:part name="parameters" element="tns:ForgetPasswordResponse" />
   </wsdl:message>
+  <wsdl:message name="ILoginService_Userinfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:Userinfo" />
+  </wsdl:message>
+  <wsdl:message name="ILoginService_Userinfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UserinfoResponse" />
+  </wsdl:message>
   <wsdl:portType name="ILoginService">
     <wsdl:operation name="Login">
       <wsdl:input wsaw:Action="http://tempuri.org/ILoginService/Login" message="tns:ILoginService_Login_InputMessage" />
@@ -65,6 +72,10 @@
     <wsdl:operation name="ForgetPassword">
       <wsdl:input wsaw:Action="http://tempuri.org/ILoginService/ForgetPassword" message="tns:ILoginService_ForgetPassword_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILoginService/ForgetPasswordResponse" message="tns:ILoginService_ForgetPassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Userinfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILoginService/Userinfo" message="tns:ILoginService_Userinfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILoginService/UserinfoResponse" message="tns:ILoginService_Userinfo_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_ILoginService" type="tns:ILoginService">
@@ -90,6 +101,15 @@
     </wsdl:operation>
     <wsdl:operation name="ForgetPassword">
       <soap12:operation soapAction="http://tempuri.org/ILoginService/ForgetPassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Userinfo">
+      <soap12:operation soapAction="http://tempuri.org/ILoginService/Userinfo" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
