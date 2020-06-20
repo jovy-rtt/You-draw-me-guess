@@ -29,6 +29,7 @@ namespace Client
         {
             InitializeComponent();
             item = CC.GetUser(id);
+
         }
 
         public string UserName
@@ -51,7 +52,8 @@ namespace Client
             MainWindow mw = new MainWindow();
             mw.room = idx;
             mw.id = id;
-            mw.Show();
+            item.MainWindow = mw;
+            item.MainWindow.Show();
 
             //更改本地user的房间号
             //this.user.inRoom = idx;
@@ -59,13 +61,6 @@ namespace Client
             ////回调进入房间
             //client.EnterRoom(user.name, idx);
         }
-        //public void ShowRoom(Room room)
-        //{
-        //    ////更新用户列表
 
-        //    ////显示积分
-
-        //    //只有游戏开始后、某一个玩家可以使用画板
-        //}
     }
 }
