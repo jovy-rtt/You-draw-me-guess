@@ -90,28 +90,28 @@
                 </Border>
             </Grid>
             <Grid  Height="85" VerticalAlignment="Top" DockPanel.Dock="Top" Margin="-436,0,-0.333,0" >
-                <Button x:Name="red" HorizontalAlignment="Left" Margin="0,51,0,0" VerticalAlignment="Top" Width="36" Height="36" Background="White" BorderBrush="White" Foreground="White">
+                <Button x:Name="red" HorizontalAlignment="Left" Margin="0,51,0,0" VerticalAlignment="Top" Width="36" Height="36" Background="White" BorderBrush="White" Foreground="White" Click="Button_Checked">
                     <Image Height="36" Width="36" Source="image/red.png"/>
                 </Button>
-                <Button x:Name="yellow" HorizontalAlignment="Left" Margin="36,51,0,0" VerticalAlignment="Top" Width="36" Height="36" Background="White" BorderBrush="White" Foreground="White">
+                <Button x:Name="yellow" HorizontalAlignment="Left" Margin="36,51,0,0" VerticalAlignment="Top" Width="36" Height="36" Background="White" BorderBrush="White" Foreground="White" Click="Button_Checked">
                     <Image Height="36" Width="36" Source="image/yellow.png"/>
                 </Button>
-                <Button x:Name="blue" HorizontalAlignment="Left" Margin="72,51,0,0" VerticalAlignment="Top" Width="36" Height="36" Background="White" BorderBrush="White" Foreground="White">
+                <Button x:Name="blue" HorizontalAlignment="Left" Margin="72,51,0,0" VerticalAlignment="Top" Width="36" Height="36" Background="White" BorderBrush="White" Foreground="White" Click="Button_Checked">
                     <Image Height="36" Width="36" Source="image/blue.png"/>
                 </Button>
-                <Button x:Name="green" HorizontalAlignment="Left" Margin="108,51,0,0" VerticalAlignment="Top" Width="36" Height="36" Background="White" BorderBrush="White" Foreground="White">
+                <Button x:Name="green" HorizontalAlignment="Left" Margin="108,51,0,0" VerticalAlignment="Top" Width="36" Height="36" Background="White" BorderBrush="White" Foreground="White" Click="Button_Checked">
                     <Image Height="36" Width="36" Source="image/green.png"/>
                 </Button>
-                <Button x:Name="pink" HorizontalAlignment="Left" Margin="144,51,0,0" VerticalAlignment="Top" Width="36" Height="36" Background="White" BorderBrush="White" Foreground="White">
+                <Button x:Name="pink" HorizontalAlignment="Left" Margin="144,51,0,0" VerticalAlignment="Top" Width="36" Height="36" Background="White" BorderBrush="White" Foreground="White" Click="Button_Checked">
                     <Image Height="36" Width="36" Source="image/pink.png"/>
                 </Button>
-                <Button x:Name="black" HorizontalAlignment="Left" Margin="180,51,0,0" VerticalAlignment="Top" Width="36" Height="36" Background="White" BorderBrush="White" Foreground="White">
+                <Button x:Name="black" HorizontalAlignment="Left" Margin="180,51,0,0" VerticalAlignment="Top" Width="36" Height="36" Background="White" BorderBrush="White" Foreground="White" Click="Button_Checked">
                     <Image Height="36" Width="36" Source="image/black.png"/>
                 </Button>
-                <Button x:Name="delete" HorizontalAlignment="Left" Margin="216,51,0,0" VerticalAlignment="Top" Width="36" Height="36" Background="White" BorderBrush="White" Foreground="White">
+                <Button x:Name="delete" HorizontalAlignment="Left" Margin="216,51,0,0" VerticalAlignment="Top" Width="36" Height="36" Background="White" BorderBrush="White" Foreground="White" Click="Button_Checked">
                     <Image Height="36" Width="36" Source="image/delete.png"/>
                 </Button>
-                <Button x:Name="clear" HorizontalAlignment="Left" Margin="252,51,0,0" VerticalAlignment="Top" Width="36" Height="36" Background="White" BorderBrush="White" Foreground="White">
+                <Button x:Name="clear" HorizontalAlignment="Left" Margin="252,51,0,0" VerticalAlignment="Top" Width="36" Height="36" Background="White" BorderBrush="White" Foreground="White" Click="Button_Checked">
                     <Image Height="36" Width="36" Source="image/clear.png"/>
                 </Button>
             </Grid>
