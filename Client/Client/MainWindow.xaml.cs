@@ -104,7 +104,7 @@ namespace Client
         /// <summary>
         /// 画板：将InkCanvas的墨迹转换为String
         /// </summary>
-        private void ink1_MouseUp(object sender, MouseButtonEventArgs e)
+        private void ink_MouseUp(object sender, MouseButtonEventArgs e)
         {
             StrokeCollection sc = inkcanvas.Strokes;
             string inkData = (new StrokeCollectionConverter()).ConvertToString(sc);
@@ -113,6 +113,7 @@ namespace Client
         }
         public void ShowInk(string inkData)
         {
+            MessageBox.Show("111");
             //删除原有的Strokes
             inkcanvas.Strokes.Clear();
 

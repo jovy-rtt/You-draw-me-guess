@@ -68,7 +68,7 @@
                     </Label.Background>
                 </Label>
             </Grid>
-            <InkCanvas x:Name="inkcanvas" Width="436" VerticalAlignment="Center" Height="308" Margin="0,85,0,29" >
+            <InkCanvas x:Name="inkcanvas" Width="436" VerticalAlignment="Center" Height="308" Margin="0,85,0,29" MouseUp="ink_MouseUp">
                 <InkCanvas.Background>
                     <SolidColorBrush Color="White" Opacity="0.95"/>
                 </InkCanvas.Background>
