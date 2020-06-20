@@ -81,7 +81,7 @@
                 <Border BorderBrush="Brown" BorderThickness ="1" CornerRadius="10" Margin="0,310,2,0" >
                     <Grid>
                         <TextBox Name="SendBox" Background="#FFF5F4E9" BorderThickness="0,0,1,0" Text="" VerticalAlignment="Center" Height="26" Margin="9,0,53.333,0" />
-                        <Button FontSize="13" BorderThickness="0,0,0,0" Content="SEND" HorizontalAlignment="Right" Margin="0,3,5.333,0" VerticalAlignment="Top" Width="43" Height="23" RenderTransformOrigin="-0.014,0.321" Foreground="#FF4E280F" Click="send_Click">
+                        <Button FontSize="13" BorderThickness="0,0,0,0" Content="SEND" HorizontalAlignment="Right" Margin="0,0,5.333,0" VerticalAlignment="Bottom" Width="43" Height="23" RenderTransformOrigin="-0.014,0.321" Foreground="#FF4E280F" Click="send_Click">
                             <Button.Background>
                                 <SolidColorBrush Color="#FFF4F5E9" Opacity="0.2"/>
                             </Button.Background>

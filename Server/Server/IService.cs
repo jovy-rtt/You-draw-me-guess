@@ -34,8 +34,10 @@ namespace Server
 
             [OperationContract(IsOneWay = true)]
             void Talk(string userName, string message);
+
             [OperationContract(IsOneWay = true)]
-             void Checkin(string userName);
+            void Checkin(string userName, int roomnum);
+
 
         #endregion
     }
@@ -58,8 +60,10 @@ namespace Server
 
                 [OperationContract(IsOneWay = true)]
                 void ShowTalk(string userName, string message);
+
                 [OperationContract(IsOneWay = true)]
-                void ShowCheckin(string userName);
+                void ShowCheckin(string userName, int roomnum);
+
 
         #endregion
     }

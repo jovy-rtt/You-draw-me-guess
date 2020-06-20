@@ -92,6 +92,7 @@ namespace Client
         private void send_Click(object sender, RoutedEventArgs e)
         {
             client.Talk(UserName, this.SendBox.Text);
+            this.SendBox.Clear();
         }
         private void exitBnt_Click(object sender, RoutedEventArgs e)
         {
@@ -210,6 +211,11 @@ namespace Client
         private void AddColorMessage(string userName, string str)
         {
             this.ConversationBox.Text += "[" + userName + "]说：" + str + '\n';
+        }
+
+        public void ShowCheckin(string userName, int roomnum)
+        {
+            this.ConversationBox.Text += "[" + userName + "]" + "进入房间" +roomnum+ '\n';
         }
 
 

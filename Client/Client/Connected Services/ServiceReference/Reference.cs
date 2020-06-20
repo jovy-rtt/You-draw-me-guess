@@ -38,6 +38,12 @@ namespace Client.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/Talk")]
         System.Threading.Tasks.Task TalkAsync(string userName, string message);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/Checkin")]
+        void Checkin(string userName, int roomnum);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/Checkin")]
+        System.Threading.Tasks.Task CheckinAsync(string userName, int roomnum);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -54,6 +60,9 @@ namespace Client.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/ShowTalk")]
         void ShowTalk(string userName, string message);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/ShowCheckin")]
+        void ShowCheckin(string userName, int roomnum);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -114,6 +123,14 @@ namespace Client.ServiceReference {
         
         public System.Threading.Tasks.Task TalkAsync(string userName, string message) {
             return base.Channel.TalkAsync(userName, message);
+        }
+        
+        public void Checkin(string userName, int roomnum) {
+            base.Channel.Checkin(userName, roomnum);
+        }
+        
+        public System.Threading.Tasks.Task CheckinAsync(string userName, int roomnum) {
+            return base.Channel.CheckinAsync(userName, roomnum);
         }
     }
 }

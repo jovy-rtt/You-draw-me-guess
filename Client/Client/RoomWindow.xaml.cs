@@ -18,8 +18,9 @@ namespace Client
     /// <summary>
     /// RoomWindow.xaml 的交互逻辑
     /// </summary>
-    public partial class RoomWindow : Window
+    public partial class RoomWindow : Window, IServiceCallback
     {
+        private ServiceClient client;
         //id所属
         public string id { get; set; }
         //对象
@@ -32,7 +33,6 @@ namespace Client
             item = CC.GetUser(id);
         }
 
-        private ServiceClient client;
 
         public string UserName
         {
@@ -50,7 +50,25 @@ namespace Client
         {
             this.PlayerInfo.Text += "[" + userName + "]" + "退出游戏" + '\n';
         }
+        public void ShowTalk(string userName, string message)
+        {
+            AddColorMessage(userName, message);
+        }
+        private void AddColorMessage(string userName, string str)
+        {
+            this.PlayerInfo.Text += "[" + userName + "]说：" + str + '\n';
+        }
 
+        public void ShowCheckin(string userName, int roomnum)
+        {
+            this.PlayerInfo.Text += "[" + userName + "]" + "进入房间" + roomnum + '\n';
+        }
+
+        private void send_Click(object sender, RoutedEventArgs e)
+        {
+            client.Talk(UserName, this.SendBox.Text);
+            this.SendBox.Clear();
+        }
 
         /// <summary>
         /// 进入房间的按钮事件
@@ -60,8 +78,8 @@ namespace Client
             //确定点击了几号房间
             Button bt = e.Source as Button;
             int idx = (int)((bt.Name)[4]) - 48;
-            MessageBox.Show("进入" + idx + "号房间");
-
+            //MessageBox.Show("进入" + idx + "号房间");
+           // client.Checkin(PlayerInfo.Text,idx);
             //设置大厅关闭，打开游戏
             this.Close();
             MainWindow mw = new MainWindow();
@@ -78,7 +96,12 @@ namespace Client
 
         private void Window_Closing_1(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            client.Logout(PlayerInfo.Text);
+            //client.Logout(PlayerInfo.Text);
+        }
+
+        public void ShowInk(string ink)
+        {
+            throw new NotImplementedException();
         }
         //public void ShowRoom(Room room)
         //{
@@ -88,5 +111,10 @@ namespace Client
 
         //    //只有游戏开始后、某一个玩家可以使用画板
         //}
+
+
+
+
+
     }
 }

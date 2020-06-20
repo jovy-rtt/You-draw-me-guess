@@ -61,6 +61,12 @@
         <soap12:body use="literal" />
       </wsdl:input>
     </wsdl:operation>
+    <wsdl:operation name="Checkin">
+      <soap12:operation soapAction="MyService/IService/Checkin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
     <wsdl:operation name="ShowInk">
       <soap12:operation soapAction="MyService/IService/ShowInk" style="document" />
       <wsdl:output>
@@ -81,6 +87,12 @@
     </wsdl:operation>
     <wsdl:operation name="ShowTalk">
       <soap12:operation soapAction="MyService/IService/ShowTalk" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowCheckin">
+      <soap12:operation soapAction="MyService/IService/ShowCheckin" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>
