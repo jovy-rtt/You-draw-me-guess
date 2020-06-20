@@ -27,7 +27,7 @@ namespace Client
     public partial class MainWindow : Window,IServiceCallback
     {
         private ServiceClient client;
-        int room;//暂用
+        public int room;//暂用
         public string id { get; set; }//id所属
 
         private User item;//对象
@@ -48,6 +48,7 @@ namespace Client
 
         /*----------------------------------------------------- 分割线  ----------------------------------------------------------------*/
         #region 客户端内的方法
+        //画板相关
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             //创建客户端代理类
@@ -88,11 +89,12 @@ namespace Client
         }
         private void send_Click(object sender, RoutedEventArgs e)
         {
-
+            client.Talk(UserName, this.SendBox.Text);
         }
         private void exitBnt_Click(object sender, RoutedEventArgs e)
         {
-
+            client.Logout(textBoxUserName.Text);
+            this.Close();
         }
         #endregion
 
@@ -101,11 +103,10 @@ namespace Client
         /*----------------------------------------------------- 分割线  ----------------------------------------------------------------*/
         #region 画板的回调函数实现
         /// <summary>
-        /// 画板
+        /// 画板：将InkCanvas的墨迹转换为String
         /// </summary>
         private void ink1_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            //将InkCanvas的墨迹转换为String
             StrokeCollection sc = inkcanvas.Strokes;
             string inkData = (new StrokeCollectionConverter()).ConvertToString(sc);
 
@@ -124,12 +125,17 @@ namespace Client
             //新Strokes添加到InkCanvas中
             inkcanvas.Strokes = sc;
         }
+        /// <summary>
+        /// 画板：初始化画笔和画板
+        /// </summary>
         private void InitColor()
-        {//初始化画笔和画板
+        {
             inkDA.Color = currentColor;
-            //rrbPen.IsChecked = true;
             inkcanvas.DefaultDrawingAttributes = inkDA;
         }
+        /// <summary>
+        /// 画板：画板界面按钮
+        /// </summary>
         private void Button_Checked(object sender, RoutedEventArgs e)
         {
             string name = (e.Source as Button).Name;
@@ -178,26 +184,36 @@ namespace Client
 
         /*----------------------------------------------------- 分割线  ----------------------------------------------------------------*/
         #region 聊天室的回调函数实现
-        public void ShowLogin(string loginUserName)
+        public string UserName
         {
-            throw new NotImplementedException();
+            get { return textBoxUserName.Text; }
+            set { textBoxUserName.Text = value; }
         }
 
+        public void ShowLogin(string loginUserName)
+        {
+            this.ConversationBox.Text += "[" + loginUserName + "]" + "进入房间" + '\n';
+        }
+
+        /// <summary>其他用户退出</summary>
         public void ShowLogout(string userName)
         {
-            throw new NotImplementedException();
+            this.ConversationBox.Text += "[" + userName + "]" + "退出房间" + '\n';
         }
+
 
         public void ShowTalk(string userName, string message)
         {
-            throw new NotImplementedException();
+            AddColorMessage(userName, message);
         }
-
-
+        private void AddColorMessage(string userName, string str)
+        {
+            this.ConversationBox.Text += "[" + userName + "]说：" + str + '\n';
+        }
 
 
         #endregion
 
-        
+
     }
 }
