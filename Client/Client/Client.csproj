@@ -37,6 +37,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows.Controls.Ribbon" />
@@ -61,6 +62,7 @@
     <Compile Include="ForgetPwWindow.xaml.cs">
       <DependentUpon>ForgetPwWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ImageFormatConvertHelper.cs" />
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
@@ -78,6 +80,7 @@
       <DependentUpon>StartWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
+    <Compile Include="VerifyCodeHelper.cs" />
     <Page Include="ForgetPwWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -193,7 +196,7 @@
     <Resource Include="image\game.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="image\screen.jpg" />
+    <SplashScreen Include="image\screen.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="image\timg.jpg" />
@@ -209,6 +212,30 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="image\樱桃小丸子2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\你画我猜.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\小丸.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\2.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\3.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\4.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\错.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\对.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -16,6 +16,9 @@ namespace Client
         public  RegisteredWindow RegisteredWindow { get; set; }
         public  RoomWindow RoomWindow { get; set; }
 
-        //public User(string id,LoginWindow login,ForgetPwWindow forget,)
+        public User(string id)
+        {
+            this.id = id;
+        }
     }
 }

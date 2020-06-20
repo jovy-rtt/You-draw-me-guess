@@ -26,27 +26,19 @@ namespace Client
     /// </summary>
     public partial class MainWindow : Window,IServiceCallback
     {
-        ServiceClient client;
+        private ServiceClient client;
         int room;//暂用
+        public string id { get; set; }//id所属
+
+        private User item;//对象
 
         public MainWindow()
         { 
             InitializeComponent();
             client = new ServiceClient(new InstanceContext(this));
-            CC.MainWindow = this;
         }
 
-        //用户信息显示
-        private void user1Btn1_Click(object sender, RoutedEventArgs e)
-        {
-            Button item = e.Source as Button;
-            if (item != null)
-            {
-                //this.U1.Source = new Uri(item.Tag.ToString(), UriKind.Relative);
-                PlayerInfo pi = new PlayerInfo();
-                pi.ShowDialog();
-            }
-        }
+        
 
         //画板相关
         private DrawingAttributes inkDA;
@@ -72,9 +64,17 @@ namespace Client
             inkcanvas.DefaultDrawingAttributes = inkDA;
             inkcanvas.EditingMode = InkCanvasEditingMode.Ink;
         }
+
+        //用户信息显示
         private void user1Btn1_Click(object sender, RoutedEventArgs e)
         {
-
+            Button item = e.Source as Button;
+            if (item != null)
+            {
+                //this.U1.Source = new Uri(item.Tag.ToString(), UriKind.Relative);
+                PlayerInfo pi = new PlayerInfo();
+                pi.ShowDialog();
+            }
         }
         private void user1Btn2_Click(object sender, RoutedEventArgs e)
         {
@@ -85,6 +85,10 @@ namespace Client
 
         }
         private void send_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void exitBnt_Click(object sender, RoutedEventArgs e)
         {
 
         }
@@ -172,11 +176,25 @@ namespace Client
 
         /*----------------------------------------------------- 分割线  ----------------------------------------------------------------*/
         #region 聊天室的回调函数实现
-       
-    #endregion
+        public void ShowLogin(string loginUserName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ShowLogout(string userName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ShowTalk(string userName, string message)
+        {
+            throw new NotImplementedException();
+        }
 
 
 
+        #endregion
 
-}
+        
+    }
 }

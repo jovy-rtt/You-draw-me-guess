@@ -20,13 +20,35 @@ namespace Client
     /// </summary>
     public partial class LoginWindow : Window
     {
+        //全局变量
+        private string id = "";
+        private User item;
         private ServiceClient client;
         public LoginWindow()
         {
             InitializeComponent();
-            CC.LoginWindow = this;
+            if (CC.Users == null)
+            {
+                CC.Users = new List<User>();
+            }
+            init();
         }
 
+        //初始化
+        private void init()
+        {
+            Random rm = new Random();
+            for (int i = 0; i < 20; i++)
+            {
+                id+=rm.Next(0,10).ToString();
+            }
+            User newuser = new User(id);
+            CC.Users.Add(newuser);
+            item = CC.GetUser(id);
+            item.LoginWindow = this;
+        }
+
+        //所有button事件
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if (e.Source == sign_in)//登录事件
@@ -38,9 +60,12 @@ namespace Client
                     bool flag = true;
                     if (flag)
                     {
-                        CC.LoginWindow.Close();
+                        item.LoginWindow.Close();
                         //再显示登录后的界面，room
-                        StartNewWindow();
+                        RoomWindow RW = new RoomWindow();
+                        RW.id = id;
+                        item.RoomWindow = RW;
+                        item.RoomWindow.Show();
                     }
                     else
                     {
@@ -55,28 +80,20 @@ namespace Client
             }
             else if (e.Source == forgetPw)//忘记密码事件
             {
-                //this.Hide();
-                LoginWindow a = this;
-                a.Hide();
+                item.LoginWindow.Hide();
                 ForgetPwWindow FP = new ForgetPwWindow();
-
-                //暂放
+                item.ForgetPwWindow = FP;
+                item.ForgetPwWindow.id = id;
+                item.ForgetPwWindow.Show();
             }
             else if (e.Source == sign_for)//注册事件
             {
-                //暂放
+                item.LoginWindow.Hide();
+                RegisteredWindow RW = new RegisteredWindow();
+                item.RegisteredWindow = RW;
+                item.RegisteredWindow.id = id;
+                item.RegisteredWindow.Show();
             }
-        }
-
-        private void StartNewWindow()
-        {   
-            RoomWindow w = new RoomWindow();
-            //w.Left = left;
-            //w.Top = top;
-            w.Owner = this;
-            w.Closed += (sender, e) => this.Activate();
-            this.Hide();
-            w.Show();
         }
     }
 }

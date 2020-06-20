@@ -22,10 +22,10 @@ namespace Client.ServiceReference {
         System.Threading.Tasks.Task<bool> LoginAsync(string id, string pw);
         
         [System.ServiceModel.OperationContractAttribute(Action="MyService/IService/Registered", ReplyAction="MyService/IService/RegisteredResponse")]
-        bool Registered(string id, string pw, byte[] phote, string sn, string name);
+        bool Registered(string id, string pw, string sn, string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="MyService/IService/Registered", ReplyAction="MyService/IService/RegisteredResponse")]
-        System.Threading.Tasks.Task<bool> RegisteredAsync(string id, string pw, byte[] phote, string sn, string name);
+        System.Threading.Tasks.Task<bool> RegisteredAsync(string id, string pw, string sn, string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="MyService/IService/ForgetPassword", ReplyAction="MyService/IService/ForgetPasswordResponse")]
         bool ForgetPassword(string id, string ps);
@@ -104,12 +104,12 @@ namespace Client.ServiceReference {
             return base.Channel.LoginAsync(id, pw);
         }
         
-        public bool Registered(string id, string pw, byte[] phote, string sn, string name) {
-            return base.Channel.Registered(id, pw, phote, sn, name);
+        public bool Registered(string id, string pw, string sn, string name) {
+            return base.Channel.Registered(id, pw, sn, name);
         }
         
-        public System.Threading.Tasks.Task<bool> RegisteredAsync(string id, string pw, byte[] phote, string sn, string name) {
-            return base.Channel.RegisteredAsync(id, pw, phote, sn, name);
+        public System.Threading.Tasks.Task<bool> RegisteredAsync(string id, string pw, string sn, string name) {
+            return base.Channel.RegisteredAsync(id, pw, sn, name);
         }
         
         public bool ForgetPassword(string id, string ps) {

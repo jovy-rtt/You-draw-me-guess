@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Client"
         mc:Ignorable="d"
-        Title="客户端示例" Height="200" Width="300" WindowStartupLocation="CenterScreen">
+        Title="客户端示例" Height="200" Width="300" WindowStartupLocation="CenterScreen" Closing="Window_Closing">
     <StackPanel VerticalAlignment="Center">
-        <Button Name="btn1" Margin="10" Height="30" Width="170" Content="同时启动2个客户端（测试用）"  Click="btn1_Click"/>
+        <Button Name="btn1" Margin="10" Height="30" Width="170" Content="同时启动4个客户端（测试用）"  Click="btn1_Click"/>
         <Button Name="btn2" Margin="10" Height="30" Width="170" Content="只启动1个客户端（实际情况）" Click="btn2_Click"/>
     </StackPanel>
 </Window>

@@ -26,7 +26,7 @@ namespace Server
 
         //注册
         [OperationContract]
-        bool Registered(string id, string pw, byte[] phote, string sn, string name);
+        bool Registered(string id, string pw, string sn, string name);
 
         //修改密码
         [OperationContract]

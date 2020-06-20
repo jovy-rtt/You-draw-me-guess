@@ -24,10 +24,13 @@ namespace Client
             InitializeComponent();
             CC.StartWindow = this;
         }
+        //启动四个客户端
         private void btn1_Click(object sender, RoutedEventArgs e)
         {
-            StartNewWindow(580, 300);
+            StartNewWindow(0,400);
             StartNewWindow(0, 0);
+            StartNewWindow(800,0);
+            StartNewWindow(800, 400);
         }
 
         private void StartNewWindow(int left, int top)
@@ -40,12 +43,15 @@ namespace Client
             w.Show();
         }
 
+        //启动一个客户端
         private void btn2_Click(object sender, RoutedEventArgs e)
         {
-            LoginWindow w = new LoginWindow();
-            w.Owner = this;
-            w.Closed += (sendObj, args) => this.Activate();
-            w.Show();
+            StartNewWindow(400,400);
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            App.Current.Shutdown();
         }
     }
 }

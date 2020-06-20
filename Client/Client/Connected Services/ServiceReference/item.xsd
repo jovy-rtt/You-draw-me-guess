@@ -20,7 +20,6 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="pw" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="phote" nillable="true" type="xs:base64Binary" />
         <xs:element minOccurs="0" name="sn" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
       </xs:sequence>

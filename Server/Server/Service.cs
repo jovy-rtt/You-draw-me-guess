@@ -62,13 +62,12 @@ namespace Server
             return false;
         }
         //远程注册
-        public bool Registered(string id, string pw, byte[] phote, string sn, string name)
+        public bool Registered(string id, string pw, string sn, string name)
         {
             User us = new User();
             MyDbEntities myDbEntities = new MyDbEntities();
             us.Acount = id;
             us.Password = pw;
-            us.Avart = phote;
             us.Sign = sn;
             us.Name = name;
             try

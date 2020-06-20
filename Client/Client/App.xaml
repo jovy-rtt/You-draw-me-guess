@@ -6,24 +6,40 @@
     <Application.Resources>
         <!--style样式-->
         <!--window-->
-        <!--<Style x:Key="StyleAll" TargetType="Window">
+        <Style x:Key="StyleAll" TargetType="Window">
             <Setter Property="Background" >
                 <Setter.Value>
-                    <RadialGradientBrush>
-                        <GradientStop Color="#FFFDFCE7" Offset="0.978"/>
-                        <GradientStop Color="#FFF2D738" Offset="0.341"/>
-                    </RadialGradientBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFFAFAF5" Offset="0"/>
+                        <GradientStop Color="#FFFCF98E" Offset="1"/>
+                    </LinearGradientBrush>
                 </Setter.Value>
             </Setter>
             <Setter Property="Foreground">
                 <Setter.Value>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FF744523" Offset="0"/>
+                        <GradientStop Color="#FFF71A1A" Offset="0"/>
                         <GradientStop Color="#FF0E0C0C" Offset="1"/>
                     </LinearGradientBrush>
                 </Setter.Value>
             </Setter>
             <Setter Property="FontSize" Value="20"></Setter>
-        </Style>-->
+        </Style>
+
+        <!--page-->
+        <Style x:Key="Stylepage" TargetType="Page">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFE7D6D6" Offset="0.029"/>
+                        <GradientStop Color="#FFE7F4F4" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!--binding类型-->
+        <DataTemplate x:Key="photoTemplate">
+            <Image Source="{Binding Photo}" Width="20" Height="20"></Image>
+        </DataTemplate>
     </Application.Resources>
 </Application>

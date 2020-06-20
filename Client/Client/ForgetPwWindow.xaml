@@ -5,8 +5,69 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Client"
         mc:Ignorable="d"
-        Title="ForgetPasswordWindow" Height="450" Width="800">
+        Style="{StaticResource ResourceKey=StyleAll}"
+        Title="ForgetPassword" Height="500"  Width="400" Closing="Window_Closing" ResizeMode="NoResize" >
     <Grid>
-        
+        <Grid.Resources>
+            <Style TargetType="Button">
+                <EventSetter Event="Click" Handler="Button_Click"></EventSetter>
+            </Style>
+
+            <Style TargetType="Label">
+                <Setter Property="Height" Value="40"></Setter>
+                <Setter Property="Width" Value="80"></Setter>
+                <Setter Property="FontWeight" Value="Bold"></Setter>
+                <Setter Property="VerticalAlignment" Value="Center"></Setter>
+                <Setter Property="HorizontalAlignment" Value="Right"></Setter>
+                <Setter Property="HorizontalContentAlignment" Value="Right"></Setter>
+                <Setter Property="Foreground">
+                    <Setter.Value>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFF71A1A" Offset="0"/>
+                            <GradientStop Color="#FF0E0C0C" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style TargetType="TextBox">
+                <Setter Property="Height" Value="30"></Setter>
+                <Setter Property="Width" Value="220"></Setter>
+                <Setter Property="Margin" Value="20,0,0,0"></Setter>
+                <Setter Property="VerticalAlignment" Value="Center"></Setter>
+                <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+                <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+                <Setter Property="TextWrapping" Value="NoWrap"></Setter>
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Image Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,20,0" Height="100" VerticalAlignment="Top" Width="80" Source="/image/小丸子.jpg" />
+        <Label Grid.Row="0" Grid.ColumnSpan="2" Content="要找回密码呢，♥亲♥"  FontWeight="Light" Height="50" Width="230" HorizontalAlignment="Left" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="50,0,0,0" Foreground="#FFF14411"></Label>
+        <Label Grid.Row="1" Grid.Column="0" Content="账号:" ></Label>
+        <Label Grid.Row="2" Grid.Column="0" Content="手机号:" ></Label>
+        <Label Grid.Row="3" Grid.Column="0" Content="验证码:" ></Label>
+        <Label Grid.Row="4" Grid.Column="0" Content="新密码:"></Label>
+        <Label Grid.Row="5" Grid.Column="0" Content="再次确认:" Width="100"></Label>
+        <TextBox Name="Account" Grid.Column="1" Grid.Row="1"  />
+        <TextBox Name="PhoneNumber" Grid.Column="1" Grid.Row="2"  />
+        <TextBox Name="Code" Grid.Column="1" Grid.Row="3"  Width="100"/>
+        <PasswordBox Name="PassWord1" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" Width="220" Height="30" Margin="20,0,0,0"  VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+        <PasswordBox Name="PassWord2" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" Width="220" Height="30" Margin="20,0,0,0"  VerticalAlignment="Center" VerticalContentAlignment="Center" PasswordChanged="PassWord2_PasswordChanged" />
+        <Button Name="bt1" Grid.ColumnSpan="2" Margin="25" Content="提交申请"  Grid.Row="6" VerticalAlignment="Top" Width="300" Height="40" HorizontalAlignment="Center" Background="#FF63BBDC" Foreground="#FFF9F9F9" />
+        <Button Name="bt2" Content="帮助" FontSize="15" HorizontalAlignment="Left" Margin="10,0,0,10" Grid.Row="6" VerticalAlignment="Bottom" Width="75" Background="#FFFCF993" BorderBrush="#FFFCF991" Foreground="#FFB6A1A1" HorizontalContentAlignment="Left"/>
+        <Button Name="bt3" Content="联系我们" FontSize="15" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,10,10" Grid.Row="6" VerticalAlignment="Bottom" Width="75" Background="#FFFCF991" BorderBrush="#FFFCF991" Foreground="#FFB6A1A1" HorizontalContentAlignment="Right"/>
+        <Image Name="img" Grid.Column="1" Grid.Row="3"  Height="30" HorizontalAlignment="Right"  Width="100" Margin="00,0,50,0"  />
+        <Image Name="img2" Grid.Column="1" HorizontalAlignment="Right"  Height="30" Grid.Row="5"  Margin="0,0,15,0" Width="30" />
     </Grid>
 </Window>

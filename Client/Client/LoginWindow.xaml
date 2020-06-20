@@ -1,11 +1,11 @@
-﻿<Window x:Class="Client.Login"
+﻿<Window x:Class="Client.LoginWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Client"
         mc:Ignorable="d"
-        Title="MainWindow" Height="300" Width="400" MaxHeight="350" MaxWidth="400" MinHeight="350" MinWidth="400" Closing="Window_Closing">
+        Title="MainWindow" Height="300" Width="400" MaxHeight="350" MaxWidth="400" MinHeight="350" MinWidth="400">
     <Window.Background>
         <ImageBrush ImageSource="/image/你画我猜.jpg" />
     </Window.Background>
