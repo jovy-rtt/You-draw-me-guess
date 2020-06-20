@@ -28,7 +28,6 @@ namespace Client
         public RoomWindow()
         {
             InitializeComponent();
-            item = CC.GetUser(id);
 
         }
 
@@ -46,7 +45,7 @@ namespace Client
             Button bt = e.Source as Button;
             int idx = (int)((bt.Name)[4]) - 48;
             MessageBox.Show("进入" + idx + "号房间");
-
+            item = CC.GetUser(id);
             //设置大厅关闭，打开游戏
             this.Close();
             MainWindow mw = new MainWindow();
@@ -54,7 +53,6 @@ namespace Client
             mw.id = id;
             item.MainWindow = mw;
             item.MainWindow.Show();
-
             //更改本地user的房间号
             //this.user.inRoom = idx;
 
