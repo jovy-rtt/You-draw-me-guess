@@ -23,6 +23,7 @@
   </MetadataSources>
   <Metadata>
     <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="63d7285a-e4c7-4b1e-8d87-c35493b04bcd" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/LoginServiceService/?xsd=xsd1" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="14f04568-10ac-4ebb-8bda-7f4f35362d8a" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/LoginServiceService/?xsd=xsd2" />
     <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="e042c44b-2b04-468e-826c-87a904e2be90" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/LoginServiceService/?xsd=xsd0" />
     <MetadataFile FileName="LoginService.wsdl" MetadataType="Wsdl" ID="5d587df4-e566-49cd-b6a3-0402f5b36c45" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/LoginServiceService/?wsdl" />
     <MetadataFile FileName="item.disco" MetadataType="Disco" ID="e4cf9f6d-c323-48aa-9c83-0e66b8c2c5c5" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/LoginServiceService/?disco" />

@@ -29,7 +29,6 @@ namespace Client
         public LoginWindow()
         {
             InitializeComponent();
-            
             init();
         }
 

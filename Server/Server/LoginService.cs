@@ -82,6 +82,19 @@ namespace Server
             }
             return false;
         }
+
+        public User Userinfo(string id)
+        {
+            User us=null;
+            //数据库实例
+            MyDbEntities myDbEntities = new MyDbEntities();
+            //选中这一条数据
+            var q = from t in myDbEntities.User
+                    where t.Acount == id
+                    select t;
+            us = q.FirstOrDefault();
+            return us;
+        }
         #endregion
     }
 }

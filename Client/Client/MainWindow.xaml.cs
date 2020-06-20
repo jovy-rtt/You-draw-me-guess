@@ -201,7 +201,6 @@ namespace Client
             this.ConversationBox.Text += "[" + userName + "]" + "退出房间" + '\n';
         }
 
-
         public void ShowTalk(string userName, string message)
         {
             AddColorMessage(userName, message);

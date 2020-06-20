@@ -9,7 +9,134 @@
 //------------------------------------------------------------------------------
 
 namespace Client.LoginReference {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="User", Namespace="http://schemas.datacontract.org/2004/07/Server")]
+    [System.SerializableAttribute()]
+    public partial class User : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AcountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] AvartField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int GradeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PasswordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SignField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Acount {
+            get {
+                return this.AcountField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AcountField, value) != true)) {
+                    this.AcountField = value;
+                    this.RaisePropertyChanged("Acount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] Avart {
+            get {
+                return this.AvartField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AvartField, value) != true)) {
+                    this.AvartField = value;
+                    this.RaisePropertyChanged("Avart");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Grade {
+            get {
+                return this.GradeField;
+            }
+            set {
+                if ((this.GradeField.Equals(value) != true)) {
+                    this.GradeField = value;
+                    this.RaisePropertyChanged("Grade");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Password {
+            get {
+                return this.PasswordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
+                    this.PasswordField = value;
+                    this.RaisePropertyChanged("Password");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Sign {
+            get {
+                return this.SignField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SignField, value) != true)) {
+                    this.SignField = value;
+                    this.RaisePropertyChanged("Sign");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="LoginReference.ILoginService")]
@@ -32,6 +159,12 @@ namespace Client.LoginReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/ForgetPassword", ReplyAction="http://tempuri.org/ILoginService/ForgetPasswordResponse")]
         System.Threading.Tasks.Task<bool> ForgetPasswordAsync(string id, string ps);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/Userinfo", ReplyAction="http://tempuri.org/ILoginService/UserinfoResponse")]
+        Client.LoginReference.User Userinfo(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginService/Userinfo", ReplyAction="http://tempuri.org/ILoginService/UserinfoResponse")]
+        System.Threading.Tasks.Task<Client.LoginReference.User> UserinfoAsync(string id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -83,6 +216,14 @@ namespace Client.LoginReference {
         
         public System.Threading.Tasks.Task<bool> ForgetPasswordAsync(string id, string ps) {
             return base.Channel.ForgetPasswordAsync(id, ps);
+        }
+        
+        public Client.LoginReference.User Userinfo(string id) {
+            return base.Channel.Userinfo(id);
+        }
+        
+        public System.Threading.Tasks.Task<Client.LoginReference.User> UserinfoAsync(string id) {
+            return base.Channel.UserinfoAsync(id);
         }
     }
 }

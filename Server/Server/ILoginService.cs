@@ -23,6 +23,9 @@ namespace Server
         //修改密码
         [OperationContract]
         bool ForgetPassword(string id, string ps);
+
+        [OperationContract]
+        User Userinfo(string id);
         #endregion
     }
 }
