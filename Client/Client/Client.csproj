@@ -218,9 +218,6 @@
     <Resource Include="image\timg1.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="image\小丸子.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="image\樱桃小丸子.jpg" />
   </ItemGroup>
   <ItemGroup>
