@@ -88,11 +88,12 @@ namespace Client
         }
         private void send_Click(object sender, RoutedEventArgs e)
         {
-
+            client.Talk(UserName, this.SendBox.Text);
         }
         private void exitBnt_Click(object sender, RoutedEventArgs e)
         {
-
+            client.Logout(textBoxUserName.Text);
+            this.Close();
         }
         #endregion
 
@@ -178,25 +179,35 @@ namespace Client
 
         /*----------------------------------------------------- 分割线  ----------------------------------------------------------------*/
         #region 聊天室的回调函数实现
-        public void ShowLogin(string loginUserName)
+        public string UserName
         {
-            throw new NotImplementedException();
+            get { return textBoxUserName.Text; }
+            set { textBoxUserName.Text = value; }
         }
 
+        public void ShowLogin(string loginUserName)
+        {
+            this.ConversationBox.Text += "[" + loginUserName + "]" + "进入房间" + '\n';
+        }
+
+        /// <summary>其他用户退出</summary>
         public void ShowLogout(string userName)
         {
-            throw new NotImplementedException();
+            this.ConversationBox.Text += "[" + userName + "]" + "退出房间" + '\n';
         }
+
 
         public void ShowTalk(string userName, string message)
         {
-            throw new NotImplementedException();
+            AddColorMessage(userName, message);
         }
-
-
+        private void AddColorMessage(string userName, string str)
+        {
+            this.ConversationBox.Text += "[" + userName + "]说：" + str + '\n';
+        }
 
         #endregion
 
-        
+
     }
 }
