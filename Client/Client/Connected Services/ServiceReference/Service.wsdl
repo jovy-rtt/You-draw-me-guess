@@ -34,26 +34,8 @@
   <wsdl:binding name="NetTcpBinding_IService" type="i0:IService">
     <wsp:PolicyReference URI="#NetTcpBinding_IService_policy" />
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
-    <wsdl:operation name="Login">
-      <soap12:operation soapAction="MyService/IService/Login" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Registered">
-      <soap12:operation soapAction="MyService/IService/Registered" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ForgetPassword">
-      <soap12:operation soapAction="MyService/IService/ForgetPassword" style="document" />
+    <wsdl:operation name="test">
+      <soap12:operation soapAction="MyService/IService/test" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

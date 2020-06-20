@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Client.LoginReference;
 
 namespace Client
 {
@@ -27,11 +28,12 @@ namespace Client
         private User item;
         //验证码
         private string Verification;
-        private ServiceClient client;
+        private LoginServiceClient client;
         public RegisteredWindow()
         {
             InitializeComponent();
             Verification = GetImage();
+            client = new LoginServiceClient();
         }
 
         public string GetImage()

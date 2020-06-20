@@ -14,24 +14,10 @@ namespace Server
         //服务接口
         public interface IService
     {
-        /// <summary>
-        /// test用例
-        /// </summary>
-        //[OperationContract]
-        //void test();
-        #region 远程登录服务接口
-        //登录
+        
         [OperationContract]
-        bool Login(string id, string pw);
-
-        //注册
-        [OperationContract]
-        bool Registered(string id, string pw, string sn, string name);
-
-        //修改密码
-        [OperationContract]
-        bool ForgetPassword(string id,string ps);
-        #endregion
+        bool test();
+        
 
         #region 画板的服务接口
         //发送数字墨迹

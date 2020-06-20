@@ -36,6 +36,8 @@ namespace Client
         { 
             InitializeComponent();
             client = new ServiceClient(new InstanceContext(this));
+            //bool flag = client.test();
+            //MessageBox.Show(flag.ToString());
         }
 
         

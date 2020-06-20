@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -13,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Client.LoginReference;
 
 namespace Client
 {
@@ -27,9 +29,10 @@ namespace Client
         private User item;
         //验证码
         private string Verification;
-        private ServiceClient client;
+        private LoginServiceClient client;
         public ForgetPwWindow()
         {
+            client = new LoginServiceClient();
             InitializeComponent();
             Verification = GetImage();
         }

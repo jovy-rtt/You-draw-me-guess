@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Client.ServiceReference;
+using Client.LoginReference;
 
 namespace Client
 {
@@ -23,20 +25,22 @@ namespace Client
         //全局变量
         private string id = "";
         private User item;
-        private ServiceClient client;
+        private LoginServiceClient client;
         public LoginWindow()
         {
             InitializeComponent();
-            if (CC.Users == null)
-            {
-                CC.Users = new List<User>();
-            }
+            
             init();
         }
 
         //初始化
         private void init()
         {
+            client = new LoginServiceClient();
+            if (CC.Users == null)
+            {
+                CC.Users = new List<User>();
+            }
             Random rm = new Random();
             for (int i = 0; i < 20; i++)
             {
@@ -55,9 +59,9 @@ namespace Client
             {
                 try
                 {
-                    //bool flag = client.Login(account.Text, passward.Password);
-                    
-                    bool flag = true;
+                    bool flag = client.Login(account.Text, passward.Password);
+                    //bool flag =  client.test();
+                    //bool flag = true;
                     if (flag)
                     {
                         item.LoginWindow.Close();

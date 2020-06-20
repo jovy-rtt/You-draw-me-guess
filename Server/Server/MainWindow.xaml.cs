@@ -22,7 +22,9 @@ namespace Server
         //该窗口是用于手动控制“你画我猜”应用程序的服务端，仅用于启动以及停止监听
         //by 朱孟祥
 
-        private ServiceHost host;
+        private ServiceHost host1;
+        private ServiceHost host2;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -32,10 +34,18 @@ namespace Server
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
             ChangeState(btnStart, false, btnStop, true);
-            host = new ServiceHost(typeof(Service));
-            host.Open();
+            host1 = new ServiceHost(typeof(Service));
+            host1.Open();
             textBlock1.Text += "本机服务已启动，监听的Uri为：\n";
-            foreach (var v in host.Description.Endpoints)
+            foreach (var v in host1.Description.Endpoints)
+            {
+                textBlock1.Text += v.ListenUri.ToString() + "\n";
+            }
+
+            host2 = new ServiceHost(typeof(LoginService));
+            host2.Open();
+            //textBlock1.Text += "本机服务已启动，监听的Uri为：\n";
+            foreach (var v in host2.Description.Endpoints)
             {
                 textBlock1.Text += v.ListenUri.ToString() + "\n";
             }
@@ -44,7 +54,8 @@ namespace Server
         //关闭服务
         private void btnStop_Click(object sender, RoutedEventArgs e)
         {
-            host.Close();
+            host1.Close();
+            host2.Close();
             textBlock1.Text += "本机服务已关闭\n";
             ChangeState(btnStart, true, btnStop, false);
         }
@@ -59,11 +70,19 @@ namespace Server
         //窗体关闭事件，防止窗体关闭但是服务未关闭
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (host != null)
+            if (host1 != null)
             {
-                if (host.State == CommunicationState.Opened)
+                if (host1.State == CommunicationState.Opened)
                 {
-                    host.Close();
+                    host1.Close();
+                }
+            }
+
+            if (host2 != null)
+            {
+                if (host2.State == CommunicationState.Opened)
+                {
+                    host2.Close();
                 }
             }
         }

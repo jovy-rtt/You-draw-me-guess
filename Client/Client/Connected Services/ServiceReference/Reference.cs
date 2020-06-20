@@ -15,23 +15,11 @@ namespace Client.ServiceReference {
     [System.ServiceModel.ServiceContractAttribute(Namespace="MyService", ConfigurationName="ServiceReference.IService", CallbackContract=typeof(Client.ServiceReference.IServiceCallback))]
     public interface IService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="MyService/IService/Login", ReplyAction="MyService/IService/LoginResponse")]
-        bool Login(string id, string pw);
+        [System.ServiceModel.OperationContractAttribute(Action="MyService/IService/test", ReplyAction="MyService/IService/testResponse")]
+        bool test();
         
-        [System.ServiceModel.OperationContractAttribute(Action="MyService/IService/Login", ReplyAction="MyService/IService/LoginResponse")]
-        System.Threading.Tasks.Task<bool> LoginAsync(string id, string pw);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="MyService/IService/Registered", ReplyAction="MyService/IService/RegisteredResponse")]
-        bool Registered(string id, string pw, string sn, string name);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="MyService/IService/Registered", ReplyAction="MyService/IService/RegisteredResponse")]
-        System.Threading.Tasks.Task<bool> RegisteredAsync(string id, string pw, string sn, string name);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="MyService/IService/ForgetPassword", ReplyAction="MyService/IService/ForgetPasswordResponse")]
-        bool ForgetPassword(string id, string ps);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="MyService/IService/ForgetPassword", ReplyAction="MyService/IService/ForgetPasswordResponse")]
-        System.Threading.Tasks.Task<bool> ForgetPasswordAsync(string id, string ps);
+        [System.ServiceModel.OperationContractAttribute(Action="MyService/IService/test", ReplyAction="MyService/IService/testResponse")]
+        System.Threading.Tasks.Task<bool> testAsync();
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/SendInk")]
         void SendInk(int room, string ink);
@@ -96,28 +84,12 @@ namespace Client.ServiceReference {
                 base(callbackInstance, binding, remoteAddress) {
         }
         
-        public bool Login(string id, string pw) {
-            return base.Channel.Login(id, pw);
+        public bool test() {
+            return base.Channel.test();
         }
         
-        public System.Threading.Tasks.Task<bool> LoginAsync(string id, string pw) {
-            return base.Channel.LoginAsync(id, pw);
-        }
-        
-        public bool Registered(string id, string pw, string sn, string name) {
-            return base.Channel.Registered(id, pw, sn, name);
-        }
-        
-        public System.Threading.Tasks.Task<bool> RegisteredAsync(string id, string pw, string sn, string name) {
-            return base.Channel.RegisteredAsync(id, pw, sn, name);
-        }
-        
-        public bool ForgetPassword(string id, string ps) {
-            return base.Channel.ForgetPassword(id, ps);
-        }
-        
-        public System.Threading.Tasks.Task<bool> ForgetPasswordAsync(string id, string ps) {
-            return base.Channel.ForgetPasswordAsync(id, ps);
+        public System.Threading.Tasks.Task<bool> testAsync() {
+            return base.Channel.testAsync();
         }
         
         public void SendInk(int room, string ink) {

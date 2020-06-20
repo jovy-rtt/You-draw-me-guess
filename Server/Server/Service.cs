@@ -17,14 +17,14 @@ namespace Server
         /// <summary>
         /// 测试用例
         /// </summary>
-        //public void test()
-        //{
-        //    throw new NotImplementedException();
-        //}
+        public bool test()
+        {
+            return true;
+        }
 
 
         /*-----------------------------------------------------  分割线   ---------------------------------------------------------------*/
-        
+
         #region 画板的服务端函数实现
         /// <summary>
         /// 发送数字墨迹
@@ -38,80 +38,7 @@ namespace Server
         }
         #endregion
 
-        /*-----------------------------------------------------  分割线   ---------------------------------------------------------------*/
-        #region 远程登录服务函数实现
-        //远程登录
-        public bool Login(string id, string pw)
-        {
-            //用户信息
-            User us;
-            //数据库实例
-            MyDbEntities myDbEntities = new MyDbEntities();
-            //选中这一条数据
-            var q = from t in myDbEntities.User
-                    where t.Acount == id
-                    select t;
-            if (q != null)
-            {
-                us = q.FirstOrDefault();
-                if (us == null)
-                    return false;
-                if (us.Password == pw)
-                    return true;
-            }
-            return false;
-        }
-        //远程注册
-        public bool Registered(string id, string pw, string sn, string name)
-        {
-            User us = new User();
-            MyDbEntities myDbEntities = new MyDbEntities();
-            us.Acount = id;
-            us.Password = pw;
-            us.Sign = sn;
-            us.Name = name;
-            try
-            {
-                myDbEntities.User.Add(us);
-                myDbEntities.SaveChanges();
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-            //return false;
-        }
-        //修改密码
-        public bool ForgetPassword(string id,string pw)
-        {
-            //用户信息
-            User us;
-            //数据库实例
-            MyDbEntities myDbEntities = new MyDbEntities();
-            //选中这一条数据
-            var q = from t in myDbEntities.User
-                    where t.Acount == id
-                    select t;
-            if (q != null)
-            {
-                us = q.FirstOrDefault();
-                if (us == null)
-                    return false;
-                us.Password = pw;
-                try
-                {
-                    myDbEntities.SaveChanges();
-                }
-                catch (Exception)
-                {
-                    return false;
-                }
-                return true;
-            }
-            return false;
-        }
-        #endregion
+        
 
         /*-----------------------------------------------------  分割线   ---------------------------------------------------------------*/
 

@@ -6,23 +6,11 @@
       <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/Service/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IService_Login_InputMessage">
-    <wsdl:part name="parameters" element="tns:Login" />
+  <wsdl:message name="IService_test_InputMessage">
+    <wsdl:part name="parameters" element="tns:test" />
   </wsdl:message>
-  <wsdl:message name="IService_Login_OutputMessage">
-    <wsdl:part name="parameters" element="tns:LoginResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService_Registered_InputMessage">
-    <wsdl:part name="parameters" element="tns:Registered" />
-  </wsdl:message>
-  <wsdl:message name="IService_Registered_OutputMessage">
-    <wsdl:part name="parameters" element="tns:RegisteredResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService_ForgetPassword_InputMessage">
-    <wsdl:part name="parameters" element="tns:ForgetPassword" />
-  </wsdl:message>
-  <wsdl:message name="IService_ForgetPassword_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ForgetPasswordResponse" />
+  <wsdl:message name="IService_test_OutputMessage">
+    <wsdl:part name="parameters" element="tns:testResponse" />
   </wsdl:message>
   <wsdl:message name="IService_SendInk_InputMessage">
     <wsdl:part name="parameters" element="tns:SendInk" />
@@ -46,17 +34,9 @@
     <wsdl:part name="parameters" element="tns:ShowTalk" />
   </wsdl:message>
   <wsdl:portType name="IService">
-    <wsdl:operation name="Login">
-      <wsdl:input wsaw:Action="MyService/IService/Login" message="tns:IService_Login_InputMessage" />
-      <wsdl:output wsaw:Action="MyService/IService/LoginResponse" message="tns:IService_Login_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="Registered">
-      <wsdl:input wsaw:Action="MyService/IService/Registered" message="tns:IService_Registered_InputMessage" />
-      <wsdl:output wsaw:Action="MyService/IService/RegisteredResponse" message="tns:IService_Registered_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ForgetPassword">
-      <wsdl:input wsaw:Action="MyService/IService/ForgetPassword" message="tns:IService_ForgetPassword_InputMessage" />
-      <wsdl:output wsaw:Action="MyService/IService/ForgetPasswordResponse" message="tns:IService_ForgetPassword_OutputMessage" />
+    <wsdl:operation name="test">
+      <wsdl:input wsaw:Action="MyService/IService/test" message="tns:IService_test_InputMessage" />
+      <wsdl:output wsaw:Action="MyService/IService/testResponse" message="tns:IService_test_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="SendInk">
       <wsdl:input wsaw:Action="MyService/IService/SendInk" message="tns:IService_SendInk_InputMessage" />
