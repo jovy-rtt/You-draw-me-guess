@@ -15,20 +15,18 @@ using System.Windows.Shapes;
 namespace Client
 {
     /// <summary>
-    /// RoomWindow.xaml 的交互逻辑
+    /// PlayerInfo.xaml 的交互逻辑
     /// </summary>
-    public partial class RoomWindow : Window
+    public partial class PlayerInfo : Window
     {
-        public RoomWindow()
+        public PlayerInfo()
         {
             InitializeComponent();
-            CC.RoomWindow = this;
+            // BankEntities2 content = new BankEntities2();
+            //MyDbEntities myDbEntities = new MyDbEntities();
+
         }
 
-        public string UserName
-        {
-            get { return username.Text; }
-            set { username.Text = value +"快选择一个房间开始游戏吧！"; }
-        }
+        
     }
 }

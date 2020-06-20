@@ -11,14 +11,14 @@ namespace Server
     // 操作协定
     [ServiceContract(Namespace ="MyService",CallbackContract =typeof(IServiceCallback))]
 
-    //服务接口
-    public interface IService
+        //服务接口
+        public interface IService
     {
         /// <summary>
         /// test用例
         /// </summary>
-        [OperationContract]
-        void test();
+        //[OperationContract]
+        //void test();
         #region 远程登录服务接口
         //登录
         [OperationContract]
@@ -40,8 +40,15 @@ namespace Server
         #endregion
 
         #region 聊天室的服务接口
-        [OperationContract]
-        void test1();
+            //[OperationContract(IsOneWay = true)]
+            //void Login(string userName);
+
+            [OperationContract(IsOneWay = true)]
+            void Logout(string userName);
+
+            [OperationContract(IsOneWay = true)]
+            void Talk(string userName, string message);
+           
         #endregion
     }
 
@@ -55,8 +62,15 @@ namespace Server
         #endregion
 
         #region 聊天室的回调接口
-        [OperationContract]
-        void test3();
+                [OperationContract(IsOneWay = true)]
+                void ShowLogin(string loginUserName);
+
+                [OperationContract(IsOneWay = true)]
+                void ShowLogout(string userName);
+
+                [OperationContract(IsOneWay = true)]
+                void ShowTalk(string userName, string message);
+
         #endregion
     }
 }

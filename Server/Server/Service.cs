@@ -17,10 +17,10 @@ namespace Server
         /// <summary>
         /// 测试用例
         /// </summary>
-        public void test()
-        {
-            throw new NotImplementedException();
-        }
+        //public void test()
+        //{
+        //    throw new NotImplementedException();
+        //}
 
 
         /*-----------------------------------------------------  分割线   ---------------------------------------------------------------*/
@@ -119,11 +119,59 @@ namespace Server
 
 
         #region 聊天室的服务端函数实现
-        public void test1()
+
+        public Service()
         {
-            throw new NotImplementedException();
+            if (CC.Users == null)
+            {
+                CC.Users = new List<MyUser>();
+
+            }
         }
+
+        //public void Login(string userName)
+        //{
+        //    // throw new NotImplementedException();
+        //    OperationContext context = OperationContext.Current;
+        //    IServiceCallback callback = context.GetCallbackChannel<IServiceCallback>();
+        //    MyUser newUser = new MyUser(userName, callback);
+        //    CC.Users.Add(newUser);
+        //    foreach (var user in CC.Users)
+        //    {
+        //        user.callback.ShowLogin(userName);
+        //    }
+        //}
+
+        public void Talk(string userName, string message)
+        {
+
+            foreach (var item in CC.Users)
+            {
+                item.callback.ShowTalk(userName, message);
+            }
+        }
+
+
+
+        /// <summary>用户退出</summary>
+        public void Logout(string userName)
+        {
+            MyUser logoutUser = CC.GetUser(userName);
+            foreach (var user in CC.Users)
+            {
+                //不需要发给退出用户
+                if (user.UserName != logoutUser.UserName)
+                {
+                    user.callback.ShowLogout(userName);
+                }
+            }
+            CC.Users.Remove(logoutUser);
+            logoutUser = null; //将其设置为null后，WCF会自动关闭该客户端
+
+        }
+
+
         #endregion
-        
+
     }
 }

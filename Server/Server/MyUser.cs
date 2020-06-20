@@ -8,7 +8,7 @@ namespace Server
 {
     public class MyUser:User
     {
-       
+        public string UserName { get; set; }
         public readonly IServiceCallback callback;
 
         public MyUser(string username, IServiceCallback callback)

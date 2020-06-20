@@ -28,11 +28,24 @@ namespace Client
     {
         ServiceClient client;
         int room;//暂用
+
         public MainWindow()
         { 
             InitializeComponent();
             client = new ServiceClient(new InstanceContext(this));
             CC.MainWindow = this;
+        }
+
+        //用户信息显示
+        private void user1Btn1_Click(object sender, RoutedEventArgs e)
+        {
+            Button item = e.Source as Button;
+            if (item != null)
+            {
+                //this.U1.Source = new Uri(item.Tag.ToString(), UriKind.Relative);
+                PlayerInfo pi = new PlayerInfo();
+                pi.ShowDialog();
+            }
         }
 
         //画板相关
@@ -154,25 +167,16 @@ namespace Client
                     break;
             }
         }
-
-        public void test3()
-        {
-            throw new NotImplementedException();
-        }
-
-
-
-
-
-
         #endregion
 
 
         /*----------------------------------------------------- 分割线  ----------------------------------------------------------------*/
         #region 聊天室的回调函数实现
+       
+    #endregion
 
-        #endregion
 
-        
-    }
+
+
+}
 }
