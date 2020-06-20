@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Client"
         mc:Ignorable="d"
-        Title="你画我猜" Height="449" Width="804" Loaded="Window_Loaded" >
+        Title="你画我猜" Height="449" Width="804" Loaded="Window_Loaded">
     <Grid>
         <Frame x:Name="frame1" Margin="0,3,0.333,-2" BorderThickness="2" BorderBrush="#FFA6C9FD" NavigationUIVisibility="Hidden" >
             <Frame.Background>

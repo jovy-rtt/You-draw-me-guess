@@ -55,22 +55,21 @@ namespace Server
             }
         }
 
-        //public void Login(string userName)
-        //{
-        //    // throw new NotImplementedException();
-        //    OperationContext context = OperationContext.Current;
-        //    IServiceCallback callback = context.GetCallbackChannel<IServiceCallback>();
-        //    MyUser newUser = new MyUser(userName, callback);
-        //    CC.Users.Add(newUser);
-        //    foreach (var user in CC.Users)
-        //    {
-        //        user.callback.ShowLogin(userName);
-        //    }
-        //}
+        public void Login(string userName)
+        {
+            // throw new NotImplementedException();
+            OperationContext context = OperationContext.Current;
+            IServiceCallback callback = context.GetCallbackChannel<IServiceCallback>();
+            MyUser newUser = new MyUser(userName, callback);
+            CC.Users.Add(newUser);
+            foreach (var user in CC.Users)
+            {
+                user.callback.ShowLogin(userName);
+            }
+        }
 
         public void Talk(string userName, string message)
         {
-
             foreach (var item in CC.Users)
             {
                 item.callback.ShowTalk(userName, message);

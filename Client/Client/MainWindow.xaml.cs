@@ -54,7 +54,7 @@ namespace Client
             //创建客户端代理类
             InstanceContext context = new InstanceContext(this);
             client = new ServiceClient(context);
-
+            client.Login("test");
             //初始化墨迹和画板
             currentColor = Colors.Red;
             inkDA = new DrawingAttributes()
