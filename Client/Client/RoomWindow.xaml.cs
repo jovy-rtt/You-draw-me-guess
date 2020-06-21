@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Client.ServiceReference;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,12 +20,14 @@ namespace Client
     /// </summary>
     public partial class RoomWindow : Window
     {
+        private ServiceClient client;
         //id所属
         public string id { get; set; }
         //对象
         private User item;
         //上面哪两个对于登录信息有用，勿删
 
+        
         public RoomWindow()
         {
             InitializeComponent();
@@ -36,9 +39,7 @@ namespace Client
             get { return username.Text; }
             set { username.Text = value +"快选择一个房间开始游戏吧！"; }
         }
-        /// <summary>
-        /// 进入房间的按钮事件
-        /// </summary>
+        //进入房间
         private void room_Click(object sender, RoutedEventArgs e)
         {
             //确定点击了几号房间
@@ -53,11 +54,9 @@ namespace Client
             mw.id = id;
             item.MainWindow = mw;
             item.MainWindow.Show();
-            //更改本地user的房间号
-            //this.user.inRoom = idx;
 
-            ////回调进入房间
-            //client.EnterRoom(user.name, idx);
+            //回调进入房间
+            client.EnterRoom(username.Text, idx);
         }
 
     }

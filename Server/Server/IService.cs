@@ -37,6 +37,13 @@ namespace Server
         void Talk(string userName, string message);
 
         #endregion
+
+        #region 游戏的服务接口
+        //进入房间
+        [OperationContract(IsOneWay = true)]
+        void EnterRoom(string userName, int roomId);
+        #endregion
+
     }
 
     //回调接口
@@ -59,6 +66,12 @@ namespace Server
         [OperationContract(IsOneWay = true)]
         void ShowTalk(string userName, string message);
 
+        #endregion
+
+        #region 游戏的回调接口
+        //回调进入房间
+        [OperationContract(IsOneWay = true)]
+        void ShowRoom(Room room);
         #endregion
     }
 }
