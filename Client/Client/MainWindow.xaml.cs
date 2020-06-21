@@ -15,7 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Client.ServiceReference;
-
+using Client.LoginReference;
 //已添加服务引用，命名空间为：ServiceReference
 //服务引用地址为：http://localhost:8733/Design_Time_Addresses/Service/  该地址为本地调试地址
 
