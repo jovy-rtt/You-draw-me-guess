@@ -114,7 +114,6 @@ namespace Client
         }
         public void ShowInk(string inkData)
         {
-            MessageBox.Show("111");
             //删除原有的Strokes
             inkcanvas.Strokes.Clear();
 
@@ -177,6 +176,9 @@ namespace Client
                     break;
                 case "clear":
                     inkcanvas.Strokes.Clear();
+                    StrokeCollection sc = inkcanvas.Strokes;
+                    string inkData = (new StrokeCollectionConverter()).ConvertToString(sc);
+                    client.SendInk(room, inkData);
                     break;
             }
         }
