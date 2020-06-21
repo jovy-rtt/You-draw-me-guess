@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Client.LoginReference;
 
 namespace Client
 {
@@ -19,11 +20,13 @@ namespace Client
     /// </summary>
     public partial class PlayerInfo : Window
     {
-        public PlayerInfo()
+
+        public PlayerInfo(LoginReference.User us)
         {
             InitializeComponent();
-            // BankEntities2 content = new BankEntities2();
-            //MyDbEntities myDbEntities = new MyDbEntities();
+            this.name.Text = us.Name;
+            this.level.Text = us.Grade.ToString();
+            this.sign.Text = us.Sign;
 
         }
 

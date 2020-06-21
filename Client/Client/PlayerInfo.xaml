@@ -18,8 +18,8 @@
         <Label Content="昵称：" HorizontalAlignment="Left" Margin="182,59,0,0" VerticalAlignment="Top"/>
         <Label Content="等级：" HorizontalAlignment="Left" Margin="182,109,0,0" VerticalAlignment="Top"/>
         <Label Content="个性签名：" HorizontalAlignment="Left" Margin="42,191,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="244,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="244,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="66" Margin="113,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="251"/>
+        <TextBox x:Name="name" HorizontalAlignment="Left" Height="23" Margin="244,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
+        <TextBox x:Name="level" HorizontalAlignment="Left" Height="23" Margin="244,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="sign" HorizontalAlignment="Left" Height="66" Margin="113,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="251"/>
     </Grid>
 </Window>
