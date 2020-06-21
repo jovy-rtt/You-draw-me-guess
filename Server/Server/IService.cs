@@ -71,7 +71,8 @@ namespace Server
         #region 游戏的回调接口
         //回调进入房间
         [OperationContract(IsOneWay = true)]
-        void ShowRoom(Room room);
+        //void ShowRoom(Room room);下面是test
+        void ShowRoom(int room);
         #endregion
     }
 }

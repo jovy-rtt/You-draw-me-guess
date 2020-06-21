@@ -105,7 +105,7 @@ namespace Server
         {
             MyUser user = CC.GetUser(userName);
             //初始化新房间
-            if (CC.Rooms.ContainsKey(roomId)==false)
+            if (CC.Rooms.ContainsKey(roomId) == false)
             {
                 CC.Rooms.Add(roomId, new Room());
                 CC.Rooms[roomId].Users = new List<MyUser>();
@@ -113,11 +113,12 @@ namespace Server
             }
             //该用户添加到房间
             CC.Rooms[roomId].Users.Add(user);
+            //test
             //给该房间的所有用户发送最新用户消息
-            foreach (var item in CC.Rooms[roomId].Users)
-            {
-                item.callback.ShowRoom(CC.Rooms[roomId]);
-            }
+            //foreach (var item in CC.Rooms[roomId].Users)
+            //{
+            //    item.callback.ShowRoom(CC.Rooms[roomId]);
+            //}
         }
 
         #endregion
