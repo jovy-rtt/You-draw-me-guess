@@ -23,6 +23,8 @@
           <Property Name="Avart" Type="image" />
           <Property Name="Grade" Type="int" Nullable="false" />
           <Property Name="Sign" Type="nvarchar(max)" />
+          <Property Name="Score" Type="int" />
+          <Property Name="Room" Type="int" />
         </EntityType>
         <EntityContainer Name="MyDbModelStoreContainer">
           <EntitySet Name="Questions" EntityType="Self.Questions" Schema="dbo" store:Type="Tables" />
@@ -42,6 +44,8 @@
           <Property Name="Grade" Type="Int32" Nullable="false" />
           <Property Name="Sign" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Score" Type="Int32" />
+          <Property Name="Room" Type="Int32" />
         </EntityType>
         <EntityContainer Name="MyDbEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="User" EntityType="Self.User" />
@@ -64,6 +68,8 @@
           <EntitySetMapping Name="User">
             <EntityTypeMapping TypeName="MyDbModel.User">
               <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Room" ColumnName="Room" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Acount" ColumnName="Acount" />
                 <ScalarProperty Name="Password" ColumnName="Password" />

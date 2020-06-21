@@ -77,8 +77,18 @@ namespace Server
         #region 游戏的回调接口
         //回调进入房间
         [OperationContract(IsOneWay = true)]
-        //void ShowRoom(Room room);下面是test
-        void ShowRoom(int room);
+        void ShowRoom(string userName);
         #endregion
+    }
+
+    [DataContract]
+    public class Room
+    {
+        [DataMember]
+        public int id { get; set; }
+        [DataMember]
+        public List<MyUser> users { get; set; }
+        [DataMember]
+        public Questions question { get; set; }
     }
 }

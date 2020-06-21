@@ -77,7 +77,7 @@ namespace Client.ServiceReference {
         void ShowInfo(string account);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/ShowRoom")]
-        void ShowRoom(int room);
+        void ShowRoom(string userName);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
