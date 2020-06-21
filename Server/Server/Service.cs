@@ -77,6 +77,14 @@ namespace Server
             }
         }
 
+        public void Info(string account)
+        {
+            foreach (var item in CC.Users)
+            {
+                item.callback.ShowInfo(account);
+            }
+        }
+
 
 
         /// <summary>用户退出</summary>
@@ -95,6 +103,8 @@ namespace Server
             logoutUser = null; //将其设置为null后，WCF会自动关闭该客户端
 
         }
+        
+        
 
 
         #endregion

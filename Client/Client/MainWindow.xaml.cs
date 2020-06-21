@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Client.ServiceReference;
+using Client.LoginReference;
 
 //已添加服务引用，命名空间为：ServiceReference
 //服务引用地址为：http://localhost:8733/Design_Time_Addresses/Service/  该地址为本地调试地址
@@ -27,8 +28,10 @@ namespace Client
     public partial class MainWindow : Window,IServiceCallback
     {
         private ServiceClient client;
+        private LoginServiceClient Loginclient;
         public int room;//暂用
         public string id { get; set; }//id所属
+        public string account { get; set; }
 
         private User item;//对象
 
@@ -36,6 +39,8 @@ namespace Client
         { 
             InitializeComponent();
             client = new ServiceClient(new InstanceContext(this));
+            Loginclient = new LoginServiceClient();
+           
             //bool flag = client.test();
             //MessageBox.Show(flag.ToString());
         }
@@ -54,7 +59,7 @@ namespace Client
             //创建客户端代理类
             InstanceContext context = new InstanceContext(this);
             client = new ServiceClient(context);
-            client.Login("test");
+            //client.Login("test");
             //初始化墨迹和画板
             currentColor = Colors.Red;
             inkDA = new DrawingAttributes()
@@ -93,6 +98,8 @@ namespace Client
         {
             client.Talk(UserName, this.SendBox.Text);
             this.SendBox.Clear();
+            client.Info(account);
+            
         }
         private void exitBnt_Click(object sender, RoutedEventArgs e)
         {
@@ -219,6 +226,18 @@ namespace Client
         public void ShowCheckin(string userName, int roomnum)
         {
             this.ConversationBox.Text += "[" + userName + "]" + "进入房间" +roomnum+ '\n';
+        }
+
+
+        public void ShowRoom(int room)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ShowInfo(string account)
+        {
+            var us = Loginclient.Userinfo(account);
+            this.U1.Text += "  昵称：" + us.Name + '\n' + "  等级：" + us.Grade + '\n' + '\n';
         }
 
 

@@ -20,7 +20,7 @@ namespace Server
             CC.Users.Add(newUser);
             foreach (var user in CC.Users)
             {
-                user.callback.ShowCheckin(userName, roomnum);
+                //user.callback.ShowCheckin(userName, roomnum);
             }
         }
     }

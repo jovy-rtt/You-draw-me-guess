@@ -45,6 +45,12 @@ namespace Client.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/Talk")]
         System.Threading.Tasks.Task TalkAsync(string userName, string message);
         
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/Info")]
+        void Info(string account);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/Info")]
+        System.Threading.Tasks.Task InfoAsync(string account);
+        
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/EnterRoom")]
         void EnterRoom(string userName, int roomId);
         
@@ -66,6 +72,9 @@ namespace Client.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/ShowTalk")]
         void ShowTalk(string userName, string message);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/ShowInfo")]
+        void ShowInfo(string account);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/ShowRoom")]
         void ShowRoom(int room);
@@ -137,6 +146,14 @@ namespace Client.ServiceReference {
         
         public System.Threading.Tasks.Task TalkAsync(string userName, string message) {
             return base.Channel.TalkAsync(userName, message);
+        }
+        
+        public void Info(string account) {
+            base.Channel.Info(account);
+        }
+        
+        public System.Threading.Tasks.Task InfoAsync(string account) {
+            return base.Channel.InfoAsync(account);
         }
         
         public void EnterRoom(string userName, int roomId) {

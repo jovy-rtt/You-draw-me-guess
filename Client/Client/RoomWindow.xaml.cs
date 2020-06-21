@@ -23,6 +23,7 @@ namespace Client
         private ServiceClient client;
         //id所属
         public string id { get; set; }
+        public string account { get; set; }
         //对象
         private User item;
         //上面哪两个对于登录信息有用，勿删
@@ -53,10 +54,11 @@ namespace Client
             mw.room = idx;
             mw.id = id;
             item.MainWindow = mw;
+            mw.account = account;
             item.MainWindow.Show();
 
             //回调进入房间
-            client.EnterRoom(username.Text, idx);
+            //client.EnterRoom(username.Text, idx);
         }
 
     }

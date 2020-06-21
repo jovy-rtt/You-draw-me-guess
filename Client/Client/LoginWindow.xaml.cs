@@ -67,6 +67,7 @@ namespace Client
                         //再显示登录后的界面，room
                         RoomWindow RW = new RoomWindow();
                         RW.id = id;
+                        RW.account = account.Text;
                         item.RoomWindow = RW;
                         item.RoomWindow.Show();
                     }

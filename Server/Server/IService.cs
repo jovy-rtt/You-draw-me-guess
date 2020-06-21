@@ -36,6 +36,9 @@ namespace Server
         [OperationContract(IsOneWay = true)]
         void Talk(string userName, string message);
 
+        [OperationContract(IsOneWay = true)]
+        void Info(string account);
+
         #endregion
 
         #region 游戏的服务接口
@@ -65,6 +68,9 @@ namespace Server
 
         [OperationContract(IsOneWay = true)]
         void ShowTalk(string userName, string message);
+
+        [OperationContract(IsOneWay = true)]
+        void ShowInfo(string account);
 
         #endregion
 

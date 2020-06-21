@@ -24,6 +24,9 @@
   <wsdl:message name="IService_Talk_InputMessage">
     <wsdl:part name="parameters" element="tns:Talk" />
   </wsdl:message>
+  <wsdl:message name="IService_Info_InputMessage">
+    <wsdl:part name="parameters" element="tns:Info" />
+  </wsdl:message>
   <wsdl:message name="IService_EnterRoom_InputMessage">
     <wsdl:part name="parameters" element="tns:EnterRoom" />
   </wsdl:message>
@@ -38,6 +41,9 @@
   </wsdl:message>
   <wsdl:message name="IService_ShowTalk_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:ShowTalk" />
+  </wsdl:message>
+  <wsdl:message name="IService_ShowInfo_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ShowInfo" />
   </wsdl:message>
   <wsdl:message name="IService_ShowRoom_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:ShowRoom" />
@@ -59,6 +65,9 @@
     <wsdl:operation name="Talk">
       <wsdl:input wsaw:Action="MyService/IService/Talk" message="tns:IService_Talk_InputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="Info">
+      <wsdl:input wsaw:Action="MyService/IService/Info" message="tns:IService_Info_InputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="EnterRoom">
       <wsdl:input wsaw:Action="MyService/IService/EnterRoom" message="tns:IService_EnterRoom_InputMessage" />
     </wsdl:operation>
@@ -73,6 +82,9 @@
     </wsdl:operation>
     <wsdl:operation name="ShowTalk">
       <wsdl:output wsaw:Action="MyService/IService/ShowTalk" message="tns:IService_ShowTalk_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ShowInfo">
+      <wsdl:output wsaw:Action="MyService/IService/ShowInfo" message="tns:IService_ShowInfo_OutputCallbackMessage" />
     </wsdl:operation>
     <wsdl:operation name="ShowRoom">
       <wsdl:output wsaw:Action="MyService/IService/ShowRoom" message="tns:IService_ShowRoom_OutputCallbackMessage" />
