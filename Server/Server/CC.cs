@@ -9,6 +9,7 @@ namespace Server
     public class CC
     {
         public static List<MyUser> Users { get; set; }
+        public static Dictionary<int, Room> Rooms = new Dictionary<int, Room>();
         public static MyUser GetUser(string username)
         {
             MyUser user = null;
@@ -22,6 +23,5 @@ namespace Server
             }
             return user;
         }
-
     }
 }

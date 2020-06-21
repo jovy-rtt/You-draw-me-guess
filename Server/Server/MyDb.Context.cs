@@ -26,5 +26,6 @@ namespace Server
         }
     
         public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<Questions> Questions { get; set; }
     }
 }
