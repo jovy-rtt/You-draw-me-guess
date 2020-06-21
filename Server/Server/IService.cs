@@ -23,6 +23,7 @@ namespace Server
         //发送数字墨迹
         [OperationContract(IsOneWay = true)]
         void SendInk(int room, string ink);
+
         #endregion
 
         #region 聊天室的服务接口
@@ -36,6 +37,13 @@ namespace Server
         void Talk(string userName, string message);
 
         #endregion
+
+        #region 游戏的服务接口
+        //进入房间
+        [OperationContract(IsOneWay = true)]
+        void EnterRoom(string userName, int roomId);
+        #endregion
+
     }
 
     //回调接口
@@ -45,6 +53,7 @@ namespace Server
         //回调显示墨迹 
         [OperationContract(IsOneWay = true)]
         void ShowInk(string ink);
+
         #endregion
 
         #region 聊天室的回调接口
@@ -57,6 +66,13 @@ namespace Server
         [OperationContract(IsOneWay = true)]
         void ShowTalk(string userName, string message);
 
+        #endregion
+
+        #region 游戏的回调接口
+        //回调进入房间
+        [OperationContract(IsOneWay = true)]
+        //void ShowRoom(Room room);下面是test
+        void ShowRoom(int room);
         #endregion
     }
 }

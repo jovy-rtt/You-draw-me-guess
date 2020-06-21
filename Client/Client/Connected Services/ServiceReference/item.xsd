@@ -42,11 +42,11 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="Checkin">
+  <xs:element name="EnterRoom">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="roomnum" type="xs:int" />
+        <xs:element minOccurs="0" name="roomId" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -79,11 +79,10 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ShowCheckin">
+  <xs:element name="ShowRoom">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="roomnum" type="xs:int" />
+        <xs:element minOccurs="0" name="room" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

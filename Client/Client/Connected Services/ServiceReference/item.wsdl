@@ -24,8 +24,8 @@
   <wsdl:message name="IService_Talk_InputMessage">
     <wsdl:part name="parameters" element="tns:Talk" />
   </wsdl:message>
-  <wsdl:message name="IService_Checkin_InputMessage">
-    <wsdl:part name="parameters" element="tns:Checkin" />
+  <wsdl:message name="IService_EnterRoom_InputMessage">
+    <wsdl:part name="parameters" element="tns:EnterRoom" />
   </wsdl:message>
   <wsdl:message name="IService_ShowInk_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:ShowInk" />
@@ -39,8 +39,8 @@
   <wsdl:message name="IService_ShowTalk_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:ShowTalk" />
   </wsdl:message>
-  <wsdl:message name="IService_ShowCheckin_OutputCallbackMessage">
-    <wsdl:part name="parameters" element="tns:ShowCheckin" />
+  <wsdl:message name="IService_ShowRoom_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ShowRoom" />
   </wsdl:message>
   <wsdl:portType name="IService">
     <wsdl:operation name="test">
@@ -59,8 +59,8 @@
     <wsdl:operation name="Talk">
       <wsdl:input wsaw:Action="MyService/IService/Talk" message="tns:IService_Talk_InputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Checkin">
-      <wsdl:input wsaw:Action="MyService/IService/Checkin" message="tns:IService_Checkin_InputMessage" />
+    <wsdl:operation name="EnterRoom">
+      <wsdl:input wsaw:Action="MyService/IService/EnterRoom" message="tns:IService_EnterRoom_InputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ShowInk">
       <wsdl:output wsaw:Action="MyService/IService/ShowInk" message="tns:IService_ShowInk_OutputCallbackMessage" />
@@ -74,8 +74,8 @@
     <wsdl:operation name="ShowTalk">
       <wsdl:output wsaw:Action="MyService/IService/ShowTalk" message="tns:IService_ShowTalk_OutputCallbackMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ShowCheckin">
-      <wsdl:output wsaw:Action="MyService/IService/ShowCheckin" message="tns:IService_ShowCheckin_OutputCallbackMessage" />
+    <wsdl:operation name="ShowRoom">
+      <wsdl:output wsaw:Action="MyService/IService/ShowRoom" message="tns:IService_ShowRoom_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
 </wsdl:definitions>

@@ -67,8 +67,8 @@
         <soap12:body use="literal" />
       </wsdl:input>
     </wsdl:operation>
-    <wsdl:operation name="Checkin">
-      <soap12:operation soapAction="MyService/IService/Checkin" style="document" />
+    <wsdl:operation name="EnterRoom">
+      <soap12:operation soapAction="MyService/IService/EnterRoom" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -97,8 +97,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ShowCheckin">
-      <soap12:operation soapAction="MyService/IService/ShowCheckin" style="document" />
+    <wsdl:operation name="ShowRoom">
+      <soap12:operation soapAction="MyService/IService/ShowRoom" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>

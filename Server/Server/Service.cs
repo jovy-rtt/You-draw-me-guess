@@ -29,16 +29,17 @@ namespace Server
         /// <summary>
         /// 发送数字墨迹
         /// </summary>
-        public void SendInk(int room, string ink) 
+        public void SendInk(int room, string ink)
         {
             foreach (var v in CC.Users)
             {
                 v.callback.ShowInk(ink);
             }
         }
+
         #endregion
 
-        
+
 
         /*-----------------------------------------------------  分割线   ---------------------------------------------------------------*/
 
@@ -95,6 +96,30 @@ namespace Server
 
         }
 
+
+        #endregion
+
+        #region 游戏的服务端接口实现
+        //进入房间
+        public void EnterRoom(string userName, int roomId)
+        {
+            MyUser user = CC.GetUser(userName);
+            //初始化新房间
+            if (CC.Rooms.ContainsKey(roomId) == false)
+            {
+                CC.Rooms.Add(roomId, new Room());
+                CC.Rooms[roomId].Users = new List<MyUser>();
+                CC.Rooms[roomId].Question = new Questions();
+            }
+            //该用户添加到房间
+            CC.Rooms[roomId].Users.Add(user);
+            //test
+            //给该房间的所有用户发送最新用户消息
+            //foreach (var item in CC.Rooms[roomId].Users)
+            //{
+            //    item.callback.ShowRoom(CC.Rooms[roomId]);
+            //}
+        }
 
         #endregion
 
