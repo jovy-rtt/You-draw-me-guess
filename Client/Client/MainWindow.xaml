@@ -135,5 +135,6 @@
                 </Button>
             </Grid>
         </Border>
+        <Label x:Name="ScoreLabel" Content="" HorizontalAlignment="Left" Margin="549,53,0,0" VerticalAlignment="Top" Height="31" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="41" FontSize="16" FontFamily="HGTX_CNKI" Foreground="#FF9B29AD" FontWeight="Bold"/>
     </Grid>
 </Window>

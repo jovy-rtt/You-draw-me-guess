@@ -20,5 +20,7 @@ namespace Server
         public int Grade { get; set; }
         public string Sign { get; set; }
         public string Name { get; set; }
+        public Nullable<int> Score { get; set; }
+        public Nullable<int> Room { get; set; }
     }
 }

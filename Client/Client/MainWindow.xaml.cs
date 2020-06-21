@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Ribbon;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Ink;
@@ -213,8 +214,25 @@ namespace Client
             this.ConversationBox.Text += "[" + userName + "]说：" + str + '\n';
         }
 
+
+
         #endregion
 
-
+        #region 游戏的回调函数实现
+        public void ShowRoom(string roommeg)
+        {
+            UserBox.Items.Clear();
+            //显示各个选手得分
+            string[] s = roommeg.Split(',');
+            for (int i = 0; i <s.Length; i+=2)
+            {
+                UserBox.Items.Add(s[i] + "---" + s[i + 1] + "分");
+                if(UserName==s[i]) ScoreLabel.Content = s[i+1];
+            }
+            //初始画板都不可使用
+            inkcanvas.IsEnabled = false;
+        }
+        
+        #endregion
     }
 }
