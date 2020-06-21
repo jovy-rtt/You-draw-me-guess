@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Ribbon;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Ink;
@@ -16,6 +17,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Client.ServiceReference;
 using Client.LoginReference;
+
 //已添加服务引用，命名空间为：ServiceReference
 //服务引用地址为：http://localhost:8733/Design_Time_Addresses/Service/  该地址为本地调试地址
 
@@ -27,8 +29,11 @@ namespace Client
     public partial class MainWindow : Window,IServiceCallback
     {
         private ServiceClient client;
+        private LoginServiceClient loginclient;
         public int room;//暂用
         public string id { get; set; }//id所属
+        public string account { get; set; }
+        public LoginReference.User us;
 
         private User item;//对象
 
@@ -36,6 +41,7 @@ namespace Client
         { 
             InitializeComponent();
             client = new ServiceClient(new InstanceContext(this));
+            loginclient = new LoginServiceClient();
             //bool flag = client.test();
             //MessageBox.Show(flag.ToString());
         }
@@ -75,7 +81,7 @@ namespace Client
             if (item != null)
             {
                 //this.U1.Source = new Uri(item.Tag.ToString(), UriKind.Relative);
-                PlayerInfo pi = new PlayerInfo();
+                PlayerInfo pi = new PlayerInfo(us);
                 pi.ShowDialog();
             }
         }
@@ -90,6 +96,7 @@ namespace Client
         private void send_Click(object sender, RoutedEventArgs e)
         {
             client.Talk(UserName, this.SendBox.Text);
+            client.Info(account);
         }
         private void exitBnt_Click(object sender, RoutedEventArgs e)
         {
@@ -206,15 +213,36 @@ namespace Client
 
         public void ShowTalk(string userName, string message)
         {
-            AddColorMessage(userName, message);
+            this.ConversationBox.Text += "[" + userName + "]说：" + message + '\n';
         }
-        private void AddColorMessage(string userName, string str)
+
+        public void ShowInfo(string account)
         {
-            this.ConversationBox.Text += "[" + userName + "]说：" + str + '\n';
+             us = loginclient.Userinfo(account);
+            this.U1.Text += "  昵称：" + us.Name + '\n' + "  等级：" + us.Grade + '\n' + '\n';
         }
+
+
 
         #endregion
 
+        #region 游戏的回调函数实现
+        public void ShowRoom(string roommeg)
+        {
+            //UserBox.Items.Clear();
+            //显示各个选手得分
+            //string[] s = roommeg.Split(',');
+            //for (int i = 0; i < s.Length; i += 2)
+            //{
+            //    UserBox.Items.Add(s[i] + "---" + s[i + 1] + "分");
+            //    if (UserName == s[i]) ScoreLabel.Content = s[i + 1];
+            //}
+            //初始画板都不可使用
+            //inkcanvas.IsEnabled = false;
+        }
 
+      
+
+        #endregion
     }
 }

@@ -84,6 +84,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="CC.cs" />
+    <Compile Include="CheckinService.cs" />
+    <Compile Include="ICheckinService.cs" />
     <Compile Include="ILoginService.cs" />
     <Compile Include="LoginService.cs" />
     <Compile Include="MyDb.Context.cs">
@@ -105,7 +107,6 @@
     <Compile Include="Questions.cs">
       <DependentUpon>MyDb.tt</DependentUpon>
     </Compile>
-    <Compile Include="Room.cs" />
     <Compile Include="Service.cs" />
     <Compile Include="User.cs">
       <DependentUpon>MyDb.tt</DependentUpon>

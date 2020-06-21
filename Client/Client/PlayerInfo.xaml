@@ -12,26 +12,14 @@
                 <ImageBrush AlignmentX="Right" ImageSource="image\小丸.jpg" Opacity="0.6" AlignmentY="Bottom"/>
             </Frame.Background>
         </Frame>
-        <StackPanel HorizontalAlignment="Left" Height="127" Margin="42,42,0,0" VerticalAlignment="Top" Width="90" Background="White"  >
-            <Image  Height="127"/>
+        <StackPanel HorizontalAlignment="Left" Height="104" Margin="42,42,0,0" VerticalAlignment="Top" Width="90" Background="White"  >
+            <Image  Height="99"/>
         </StackPanel>
         <Label Content="昵称：" HorizontalAlignment="Left" Margin="182,59,0,0" VerticalAlignment="Top"/>
         <Label Content="等级：" HorizontalAlignment="Left" Margin="182,109,0,0" VerticalAlignment="Top"/>
         <Label Content="个性签名：" HorizontalAlignment="Left" Margin="42,191,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="244,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="244,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="66" Margin="113,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="251"/>
-       <Image Source="/image/樱桃小丸子免抠图.png" Margin="332,127,3.333,80.667" ScrollViewer.HorizontalScrollBarVisibility="Auto" RenderTransformOrigin="1,1"  >
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-35"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-
-
+        <TextBox x:Name="name" HorizontalAlignment="Left" Height="23" Margin="244,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
+        <TextBox x:Name="level" HorizontalAlignment="Left" Height="23" Margin="244,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="sign" HorizontalAlignment="Left" Height="66" Margin="113,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="251"/>
     </Grid>
 </Window>
