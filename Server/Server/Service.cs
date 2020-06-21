@@ -104,21 +104,27 @@ namespace Server
         public void EnterRoom(string userName, int roomId)
         {
             MyUser user = CC.GetUser(userName);
+            user.Room = roomId;
             //初始化新房间
             if (CC.Rooms.ContainsKey(roomId) == false)
             {
                 CC.Rooms.Add(roomId, new Room());
-                CC.Rooms[roomId].Users = new List<MyUser>();
-                CC.Rooms[roomId].Question = new Questions();
+                CC.Rooms[roomId].users = new List<MyUser>();
+                CC.Rooms[roomId].question = new Questions();
             }
             //该用户添加到房间
-            CC.Rooms[roomId].Users.Add(user);
-            //test
+            CC.Rooms[roomId].users.Add(user);
+
             //给该房间的所有用户发送最新用户消息
-            //foreach (var item in CC.Rooms[roomId].Users)
-            //{
-            //    item.callback.ShowRoom(CC.Rooms[roomId]);
-            //}
+            foreach (var item in CC.Rooms[roomId].users)
+            {
+                string s = "";
+                foreach (var v in CC.Rooms[roomId].users)
+                {
+                    s += v.Name + "," + v.Score.ToString() + ",";
+                }
+                item.callback.ShowRoom(s);
+            }
         }
 
         #endregion

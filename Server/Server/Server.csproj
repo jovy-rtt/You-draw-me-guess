@@ -105,7 +105,6 @@
     <Compile Include="Questions.cs">
       <DependentUpon>MyDb.tt</DependentUpon>
     </Compile>
-    <Compile Include="Room.cs" />
     <Compile Include="Service.cs" />
     <Compile Include="User.cs">
       <DependentUpon>MyDb.tt</DependentUpon>

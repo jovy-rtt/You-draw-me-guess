@@ -82,7 +82,7 @@
   <xs:element name="ShowRoom">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="room" type="xs:int" />
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
