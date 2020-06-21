@@ -42,49 +42,49 @@
                 </Grid>
                 <Grid HorizontalAlignment="Left" Height="128" VerticalAlignment="Bottom" Width="128" Margin="135,0,0,202">
                     <Image HorizontalAlignment="Left" Height="64" Margin="34,31,0,0" VerticalAlignment="Top" Width="64" Source="image/table.png"/>
-                    <Button HorizontalAlignment="Center" Margin="48,0" VerticalAlignment="Top" Width="32" Height="32" Background="#FFFDFCE7" BorderBrush="White" Foreground="White">
+                    <Button Click="room_Click" HorizontalAlignment="Center" Margin="48,0" VerticalAlignment="Top" Width="32" Height="32" Background="#FFFDFCE7" BorderBrush="White" Foreground="White">
                         <Image Height="32" Width="32"/>
                     </Button>
                     <Image HorizontalAlignment="Left" Height="48" Margin="42,39,0,0" VerticalAlignment="Top" Width="48" Source="image/game.png"/>
-                    <Button HorizontalAlignment="Center" Margin="48,0" VerticalAlignment="Bottom" Width="32" Height="32" Background="#FFFDFCE7" BorderBrush="White" Foreground="White">
+                    <Button Click="room_Click" HorizontalAlignment="Center" Margin="48,0" VerticalAlignment="Bottom" Width="32" Height="32" Background="#FFFDFCE7" BorderBrush="White" Foreground="White">
                         <Image Height="32" Width="32"/>
                     </Button>
-                    <Button HorizontalAlignment="Left" Margin="0" VerticalAlignment="Center" Width="32" Height="32" Background="#FFFDFCE7" BorderBrush="White" Foreground="White">
+                    <Button Click="room_Click" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Center" Width="32" Height="32" Background="#FFFDFCE7" BorderBrush="White" Foreground="White">
                         <Image Height="32" Width="32"/>
                     </Button>
-                    <Button HorizontalAlignment="Right" Margin="0,48" VerticalAlignment="Center" Width="32" Height="32" Background="#FFFDFCE7" BorderBrush="White" Foreground="White">
+                    <Button Click="room_Click" HorizontalAlignment="Right" Margin="0,48" VerticalAlignment="Center" Width="32" Height="32" Background="#FFFDFCE7" BorderBrush="White" Foreground="White">
                         <Image Height="32" Width="32"/>
                     </Button>
                 </Grid>
                 <Grid HorizontalAlignment="Left" Height="128" VerticalAlignment="Bottom" Width="128" Margin="268,0,0,202">
                     <Image HorizontalAlignment="Left" Height="64" Margin="34,31,0,0" VerticalAlignment="Top" Width="64" Source="image/table.png"/>
-                    <Button HorizontalAlignment="Center" Margin="48,0" VerticalAlignment="Top" Width="32" Height="32" Background="#FFFDFCE7" BorderBrush="White" Foreground="White">
+                    <Button Click="room_Click" HorizontalAlignment="Center" Margin="48,0" VerticalAlignment="Top" Width="32" Height="32" Background="#FFFDFCE7" BorderBrush="White" Foreground="White">
                         <Image Height="32" Width="32"/>
                     </Button>
                     <Image HorizontalAlignment="Left" Height="48" Margin="42,39,0,0" VerticalAlignment="Top" Width="48" Source="image/game.png"/>
-                    <Button HorizontalAlignment="Center" Margin="48,0" VerticalAlignment="Bottom" Width="32" Height="32" Background="#FFFDFCE7" BorderBrush="White" Foreground="White">
+                    <Button Click="room_Click" HorizontalAlignment="Center" Margin="48,0" VerticalAlignment="Bottom" Width="32" Height="32" Background="#FFFDFCE7" BorderBrush="White" Foreground="White">
                         <Image Height="32" Width="32"/>
                     </Button>
-                    <Button HorizontalAlignment="Left" Margin="0" VerticalAlignment="Center" Width="32" Height="32" Background="#FFFDFCE7" BorderBrush="White" Foreground="White">
+                    <Button Click="room_Click" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Center" Width="32" Height="32" Background="#FFFDFCE7" BorderBrush="White" Foreground="White">
                         <Image Height="32" Width="32"/>
                     </Button>
-                    <Button HorizontalAlignment="Right" Margin="0,48" VerticalAlignment="Center" Width="32" Height="32" Background="#FFFDFCE7" BorderBrush="White" Foreground="White">
+                    <Button Click="room_Click" HorizontalAlignment="Right" Margin="0,48" VerticalAlignment="Center" Width="32" Height="32" Background="#FFFDFCE7" BorderBrush="White" Foreground="White">
                         <Image Height="32" Width="32"/>
                     </Button>
                 </Grid>
                 <Grid HorizontalAlignment="Left" Height="128" VerticalAlignment="Bottom" Width="128" Margin="401,0,0,202">
                     <Image HorizontalAlignment="Left" Height="64" Margin="34,31,0,0" VerticalAlignment="Top" Width="64" Source="image/table.png"/>
-                    <Button HorizontalAlignment="Center" Margin="48,0" VerticalAlignment="Top" Width="32" Height="32" Background="#FFFDFCE7" BorderBrush="White" Foreground="White">
+                    <Button Click="room_Click" HorizontalAlignment="Center" Margin="48,0" VerticalAlignment="Top" Width="32" Height="32" Background="#FFFDFCE7" BorderBrush="White" Foreground="White">
                         <Image Height="32" Width="32"/>
                     </Button>
                     <Image HorizontalAlignment="Left" Height="48" Margin="42,39,0,0" VerticalAlignment="Top" Width="48" Source="image/game.png"/>
-                    <Button HorizontalAlignment="Center" Margin="48,0" VerticalAlignment="Bottom" Width="32" Height="32" Background="#FFFDFCE7" BorderBrush="White" Foreground="White">
+                    <Button Click="room_Click" HorizontalAlignment="Center" Margin="48,0" VerticalAlignment="Bottom" Width="32" Height="32" Background="#FFFDFCE7" BorderBrush="White" Foreground="White">
                         <Image Height="32" Width="32"/>
                     </Button>
-                    <Button HorizontalAlignment="Left" Margin="0" VerticalAlignment="Center" Width="32" Height="32" Background="#FFFDFCE7" BorderBrush="White" Foreground="White">
+                    <Button Click="room_Click" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Center" Width="32" Height="32" Background="#FFFDFCE7" BorderBrush="White" Foreground="White">
                         <Image Height="32" Width="32"/>
                     </Button>
-                    <Button HorizontalAlignment="Right" Margin="0,48" VerticalAlignment="Center" Width="32" Height="32" Background="#FFFDFCE7" BorderBrush="White" Foreground="White">
+                    <Button Click="room_Click" HorizontalAlignment="Right" Margin="0,48" VerticalAlignment="Center" Width="32" Height="32" Background="#FFFDFCE7" BorderBrush="White" Foreground="White">
                         <Image Height="32" Width="32"/>
                     </Button>
                 </Grid>
@@ -92,65 +92,65 @@
 
                 <Grid HorizontalAlignment="Left" Height="128" VerticalAlignment="Bottom" Width="128" Margin="2,0,0,41">
                     <Image HorizontalAlignment="Left" Height="64" Margin="34,31,0,0" VerticalAlignment="Top" Width="64" Source="image/table.png"/>
-                    <Button HorizontalAlignment="Center" Margin="48,0" VerticalAlignment="Top" Width="32" Height="32" Background="#FFF9F7A6" BorderBrush="White" Foreground="White">
+                    <Button Click="room_Click" HorizontalAlignment="Center" Margin="48,0" VerticalAlignment="Top" Width="32" Height="32" Background="#FFF9F7A6" BorderBrush="White" Foreground="White">
                         <Image Height="32" Width="32"/>
                     </Button>
                     <Image HorizontalAlignment="Left" Height="48" Margin="42,39,0,0" VerticalAlignment="Top" Width="48" Source="image/game.png"/>
-                    <Button HorizontalAlignment="Center" Margin="48,0" VerticalAlignment="Bottom" Width="32" Height="32" Background="#FFF9F7A6" BorderBrush="White" Foreground="White">
+                    <Button Click="room_Click" HorizontalAlignment="Center" Margin="48,0" VerticalAlignment="Bottom" Width="32" Height="32" Background="#FFF9F7A6" BorderBrush="White" Foreground="White">
                         <Image Height="32" Width="32"/>
                     </Button>
-                    <Button HorizontalAlignment="Left" Margin="0" VerticalAlignment="Center" Width="32" Height="32" Background="#FFF9F7A6" BorderBrush="White" Foreground="White">
+                    <Button Click="room_Click" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Center" Width="32" Height="32" Background="#FFF9F7A6" BorderBrush="White" Foreground="White">
                         <Image Height="32" Width="32"/>
                     </Button>
-                    <Button HorizontalAlignment="Right" Margin="0,48" VerticalAlignment="Center" Width="32" Height="32" Background="#FFF9F7A6" BorderBrush="White" Foreground="White">
+                    <Button Click="room_Click" HorizontalAlignment="Right" Margin="0,48" VerticalAlignment="Center" Width="32" Height="32" Background="#FFF9F7A6" BorderBrush="White" Foreground="White">
                         <Image Height="32" Width="32"/>
                     </Button>
                 </Grid>
                 <Grid HorizontalAlignment="Left" Height="128" VerticalAlignment="Bottom" Width="128" Margin="135,0,0,41">
                     <Image HorizontalAlignment="Left" Height="64" Margin="34,31,0,0" VerticalAlignment="Top" Width="64" Source="image/table.png"/>
-                    <Button HorizontalAlignment="Center" Margin="48,0" VerticalAlignment="Top" Width="32" Height="32" Background="#FFF9F7A6" BorderBrush="White" Foreground="White">
+                    <Button Click="room_Click" HorizontalAlignment="Center" Margin="48,0" VerticalAlignment="Top" Width="32" Height="32" Background="#FFF9F7A6" BorderBrush="White" Foreground="White">
                         <Image Height="32" Width="32"/>
                     </Button>
                     <Image HorizontalAlignment="Left" Height="48" Margin="42,39,0,0" VerticalAlignment="Top" Width="48" Source="image/game.png"/>
-                    <Button HorizontalAlignment="Center" Margin="48,0" VerticalAlignment="Bottom" Width="32" Height="32" Background="#FFF9F7A6" BorderBrush="White" Foreground="White">
+                    <Button Click="room_Click" HorizontalAlignment="Center" Margin="48,0" VerticalAlignment="Bottom" Width="32" Height="32" Background="#FFF9F7A6" BorderBrush="White" Foreground="White">
                         <Image Height="32" Width="32"/>
                     </Button>
-                    <Button HorizontalAlignment="Left" Margin="0" VerticalAlignment="Center" Width="32" Height="32" Background="#FFF9F7A6" BorderBrush="White" Foreground="White">
+                    <Button Click="room_Click" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Center" Width="32" Height="32" Background="#FFF9F7A6" BorderBrush="White" Foreground="White">
                         <Image Height="32" Width="32"/>
                     </Button>
-                    <Button HorizontalAlignment="Right" Margin="0,48" VerticalAlignment="Center" Width="32" Height="32" Background="#FFF9F7A6" BorderBrush="White" Foreground="White">
+                    <Button Click="room_Click" HorizontalAlignment="Right" Margin="0,48" VerticalAlignment="Center" Width="32" Height="32" Background="#FFF9F7A6" BorderBrush="White" Foreground="White">
                         <Image Height="32" Width="32"/>
                     </Button>
                 </Grid>
                 <Grid HorizontalAlignment="Left" Height="128" VerticalAlignment="Bottom" Width="128" Margin="268,0,0,41">
                     <Image HorizontalAlignment="Left" Height="64" Margin="34,31,0,0" VerticalAlignment="Top" Width="64" Source="image/table.png"/>
-                    <Button HorizontalAlignment="Center" Margin="48,0" VerticalAlignment="Top" Width="32" Height="32" Background="#FFF9F7A6" BorderBrush="White" Foreground="White">
+                    <Button Click="room_Click" HorizontalAlignment="Center" Margin="48,0" VerticalAlignment="Top" Width="32" Height="32" Background="#FFF9F7A6" BorderBrush="White" Foreground="White">
                         <Image Height="32" Width="32"/>
                     </Button>
                     <Image HorizontalAlignment="Left" Height="48" Margin="42,39,0,0" VerticalAlignment="Top" Width="48" Source="image/game.png"/>
-                    <Button HorizontalAlignment="Center" Margin="48,0" VerticalAlignment="Bottom" Width="32" Height="32" Background="#FFF9F7A6" BorderBrush="White" Foreground="White">
+                    <Button Click="room_Click" HorizontalAlignment="Center" Margin="48,0" VerticalAlignment="Bottom" Width="32" Height="32" Background="#FFF9F7A6" BorderBrush="White" Foreground="White">
                         <Image Height="32" Width="32"/>
                     </Button>
-                    <Button HorizontalAlignment="Left" Margin="0" VerticalAlignment="Center" Width="32" Height="32" Background="#FFF9F7A6" BorderBrush="White" Foreground="White">
+                    <Button Click="room_Click" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Center" Width="32" Height="32" Background="#FFF9F7A6" BorderBrush="White" Foreground="White">
                         <Image Height="32" Width="32"/>
                     </Button>
-                    <Button HorizontalAlignment="Right" Margin="0,48" VerticalAlignment="Center" Width="32" Height="32" Background="#FFF9F7A6" BorderBrush="White" Foreground="White">
+                    <Button Click="room_Click" HorizontalAlignment="Right" Margin="0,48" VerticalAlignment="Center" Width="32" Height="32" Background="#FFF9F7A6" BorderBrush="White" Foreground="White">
                         <Image Height="32" Width="32"/>
                     </Button>
                 </Grid>
                 <Grid HorizontalAlignment="Left" Height="128" VerticalAlignment="Bottom" Width="128" Margin="401,0,0,41">
                     <Image HorizontalAlignment="Left" Height="64" Margin="34,31,0,0" VerticalAlignment="Top" Width="64" Source="image/table.png"/>
-                    <Button HorizontalAlignment="Center" Margin="48,0" VerticalAlignment="Top" Width="32" Height="32" Background="#FFF9F7A6" BorderBrush="White" Foreground="White">
+                    <Button Click="room_Click" HorizontalAlignment="Center" Margin="48,0" VerticalAlignment="Top" Width="32" Height="32" Background="#FFF9F7A6" BorderBrush="White" Foreground="White">
                         <Image Height="32" Width="32"/>
                     </Button>
                     <Image HorizontalAlignment="Left" Height="48" Margin="42,39,0,0" VerticalAlignment="Top" Width="48" Source="image/game.png"/>
-                    <Button HorizontalAlignment="Center" Margin="48,0" VerticalAlignment="Bottom" Width="32" Height="32" Background="#FFF9F7A6" BorderBrush="White" Foreground="White">
+                    <Button Click="room_Click" HorizontalAlignment="Center" Margin="48,0" VerticalAlignment="Bottom" Width="32" Height="32" Background="#FFF9F7A6" BorderBrush="White" Foreground="White">
                         <Image Height="32" Width="32"/>
                     </Button>
-                    <Button HorizontalAlignment="Left" Margin="0" VerticalAlignment="Center" Width="32" Height="32" Background="#FFF9F7A6" BorderBrush="White" Foreground="White">
+                    <Button Click="room_Click" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Center" Width="32" Height="32" Background="#FFF9F7A6" BorderBrush="White" Foreground="White">
                         <Image Height="32" Width="32"/>
                     </Button>
-                    <Button HorizontalAlignment="Right" Margin="0,48" VerticalAlignment="Center" Width="32" Height="32" Background="#FFF9F7A6" BorderBrush="White" Foreground="White">
+                    <Button Click="room_Click" HorizontalAlignment="Right" Margin="0,48" VerticalAlignment="Center" Width="32" Height="32" Background="#FFF9F7A6" BorderBrush="White" Foreground="White">
                         <Image Height="32" Width="32"/>
                     </Button>
                 </Grid>
