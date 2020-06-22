@@ -22,10 +22,10 @@ namespace Client.ServiceReference {
         System.Threading.Tasks.Task<bool> testAsync();
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/SendInk")]
-        void SendInk(int room, string ink);
+        void SendInk(int roomId, string ink);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/SendInk")]
-        System.Threading.Tasks.Task SendInkAsync(int room, string ink);
+        System.Threading.Tasks.Task SendInkAsync(int roomId, string ink);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/Login")]
         void Login(string userName);
@@ -34,22 +34,16 @@ namespace Client.ServiceReference {
         System.Threading.Tasks.Task LoginAsync(string userName);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/Logout")]
-        void Logout(string userName);
+        void Logout(int roomId, string userName);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/Logout")]
-        System.Threading.Tasks.Task LogoutAsync(string userName);
+        System.Threading.Tasks.Task LogoutAsync(int roomId, string userName);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/Talk")]
-        void Talk(string userName, string message);
+        void Talk(int roomId, string userName, string message);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/Talk")]
-        System.Threading.Tasks.Task TalkAsync(string userName, string message);
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/Info")]
-        void Info(string account);
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/Info")]
-        System.Threading.Tasks.Task InfoAsync(string account);
+        System.Threading.Tasks.Task TalkAsync(int roomId, string userName, string message);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/EnterRoom")]
         void EnterRoom(string userName, int roomId);
@@ -68,7 +62,7 @@ namespace Client.ServiceReference {
     public interface IServiceCallback {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/ShowInk")]
-        void ShowInk(string ink);
+        void ShowInk(int roomId, string ink);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/ShowLogin")]
         void ShowLogin(string loginUserName);
@@ -79,14 +73,17 @@ namespace Client.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/ShowTalk")]
         void ShowTalk(string userName, string message);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/ShowInfo")]
-        void ShowInfo(string account);
-        
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/ShowRoom")]
-        void ShowRoom(string userName);
+        void ShowRoom(string roommeg);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/ShowStart")]
         void ShowStart(string userName1, string answer, string tip);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/ShowWin")]
+        void ShowWin(string userName);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/ShowNewTurn")]
+        void ShowNewTurn(string roommeg, string userName1, string answer, string tip);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -125,12 +122,12 @@ namespace Client.ServiceReference {
             return base.Channel.testAsync();
         }
         
-        public void SendInk(int room, string ink) {
-            base.Channel.SendInk(room, ink);
+        public void SendInk(int roomId, string ink) {
+            base.Channel.SendInk(roomId, ink);
         }
         
-        public System.Threading.Tasks.Task SendInkAsync(int room, string ink) {
-            return base.Channel.SendInkAsync(room, ink);
+        public System.Threading.Tasks.Task SendInkAsync(int roomId, string ink) {
+            return base.Channel.SendInkAsync(roomId, ink);
         }
         
         public void Login(string userName) {
@@ -141,28 +138,20 @@ namespace Client.ServiceReference {
             return base.Channel.LoginAsync(userName);
         }
         
-        public void Logout(string userName) {
-            base.Channel.Logout(userName);
+        public void Logout(int roomId, string userName) {
+            base.Channel.Logout(roomId, userName);
         }
         
-        public System.Threading.Tasks.Task LogoutAsync(string userName) {
-            return base.Channel.LogoutAsync(userName);
+        public System.Threading.Tasks.Task LogoutAsync(int roomId, string userName) {
+            return base.Channel.LogoutAsync(roomId, userName);
         }
         
-        public void Talk(string userName, string message) {
-            base.Channel.Talk(userName, message);
+        public void Talk(int roomId, string userName, string message) {
+            base.Channel.Talk(roomId, userName, message);
         }
         
-        public System.Threading.Tasks.Task TalkAsync(string userName, string message) {
-            return base.Channel.TalkAsync(userName, message);
-        }
-        
-        public void Info(string account) {
-            base.Channel.Info(account);
-        }
-        
-        public System.Threading.Tasks.Task InfoAsync(string account) {
-            return base.Channel.InfoAsync(account);
+        public System.Threading.Tasks.Task TalkAsync(int roomId, string userName, string message) {
+            return base.Channel.TalkAsync(roomId, userName, message);
         }
         
         public void EnterRoom(string userName, int roomId) {
