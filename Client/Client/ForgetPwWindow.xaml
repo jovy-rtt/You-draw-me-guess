@@ -56,7 +56,7 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Label Grid.Row="1" Grid.Column="0" Content="账号:" ></Label>
-        <Label Grid.Row="2" Grid.Column="0" Content="手机号:" ></Label>
+        <Label Grid.Row="2" Grid.Column="0" Content="令牌:" ></Label>
         <Label Grid.Row="3" Grid.Column="0" Content="验证码:" ></Label>
         <Label Grid.Row="4" Grid.Column="0" Content="新密码:"></Label>
         <Label Grid.Row="5" Grid.Column="0" Content="再次确认:" Width="100"></Label>

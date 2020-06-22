@@ -26,11 +26,11 @@ namespace Client
     /// <summary>
     /// MainWindow.xaml 的交互逻辑
     /// </summary>
-    public partial class MainWindow : Window,IServiceCallback
+    public partial class MainWindow : Window, IServiceCallback
     {
         private ServiceClient client;
         private LoginServiceClient loginclient;
-        public int room;//暂用
+        public int roomId;//暂用
         public LoginReference.User us;//用户的所有信息
         private User item;//每一个id所属，item可以控制该id下的所有窗口
         //画板相关
@@ -39,15 +39,15 @@ namespace Client
 
         //传参方式的变化
         public MainWindow(LoginReference.User ustmp)
-        { 
+        {
             InitializeComponent();
             us = ustmp;
             item = CC.GetUser(us.Acount);
         }
 
-        
 
-        
+
+
 
         /*----------------------------------------------------- 分割线  ----------------------------------------------------------------*/
         #region 客户端内的方法
@@ -59,7 +59,7 @@ namespace Client
             loginclient = new LoginServiceClient();
             //显示登录
             client.Login(us.Name);
-            client.Info(us.Acount);
+            client.Info(us.Acount); 
             this.textBoxUserName.Content = us.Name;
 
             //初始化墨迹和画板
@@ -98,7 +98,7 @@ namespace Client
         //用于绑定enter建
         private void SendBox_KeyUp(object sender, KeyEventArgs e)
         {
-            if(e.Key==Key.Enter)
+            if (e.Key == Key.Enter)
             {
                 client.Talk(us.Name, this.SendBox.Text);
                 this.SendBox.Text = "";
@@ -136,7 +136,7 @@ namespace Client
             StrokeCollection sc = inkcanvas.Strokes;
             string inkData = (new StrokeCollectionConverter()).ConvertToString(sc);
 
-            client.SendInk(room, inkData);
+            client.SendInk(roomId, inkData);
         }
         public void ShowInk(string inkData)
         {
@@ -204,7 +204,7 @@ namespace Client
                     inkcanvas.Strokes.Clear();
                     StrokeCollection sc = inkcanvas.Strokes;
                     string inkData = (new StrokeCollectionConverter()).ConvertToString(sc);
-                    client.SendInk(room, inkData);
+                    client.SendInk(roomId, inkData);
                     break;
             }
         }
@@ -232,7 +232,43 @@ namespace Client
 
         public void ShowInfo(string account)
         {
-            this.U1.Text += "  昵称：" + us.Name + '\n' + "  等级：" + us.Grade + '\n' + '\n';
+            //this.U1.Text += " 昵称：" + us.Name + '\n' + " 等级：" + us.Grade + '\n' + '\n';
+            LoginReference.User[] usarr = new LoginReference.User[4];
+            int cnt = 0;
+            foreach (var item in CC.Users)
+            {
+                usarr[cnt++] = loginclient.Userinfo(item.id);
+            }
+            //得到了已登录的所有用户的信息
+            if (usarr[0].Avart == null)
+                usarr[0].Avart = "boy.png";
+            this.photo1.Source = new BitmapImage(new Uri("pack://application:,,,/image/" + usarr[0].Avart));
+            this.U1.Text += " 昵称：" + usarr[0].Name + '\n' + " 等级：" + usarr[0].Grade + '\n' ;
+
+            if (cnt == 1)
+                return;
+
+            if (usarr[1].Avart == null)
+                usarr[1].Avart = "boy.png";
+            this.photo2.Source = new BitmapImage(new Uri("pack://application:,,,/image/" + usarr[1].Avart));
+            this.U2.Text += " 昵称：" + usarr[1].Name + '\n' + " 等级：" + usarr[1].Grade + '\n' ;
+
+            if (cnt == 2)
+                return;
+
+            if (usarr[2].Avart == null)
+                usarr[2].Avart = "boy.png";
+            this.photo3.Source = new BitmapImage(new Uri("pack://application:,,,/image/" + usarr[2].Avart));
+            this.U3.Text += " 昵称：" + usarr[2].Name + '\n' + " 等级：" + usarr[2].Grade + '\n' ;
+
+            if (cnt == 3)
+                return;
+
+            if (usarr[3].Avart == null)
+                usarr[3].Avart = "boy.png";
+            this.photo4.Source = new BitmapImage(new Uri("pack://application:,,,/image/" + usarr[3].Avart));
+            this.U4.Text += " 昵称：" + usarr[3].Name + '\n' + " 等级：" + usarr[3].Grade + '\n' + '\n';
+
         }
 
 
@@ -242,23 +278,48 @@ namespace Client
         #region 游戏的回调函数实现
         public void ShowRoom(string roommeg)
         {
-            //UserBox.Items.Clear();
+            UserBox.Items.Clear();
             //显示各个选手得分
-            //string[] s = roommeg.Split(',');
-            //for (int i = 0; i < s.Length; i += 2)
-            //{
-            //    UserBox.Items.Add(s[i] + "---" + s[i + 1] + "分");
-            //    if (UserName == s[i]) ScoreLabel.Content = s[i + 1];
-            //}
+            string[] s = roommeg.Split(',');
+            for (int i = 0; i < s.Length; i += 2)
+            {
+                UserBox.Items.Add(s[i] + "---" + s[i + 1] + "分");
+                if (us.Name == s[i]) ScoreLabel.Content = s[i + 1];
+            }
             //初始画板都不可使用
-            //inkcanvas.IsEnabled = false;
+            inkcanvas.IsEnabled = false;
         }
-
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            readybtn.IsEnabled = false;
+            readybtn.Content = "已准备";
+            client.StartGame(us.Name, roomId);
+        }
+        public void ShowStart(string userName1, string answer, string tip)
+        {
+            inkcanvas.Strokes.Clear();
+            //画图者
+            if(us.Name==userName1)
+            {
+                inkcanvas.IsEnabled = true;
+                sendbtn.IsEnabled = false;
+                TipLabel.Content = "题目：" + answer;
+                ConversationBox.Text += "系统提示：请开始绘画\n";
+            }
+            //猜图者
+            else
+            {
+                inkcanvas.IsEnabled = false;
+                sendbtn.IsEnabled = true;
+                TipLabel.Content = "提示：" + tip;
+                ConversationBox.Text += "系统提示：请开始抢答\n";
+            }
+        }
 
 
 
         #endregion
 
-        
+
     }
 }

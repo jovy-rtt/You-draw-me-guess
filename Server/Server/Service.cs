@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using System.Windows.Automation.Peers;
 
 namespace Server
 {
@@ -120,7 +121,7 @@ namespace Server
             {
                 CC.Rooms.Add(roomId, new Room());
                 CC.Rooms[roomId].users = new List<MyUser>();
-                CC.Rooms[roomId].question = new Questions();
+                CC.Rooms[roomId].question = new questions();
             }
             //该用户添加到房间
             CC.Rooms[roomId].users.Add(user);
@@ -134,6 +135,21 @@ namespace Server
                     s += v.Name + "," + v.Score.ToString() + ",";
                 }
                 item.callback.ShowRoom(s);
+            }
+        }
+        public void StartGame(string userName, int roomId)
+        {
+            //当前用户已准备
+            MyUser user = CC.GetUser(userName);
+            user.ready = true;
+            //判断当前房间内所有用户是否准备好
+            foreach (var item in CC.Rooms[roomId].users)
+            {
+                if (!item.ready) return;
+            }
+            foreach (var item in CC.Rooms[roomId].users)
+            {
+                item.callback.ShowStart(CC.Rooms[roomId].users.First().Name,CC.Rooms[roomId].question.answer, CC.Rooms[roomId].question.tip);
             }
         }
 

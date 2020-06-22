@@ -42,6 +42,8 @@ namespace Client
             item = CC.GetUser(us.Acount);
             Checkinclient = new CheckinServerClient(new InstanceContext(this));
             loginclient = new LoginServiceClient();
+            if (us.Avart == null)
+                us.Avart = "boy.png";
             this.photo.Source = new BitmapImage(new Uri("pack://application:,,,/image/" + us.Avart));
            // Checkinclient.Login(us.Name);
             this.username.Text = us.Name + "快选择一个房间开始游戏吧！";
@@ -59,12 +61,12 @@ namespace Client
             //设置大厅隐藏，打开游戏
             item.RoomWindow.Hide();
             MainWindow mw = new MainWindow(us);
-            mw.room = idx;
+            mw.roomId = idx;
             item.MainWindow = mw;
             item.MainWindow.Show();
 
             //回调进入房间
-            //client.EnterRoom(username.Text, idx);
+            client.EnterRoom(username.Text, idx);
         }
 
         //用于绑定enter键
