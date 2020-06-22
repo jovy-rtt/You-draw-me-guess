@@ -21,7 +21,7 @@ namespace Client
     /// <summary>
     /// RoomWindow.xaml 的交互逻辑
     /// </summary>
-    public partial class RoomWindow : Window
+    public partial class RoomWindow : Window, ICheckinServerCallback
     {
        // private ServiceClient client;//服务端调用
         private LoginServiceClient loginclient;
@@ -29,11 +29,11 @@ namespace Client
         private User item;//每一个id所属，item可以控制该id下的所有窗口
         public LoginReference.User us;//用户的所有信息
 
-        public string UserName
-        {
-            get { return username.Text; }
-            set { username.Text = value + "快选择一个房间开始游戏吧！"; }
-        }
+        //public string UserName
+        //{
+        //    get { return username.Text; }
+        //    set { username.Text = value + "快选择一个房间开始游戏吧！"; }
+        //}
 
         public RoomWindow(LoginReference.User ustmp)
         {
@@ -43,7 +43,8 @@ namespace Client
             Checkinclient = new CheckinServerClient(new InstanceContext(this));
             loginclient = new LoginServiceClient();
             this.photo.Source = new BitmapImage(new Uri("pack://application:,,,/image/" + us.Avart));
-            Checkinclient.Login(us.Name);
+           // Checkinclient.Login(us.Name);
+            this.username.Text = us.Name + "快选择一个房间开始游戏吧！";
         }
 
         //进入房间
