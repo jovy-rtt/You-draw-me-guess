@@ -58,14 +58,30 @@ namespace Server
 
         public void Login(string userName)
         {
-            // throw new NotImplementedException();
             OperationContext context = OperationContext.Current;
             IServiceCallback callback = context.GetCallbackChannel<IServiceCallback>();
             MyUser newUser = new MyUser(userName, callback);
             CC.Users.Add(newUser);
+
+            //为了列表显示
+            List<UserData> datas = new List<UserData>();
+            foreach (var item in CC.Users)
+            {
+                UserData tmp = new UserData();
+                tmp.Acount = item.Acount;
+                tmp.Avart = item.Avart;
+                tmp.Grade = item.Grade;
+                tmp.Name = item.Name;
+                tmp.Room = item.Room;
+                tmp.Score = item.Score;
+                tmp.Sign = item.Sign;
+                datas.Add(tmp);
+            }
+
             foreach (var user in CC.Users)
             {
                 user.callback.ShowLogin(userName);
+                user.callback.ShowInfo(datas);
             }
         }
 
@@ -77,29 +93,17 @@ namespace Server
             }
         }
 
-        public void Info(string account)
-        {
-            foreach (var item in CC.Users)
-            {
-                item.callback.ShowInfo(account);
-            }
-        }
-
-
 
         /// <summary>用户退出</summary>
         public void Logout(string userName)
         {
             MyUser logoutUser = CC.GetUser(userName);
-            foreach (var user in CC.Users)
-            {
-                //不需要发给退出用户
-                if (user.UserName != logoutUser.UserName)
-                {
-                    user.callback.ShowLogout(userName);
-                }
-            }
             CC.Users.Remove(logoutUser);
+            foreach (var item in CC.Users)
+            {
+                item.callback.ShowLogout(userName);
+                
+            }
             logoutUser = null; //将其设置为null后，WCF会自动关闭该客户端
 
         }

@@ -9,7 +9,150 @@
 //------------------------------------------------------------------------------
 
 namespace Client.ServiceReference {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UserData", Namespace="http://schemas.datacontract.org/2004/07/Server")]
+    [System.SerializableAttribute()]
+    public partial class UserData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AcountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AvartField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int GradeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> RoomField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> ScoreField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SignField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Acount {
+            get {
+                return this.AcountField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AcountField, value) != true)) {
+                    this.AcountField = value;
+                    this.RaisePropertyChanged("Acount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Avart {
+            get {
+                return this.AvartField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AvartField, value) != true)) {
+                    this.AvartField = value;
+                    this.RaisePropertyChanged("Avart");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Grade {
+            get {
+                return this.GradeField;
+            }
+            set {
+                if ((this.GradeField.Equals(value) != true)) {
+                    this.GradeField = value;
+                    this.RaisePropertyChanged("Grade");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Room {
+            get {
+                return this.RoomField;
+            }
+            set {
+                if ((this.RoomField.Equals(value) != true)) {
+                    this.RoomField = value;
+                    this.RaisePropertyChanged("Room");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Score {
+            get {
+                return this.ScoreField;
+            }
+            set {
+                if ((this.ScoreField.Equals(value) != true)) {
+                    this.ScoreField = value;
+                    this.RaisePropertyChanged("Score");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Sign {
+            get {
+                return this.SignField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SignField, value) != true)) {
+                    this.SignField = value;
+                    this.RaisePropertyChanged("Sign");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="MyService", ConfigurationName="ServiceReference.IService", CallbackContract=typeof(Client.ServiceReference.IServiceCallback))]
@@ -45,12 +188,6 @@ namespace Client.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/Talk")]
         System.Threading.Tasks.Task TalkAsync(string userName, string message);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/Info")]
-        void Info(string account);
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/Info")]
-        System.Threading.Tasks.Task InfoAsync(string account);
-        
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/EnterRoom")]
         void EnterRoom(string userName, int roomId);
         
@@ -80,7 +217,7 @@ namespace Client.ServiceReference {
         void ShowTalk(string userName, string message);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/ShowInfo")]
-        void ShowInfo(string account);
+        void ShowInfo(Client.ServiceReference.UserData[] myusers);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/ShowRoom")]
         void ShowRoom(string userName);
@@ -155,14 +292,6 @@ namespace Client.ServiceReference {
         
         public System.Threading.Tasks.Task TalkAsync(string userName, string message) {
             return base.Channel.TalkAsync(userName, message);
-        }
-        
-        public void Info(string account) {
-            base.Channel.Info(account);
-        }
-        
-        public System.Threading.Tasks.Task InfoAsync(string account) {
-            return base.Channel.InfoAsync(account);
         }
         
         public void EnterRoom(string userName, int roomId) {

@@ -113,6 +113,7 @@
     <Compile Include="User.cs">
       <DependentUpon>MyDb.tt</DependentUpon>
     </Compile>
+    <Compile Include="UserData.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

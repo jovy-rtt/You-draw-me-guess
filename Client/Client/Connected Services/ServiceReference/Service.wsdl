@@ -67,12 +67,6 @@
         <soap12:body use="literal" />
       </wsdl:input>
     </wsdl:operation>
-    <wsdl:operation name="Info">
-      <soap12:operation soapAction="MyService/IService/Info" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-    </wsdl:operation>
     <wsdl:operation name="EnterRoom">
       <soap12:operation soapAction="MyService/IService/EnterRoom" style="document" />
       <wsdl:input>

@@ -36,8 +36,8 @@ namespace Server
         [OperationContract(IsOneWay = true)]
         void Talk(string userName, string message);
 
-        [OperationContract(IsOneWay = true)]
-        void Info(string account);
+        //[OperationContract]
+        //void Info();
 
         #endregion
 
@@ -74,7 +74,7 @@ namespace Server
         void ShowTalk(string userName, string message);
 
         [OperationContract(IsOneWay = true)]
-        void ShowInfo(string account);
+        void ShowInfo(List<UserData> myusers);
 
         #endregion
 
@@ -123,4 +123,5 @@ namespace Server
         public questions question { get; set; }
         
     }
+
 }

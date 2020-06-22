@@ -59,7 +59,7 @@ namespace Client
             loginclient = new LoginServiceClient();
             //显示登录
             client.Login(us.Name);
-            client.Info(us.Acount); 
+            //client.Info(us.Acount); 
             this.textBoxUserName.Content = us.Name;
 
             //初始化墨迹和画板
@@ -230,15 +230,29 @@ namespace Client
             this.ConversationBox.Text += "[" + userName + "]说：" + message + '\n';
         }
 
-        public void ShowInfo(string account)
+        public void ShowInfo(UserData[] myusers)
         {
             //this.U1.Text += " 昵称：" + us.Name + '\n' + " 等级：" + us.Grade + '\n' + '\n';
-            LoginReference.User[] usarr = new LoginReference.User[4];
+
+            UserData[] usarr = new UserData[4];
             int cnt = 0;
-            foreach (var item in CC.Users)
+            foreach (var item in myusers)
             {
-                usarr[cnt++] = loginclient.Userinfo(item.id);
+                usarr[cnt++] = item;
+                //usarr[cnt++] = loginclient.Userinfo(item.id);
             }
+
+            //初始化
+            this.photo1.Source = null;
+            this.U1.Text = "";
+            this.photo2.Source = null;
+            this.U2.Text = "";
+            this.photo3.Source = null;
+            this.U3.Text = "";
+            this.photo4.Source = null;
+            this.U4.Text = "";
+            
+
             //得到了已登录的所有用户的信息
             if (usarr[0].Avart == null)
                 usarr[0].Avart = "boy.png";
@@ -282,13 +296,13 @@ namespace Client
         }
         public void ShowRoom(string roommeg)
         {
-            UserBox.Items.Clear();
+            //UserBox.Items.Clear();
             //显示各个选手得分
             string[] s = roommeg.Split(',');
             for (int i = 0; i+1 < s.Length; i += 2)
             {
-                UserBox.Items.Add(s[i] + "---" + s[i + 1] + "分");
-                if (us.Name == s[i]) ScoreLabel.Content = s[i + 1];
+                //UserBox.Items.Add(s[i] + "---" + s[i + 1] + "分");
+                //if (us.Name == s[i]) ScoreLabel.Content = s[i + 1];
             }
             //初始画板都不可使用
             inkcanvas.IsEnabled = false;
