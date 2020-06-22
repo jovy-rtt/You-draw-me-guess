@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Client"
         mc:Ignorable="d"
-        Title="Sign_For" Height="600" Width="400" ResizeMode="NoResize" Style="{StaticResource StyleAll}" Closing="Window_Closing" >
+        Title="Sign_For" Height="600" Width="400" ResizeMode="NoResize"  Closing="Window_Closing" >
     <Grid>
         <Grid.Resources>
 
@@ -23,7 +23,7 @@
                 <Setter Property="Foreground">
                     <Setter.Value>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="#FFF71A1A" Offset="0"/>
+                            <GradientStop Color="#FF92AFEB" Offset="0"/>
                             <GradientStop Color="#FF0E0C0C" Offset="1"/>
                         </LinearGradientBrush>
                     </Setter.Value>
@@ -39,24 +39,25 @@
                 <Setter Property="TextWrapping" Value="NoWrap"></Setter>
             </Style>
         </Grid.Resources>
+        <Grid.Background>
+            <SolidColorBrush Color="#FFF7E0CC" Opacity="0.4"/>
+        </Grid.Background>
         <Grid.RowDefinitions>
-            <RowDefinition Height="100"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="45"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Label Grid.Row="0" Grid.ColumnSpan="2" Content="♥终于等到你了呢♥"  FontWeight="Light" Height="50" Width="230" HorizontalAlignment="Left" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="50,0,0,0" Foreground="#FFF14411"></Label>
-        <Image Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,20,0" Height="100" VerticalAlignment="Top" Width="80" Source="/image/小丸子.jpg" />
-        <Label Grid.Row="1" Grid.Column="0" Content="账号:" ></Label>
+        <Label Grid.Row="1" Grid.Column="0" Content="账号:"  ></Label>
         <Label Grid.Row="2" Grid.Column="0" Content="名称:" ></Label>
         <Label Grid.Row="3" Grid.Column="0" Content="性别:" ></Label>
         <Label Grid.Row="4" Grid.Column="0" Content="签名:" ></Label>
@@ -66,8 +67,8 @@
         <TextBox Name="Account" Grid.Column="1" Grid.Row="1"  Text="  输入一个6~10位的账号" FontSize="16" Foreground="#FF868383" MouseEnter="AMouseEnter" MouseLeave="AMouseLeave"/>
         <TextBox Name="AccountName" Grid.Column="1" Grid.Row="2" Text="  请输入真实姓名" FontSize="16" Foreground="#FF868383"  MouseEnter="AMouseEnter" MouseLeave="AMouseLeave"/>
         <StackPanel Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="20,0,0,0" Grid.Row="3" VerticalAlignment="Center" Width="220" Orientation="Horizontal">
-            <RadioButton Name="RadioM" Content="男" Width="80" Height="30" FontSize="20"  Margin="15,0,0,0" VerticalContentAlignment="Center" Foreground="#FFF60C0C" FontWeight="Bold"/>
-            <RadioButton Content="女" Width="80" Height="30" FontSize="20" VerticalContentAlignment="Center" Foreground="#FFF60C0C" FontWeight="Bold"/>
+            <RadioButton Name="RadioM" Content="男" Width="80" Height="30" FontSize="20"  Margin="15,0,0,0" VerticalContentAlignment="Center" Foreground="#FF8586BD" FontWeight="Bold" VerticalAlignment="Top"/>
+            <RadioButton Content="女" Width="80" Height="30" FontSize="20" VerticalContentAlignment="Center" Foreground="#FFE2BBF7" FontWeight="Bold"/>
         </StackPanel>
         <TextBox Name="Sign" Grid.Column="1" Grid.Row="4" />
         <TextBox Name="Code" Grid.Column="1" Grid.Row="5"  Width="100"/>
@@ -75,8 +76,19 @@
         <PasswordBox Name="PassWord1" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Left" Width="220" Height="30" Margin="20,0,0,0"  VerticalAlignment="Center" VerticalContentAlignment="Center"/>
         <PasswordBox Name="PassWord2" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Left" Width="220" Height="30" Margin="20,0,0,0"  VerticalAlignment="Center" VerticalContentAlignment="Center" PasswordChanged="PassWord2_PasswordChanged" />
         <Image Name="img2" Grid.Column="1" HorizontalAlignment="Right"  Height="30" Grid.Row="7"  Margin="0,0,15,0" Width="30" />
-        <Button Name="bt1" Grid.ColumnSpan="2" Margin="25" Content="申请注册"  Grid.Row="8" VerticalAlignment="Top" Width="300" Height="40" HorizontalAlignment="Center" Background="#FF63BBDC" Foreground="#FFF9F9F9" />
-        <Button Name="bt2" Content="帮助" FontSize="15" HorizontalAlignment="Left" Margin="10,0,0,10" Grid.Row="8" VerticalAlignment="Bottom" Width="75" Background="#FFFCF993" BorderBrush="#FFFCF991" Foreground="#FFB6A1A1" HorizontalContentAlignment="Left"/>
-        <Button Name="bt3" Content="联系我们" FontSize="15" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,10,10" Grid.Row="8" VerticalAlignment="Bottom" Width="75" Background="#FFFCF991" BorderBrush="#FFFCF991" Foreground="#FFB6A1A1" HorizontalContentAlignment="Right"/>
+        <Button Name="bt1" Grid.ColumnSpan="2" Margin="45,25,49.667,0" Content="申请注册"  Grid.Row="8" VerticalAlignment="Top" Width="300" Height="40" HorizontalAlignment="Center" Background="#FF63BBDC" Foreground="#FFF9F9F9" />
+        <Button Name="bt2" Content="帮助" FontSize="15" HorizontalAlignment="Left" Margin="10,0,0,10" Grid.Row="8" VerticalAlignment="Bottom" Width="75" Background="#FFFAEFD7" Foreground="#FFB6A1A1" HorizontalContentAlignment="Left" BorderBrush="{x:Null}"/>
+        <Button Name="bt3" Content="联系我们" FontSize="15" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,10,10" Grid.Row="8" VerticalAlignment="Bottom" Width="75" Background="#FFFBEDD0"  Foreground="#FFB6A1A1" HorizontalContentAlignment="Right" BorderBrush="{x:Null}"/>
+        <Grid Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="100" Margin="5,70,-0.333,0" Grid.Row="8" VerticalAlignment="Top" Width="390">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="83*"/>
+                <ColumnDefinition Width="307*"/>
+            </Grid.ColumnDefinitions>
+            <Image Source="/image/登录.PNG" Stretch="Fill" Grid.ColumnSpan="2" Margin="-10,0,0,0" >
+                <Image.OpacityMask>
+                    <SolidColorBrush Color="Black" Opacity="0.7"/>
+                </Image.OpacityMask>
+            </Image>
+        </Grid>
     </Grid>
 </Window>

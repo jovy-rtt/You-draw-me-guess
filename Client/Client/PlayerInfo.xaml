@@ -13,7 +13,7 @@
             </Frame.Background>
         </Frame>
         <StackPanel HorizontalAlignment="Left" Height="100" Margin="42,42,0,0" VerticalAlignment="Top" Width="90" Background="White"  >
-            <Image x:Name="photo" Height="100"/>
+            <Image x:Name="photo" Height="100" Stretch="Fill"/>
         </StackPanel>
         <Label Content="账号："  HorizontalAlignment="Left" Margin="182,40,0,0" VerticalAlignment="Top"/>
         <Label Content="昵称：" HorizontalAlignment="Left" Margin="182,80,0,0" VerticalAlignment="Top"/>

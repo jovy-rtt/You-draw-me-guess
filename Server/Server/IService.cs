@@ -78,6 +78,7 @@ namespace Server
         //回调进入房间
         [OperationContract(IsOneWay = true)]
         void ShowRoom(string userName);
+        void ShowCheckin(string userName, int roomnumber);
         #endregion
     }
 
