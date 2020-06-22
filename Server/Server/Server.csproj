@@ -84,7 +84,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="CC.cs" />
+    <Compile Include="CheckinCC.cs" />
     <Compile Include="CheckinServer.cs" />
+    <Compile Include="CheckinUser.cs" />
     <Compile Include="ICheckinServer.cs" />
     <Compile Include="ILoginService.cs" />
     <Compile Include="LoginService.cs" />

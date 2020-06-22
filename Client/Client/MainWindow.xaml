@@ -68,7 +68,7 @@
                     </Label.Background>
                 </Label>
                 <Label Name="textBoxUserName"  HorizontalContentAlignment="Right" FontSize="12" Margin="0,392,66,0" Foreground="Red"/>
-                <Label   HorizontalContentAlignment="Left" FontSize="12" Margin="101,392,10,0" Content="在线"/>
+                <Label   HorizontalContentAlignment="Left" FontSize="12" Margin="96,392,15,0" Content="在线"/>
             </Grid>
             <InkCanvas x:Name="inkcanvas" Width="436" VerticalAlignment="Center" Height="308" Margin="0,85,0,29" MouseUp="ink_MouseUp">
                 <InkCanvas.Background>
@@ -119,8 +119,8 @@
             </Grid>
         </DockPanel>
         <Border BorderBrush="Brown" BorderThickness ="1" CornerRadius="10" Margin="712,392,0.333,10" >
-            <Grid Margin="0.667,-4.333,-1,5">
-                <Button x:Name="exitBnt" FontSize="13" BorderThickness="0,0,0,0" Content="EXIT" Margin="16,3,0,-5.334" VerticalAlignment="Top" Height="23" RenderTransformOrigin="-0.014,0.321" Foreground="#FF4E280F" Click="exitBnt_Click" >
+            <Grid Margin="-11.333,-4.333,-1,-6.667" HorizontalAlignment="Left" Width="95">
+                <Button x:Name="exitBnt" FontSize="13" BorderThickness="0,0,0,0" Content="EXIT" Margin="10,6,6,-3" VerticalAlignment="Top" Height="22" RenderTransformOrigin="-0.014,0.321" Foreground="#FF4E280F" Click="exitBnt_Click" >
                     <Button.Background>
                         <SolidColorBrush Color="#FF66C0F3" Opacity="0.2"/>
                     </Button.Background>

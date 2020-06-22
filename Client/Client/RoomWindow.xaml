@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Client"
         mc:Ignorable="d"
-        Title="RoomWindow" Height="450" Width="800" >
+        Title="RoomWindow" Height="460" Width="800" >
     <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="132*"/>
@@ -21,8 +21,8 @@
                 <Grid.Background>
                     <SolidColorBrush Color="#FF5AB0D7" Opacity="0.7"/>
                 </Grid.Background>
-                <Image x:Name="photo" HorizontalAlignment="Left" Height="64" VerticalAlignment="Top" Width="64" Stretch="Fill" />
-                <TextBox x:Name="username" BorderThickness="0,0,0,0" HorizontalAlignment="Left" Margin="64,0,0,0" VerticalAlignment="Top" Width="209" Height="33" FontSize="18" VerticalContentAlignment="Center">
+                <Image x:Name="photo" HorizontalAlignment="Left" Height="73" VerticalAlignment="Top" Width="64" Stretch="Fill" />
+                <TextBox x:Name="username" BorderThickness="0,0,0,0" HorizontalAlignment="Left" Margin="64,0,0,0" VerticalAlignment="Top" Width="577" Height="33" FontSize="18" VerticalContentAlignment="Center">
                     <TextBox.Background>
                         <SolidColorBrush Color="#FF82CCEE" Opacity="0.5"/>
                     </TextBox.Background>
@@ -168,7 +168,7 @@
                     </TextBlock>
                     <Border BorderBrush="Brown" BorderThickness ="1" CornerRadius="10" Margin="2,278,0,36" RenderTransformOrigin="0.497,-0.027" >
                         <Grid Margin="-0.333,8.667,0,0">
-                            <TextBox Name="SendBox" Background="#FFF5F4E9" BorderThickness="0,0,1,0" Text="" VerticalAlignment="Center" Height="32" Margin="10,2,47.667,2.667" KeyUp="SendBox_KeyUp" />
+                            <TextBox Name="SendBox" Background="#FFF5F4E9" BorderThickness="0,0,1,0" Text="" VerticalAlignment="Center" Height="28" Margin="10,-4,48,0" KeyUp="SendBox_KeyUp" />
                             <Button x:Name="SendBnt" FontSize="13" BorderThickness="0,0,0,0" Content="SEND" HorizontalAlignment="Right" Margin="0,0,6,6" Width="43" RenderTransformOrigin="-0.014,0.321" Foreground="#FF4E280F" Click="SendBnt_Click" >
                                 <Button.Background>
                                     <SolidColorBrush Color="#FFF4F5E9" Opacity="0.2"/>
