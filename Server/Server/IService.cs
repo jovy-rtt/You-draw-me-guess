@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations.Model;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -22,7 +23,7 @@ namespace Server
         #region 画板的服务接口
         //发送数字墨迹
         [OperationContract(IsOneWay = true)]
-        void SendInk(int room, string ink);
+        void SendInk(int roomId, string ink);
 
         #endregion
 
@@ -31,13 +32,13 @@ namespace Server
         void Login(string userName);
 
         [OperationContract(IsOneWay = true)]
-        void Logout(string userName);
+        void Logout(int roomId, string userName);
 
         [OperationContract(IsOneWay = true)]
-        void Talk(string userName, string message);
+        void Talk(int roomId,string userName, string message);
 
-        //[OperationContract]
-        //void Info();
+        //[OperationContract(IsOneWay = true)]
+        //void Info(int roomId,string account);
 
         #endregion
 
@@ -59,7 +60,7 @@ namespace Server
         #region 画板的回调接口
         //回调显示墨迹 
         [OperationContract(IsOneWay = true)]
-        void ShowInk(string ink);
+        void ShowInk(int roomId,string ink);
 
         #endregion
 
@@ -73,19 +74,25 @@ namespace Server
         [OperationContract(IsOneWay = true)]
         void ShowTalk(string userName, string message);
 
-        [OperationContract(IsOneWay = true)]
-        void ShowInfo(List<UserData> myusers);
+        //[OperationContract(IsOneWay = true)]
+        //void ShowInfo(int roomId, string account);
 
         #endregion
 
         #region 游戏的回调接口
         //回调进入房间
         [OperationContract(IsOneWay = true)]
-        void ShowRoom(string userName);
+        void ShowRoom(string roommeg);
 
         //回调开始游戏
         [OperationContract(IsOneWay = true)]
         void ShowStart(string userName1,string answer,string tip);
+        //回调胜利
+        [OperationContract(IsOneWay = true)]
+        void ShowWin(string  userName);
+        //回调开始新游戏
+        [OperationContract(IsOneWay = true)]
+        void ShowNewTurn(string roommeg,string userName1, string answer, string tip);
         #endregion
     }
     [DataContract]
@@ -98,12 +105,16 @@ namespace Server
         private Random r=new Random();
         public questions()
         {
+            update();
+        }
+        public void update()
+        {
             int num = r.Next(1, 20 + 1);
             MyDbEntities myDbEntities = new MyDbEntities();
             var q = from t in myDbEntities.Questions
                     where t.Id == num
                     select t;
-            if(q.Count()>0)
+            if (q.Count() > 0)
             {
                 var Q = q.First();
                 answer = Q.Question;
@@ -123,5 +134,4 @@ namespace Server
         public questions question { get; set; }
         
     }
-
 }

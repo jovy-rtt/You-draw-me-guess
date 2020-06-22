@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="MyService" elementFormDefault="qualified" targetNamespace="MyService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:8733/Design_Time_Addresses/Service/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Server" />
   <xs:element name="test">
     <xs:complexType>
       <xs:sequence />
@@ -16,7 +15,7 @@
   <xs:element name="SendInk">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="room" type="xs:int" />
+        <xs:element minOccurs="0" name="roomId" type="xs:int" />
         <xs:element minOccurs="0" name="ink" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -31,6 +30,7 @@
   <xs:element name="Logout">
     <xs:complexType>
       <xs:sequence>
+        <xs:element minOccurs="0" name="roomId" type="xs:int" />
         <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -38,6 +38,7 @@
   <xs:element name="Talk">
     <xs:complexType>
       <xs:sequence>
+        <xs:element minOccurs="0" name="roomId" type="xs:int" />
         <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
       </xs:sequence>
@@ -62,6 +63,7 @@
   <xs:element name="ShowInk">
     <xs:complexType>
       <xs:sequence>
+        <xs:element minOccurs="0" name="roomId" type="xs:int" />
         <xs:element minOccurs="0" name="ink" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -88,23 +90,33 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ShowInfo">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Server" minOccurs="0" name="myusers" nillable="true" type="q1:ArrayOfUserData" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="ShowRoom">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="roommeg" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ShowStart">
     <xs:complexType>
       <xs:sequence>
+        <xs:element minOccurs="0" name="userName1" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="answer" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="tip" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ShowWin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ShowNewTurn">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="roommeg" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="userName1" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="answer" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="tip" nillable="true" type="xs:string" />

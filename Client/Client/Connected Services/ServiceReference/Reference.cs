@@ -9,150 +9,7 @@
 //------------------------------------------------------------------------------
 
 namespace Client.ServiceReference {
-    using System.Runtime.Serialization;
-    using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="UserData", Namespace="http://schemas.datacontract.org/2004/07/Server")]
-    [System.SerializableAttribute()]
-    public partial class UserData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string AcountField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string AvartField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int GradeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> RoomField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> ScoreField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string SignField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Acount {
-            get {
-                return this.AcountField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AcountField, value) != true)) {
-                    this.AcountField = value;
-                    this.RaisePropertyChanged("Acount");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Avart {
-            get {
-                return this.AvartField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AvartField, value) != true)) {
-                    this.AvartField = value;
-                    this.RaisePropertyChanged("Avart");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Grade {
-            get {
-                return this.GradeField;
-            }
-            set {
-                if ((this.GradeField.Equals(value) != true)) {
-                    this.GradeField = value;
-                    this.RaisePropertyChanged("Grade");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> Room {
-            get {
-                return this.RoomField;
-            }
-            set {
-                if ((this.RoomField.Equals(value) != true)) {
-                    this.RoomField = value;
-                    this.RaisePropertyChanged("Room");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> Score {
-            get {
-                return this.ScoreField;
-            }
-            set {
-                if ((this.ScoreField.Equals(value) != true)) {
-                    this.ScoreField = value;
-                    this.RaisePropertyChanged("Score");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Sign {
-            get {
-                return this.SignField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SignField, value) != true)) {
-                    this.SignField = value;
-                    this.RaisePropertyChanged("Sign");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="MyService", ConfigurationName="ServiceReference.IService", CallbackContract=typeof(Client.ServiceReference.IServiceCallback))]
@@ -165,10 +22,10 @@ namespace Client.ServiceReference {
         System.Threading.Tasks.Task<bool> testAsync();
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/SendInk")]
-        void SendInk(int room, string ink);
+        void SendInk(int roomId, string ink);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/SendInk")]
-        System.Threading.Tasks.Task SendInkAsync(int room, string ink);
+        System.Threading.Tasks.Task SendInkAsync(int roomId, string ink);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/Login")]
         void Login(string userName);
@@ -177,16 +34,16 @@ namespace Client.ServiceReference {
         System.Threading.Tasks.Task LoginAsync(string userName);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/Logout")]
-        void Logout(string userName);
+        void Logout(int roomId, string userName);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/Logout")]
-        System.Threading.Tasks.Task LogoutAsync(string userName);
+        System.Threading.Tasks.Task LogoutAsync(int roomId, string userName);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/Talk")]
-        void Talk(string userName, string message);
+        void Talk(int roomId, string userName, string message);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/Talk")]
-        System.Threading.Tasks.Task TalkAsync(string userName, string message);
+        System.Threading.Tasks.Task TalkAsync(int roomId, string userName, string message);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/EnterRoom")]
         void EnterRoom(string userName, int roomId);
@@ -205,7 +62,7 @@ namespace Client.ServiceReference {
     public interface IServiceCallback {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/ShowInk")]
-        void ShowInk(string ink);
+        void ShowInk(int roomId, string ink);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/ShowLogin")]
         void ShowLogin(string loginUserName);
@@ -216,14 +73,17 @@ namespace Client.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/ShowTalk")]
         void ShowTalk(string userName, string message);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/ShowInfo")]
-        void ShowInfo(Client.ServiceReference.UserData[] myusers);
-        
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/ShowRoom")]
-        void ShowRoom(string userName);
+        void ShowRoom(string roommeg);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/ShowStart")]
         void ShowStart(string userName1, string answer, string tip);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/ShowWin")]
+        void ShowWin(string userName);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/ShowNewTurn")]
+        void ShowNewTurn(string roommeg, string userName1, string answer, string tip);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -262,12 +122,12 @@ namespace Client.ServiceReference {
             return base.Channel.testAsync();
         }
         
-        public void SendInk(int room, string ink) {
-            base.Channel.SendInk(room, ink);
+        public void SendInk(int roomId, string ink) {
+            base.Channel.SendInk(roomId, ink);
         }
         
-        public System.Threading.Tasks.Task SendInkAsync(int room, string ink) {
-            return base.Channel.SendInkAsync(room, ink);
+        public System.Threading.Tasks.Task SendInkAsync(int roomId, string ink) {
+            return base.Channel.SendInkAsync(roomId, ink);
         }
         
         public void Login(string userName) {
@@ -278,20 +138,20 @@ namespace Client.ServiceReference {
             return base.Channel.LoginAsync(userName);
         }
         
-        public void Logout(string userName) {
-            base.Channel.Logout(userName);
+        public void Logout(int roomId, string userName) {
+            base.Channel.Logout(roomId, userName);
         }
         
-        public System.Threading.Tasks.Task LogoutAsync(string userName) {
-            return base.Channel.LogoutAsync(userName);
+        public System.Threading.Tasks.Task LogoutAsync(int roomId, string userName) {
+            return base.Channel.LogoutAsync(roomId, userName);
         }
         
-        public void Talk(string userName, string message) {
-            base.Channel.Talk(userName, message);
+        public void Talk(int roomId, string userName, string message) {
+            base.Channel.Talk(roomId, userName, message);
         }
         
-        public System.Threading.Tasks.Task TalkAsync(string userName, string message) {
-            return base.Channel.TalkAsync(userName, message);
+        public System.Threading.Tasks.Task TalkAsync(int roomId, string userName, string message) {
+            return base.Channel.TalkAsync(roomId, userName, message);
         }
         
         public void EnterRoom(string userName, int roomId) {

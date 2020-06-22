@@ -23,7 +23,7 @@ namespace Client
     /// </summary>
     public partial class RoomWindow : Window, ICheckinServerCallback
     {
-        private ServiceClient client;//服务端调用
+        //private ServiceClient client;//服务端调用
         private LoginServiceClient loginclient;
         private CheckinServerClient Checkinclient;
         private User item;//每一个id所属，item可以控制该id下的所有窗口
