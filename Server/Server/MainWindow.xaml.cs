@@ -23,7 +23,7 @@ namespace Server
 
         private ServiceHost host1;
         private ServiceHost host2;
-        
+        private ServiceHost host3;
 
         public MainWindow()
         {
@@ -50,7 +50,15 @@ namespace Server
                 textBlock1.Text += v.ListenUri.ToString() + "\n";
             }
 
-            
+            host3 = new ServiceHost(typeof(CheckinServer));
+            host3.Open();
+            //textBlock1.Text += "本机服务已启动，监听的Uri为：\n";
+            foreach (var v in host3.Description.Endpoints)
+            {
+                textBlock1.Text += v.ListenUri.ToString() + "\n";
+            }
+
+
         }
 
         //关闭服务
@@ -85,6 +93,14 @@ namespace Server
                 if (host2.State == CommunicationState.Opened)
                 {
                     host2.Close();
+                }
+            }
+
+            if (host3 != null)
+            {
+                if (host3.State == CommunicationState.Opened)
+                {
+                    host3.Close();
                 }
             }
         }

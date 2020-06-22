@@ -84,6 +84,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="CC.cs" />
+    <Compile Include="CheckinServer.cs" />
+    <Compile Include="ICheckinServer.cs" />
     <Compile Include="ILoginService.cs" />
     <Compile Include="LoginService.cs" />
     <Compile Include="MyDb.Context.cs">
