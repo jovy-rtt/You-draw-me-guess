@@ -30,11 +30,11 @@ namespace Server
         /// <summary>
         /// 发送数字墨迹
         /// </summary>
-        public void SendInk(int roomId, string ink)
+        public void SendInk(int room, string ink)
         {
-            foreach (var v in CC.Rooms[roomId].users)
+            foreach (var v in CC.Users)
             {
-                v.callback.ShowInk(roomId,ink);
+                v.callback.ShowInk(ink);
             }
         }
 
@@ -48,13 +48,13 @@ namespace Server
 
         #region 聊天室的服务端函数实现
 
-        //public Service()
-        //{
-        //    if (CC.Users == null)
-        //    {
-        //        CC.Users = new List<MyUser>();
-        //    }
-        //}
+        public Service()
+        {
+            if (CC.Users == null)
+            {
+                CC.Users = new List<MyUser>();
+            }
+        }
 
         public void Login(string userName)
         {
@@ -62,94 +62,44 @@ namespace Server
             OperationContext context = OperationContext.Current;
             IServiceCallback callback = context.GetCallbackChannel<IServiceCallback>();
             MyUser newUser = new MyUser(userName, callback);
-            //newUser.inRoom = roomId;
-            //初始化CC.rooms
-            //if (CC.Rooms.ContainsKey(roomId)==false)
-            //{
-            //    CC.Rooms.Add(roomId, new Room());
-            //    CC.Rooms[roomId].users = new List<MyUser>() ;
-            //    CC.Rooms[roomId].question = new questions();
-            //}
-            //CC.Rooms[roomId].users.Add(newUser);
-            CC.Users.Add(userName,newUser);
-            //foreach (var user in CC.Rooms[roomId].users)
-            //{
-            newUser.callback.ShowLogin(userName);
-            //}
-        }
-
-        public void Talk(int roomId,string userName, string message)
-        {
-            string ans = CC.Rooms[roomId].question.answer;
-            if(message==ans)
+            CC.Users.Add(newUser);
+            foreach (var user in CC.Users)
             {
-                foreach (var item in CC.Rooms[roomId].users)
-                {
-                    if(item.Name==userName)
-                    {
-                        item.addScore();
-                        item.callback.ShowTalk("系统消息", "你猜中了");
-                    }
-                    else
-                    {
-                        item.callback.ShowTalk("系统消息", string.Format("{0}猜中了",item.Name));
-                    }
-                    item.callback.ShowWin(userName);
-                }
-                RollUserAndRestart(roomId);
-            }
-            else
-            {
-                foreach (var item in CC.Rooms[roomId].users)
-                {
-                    item.callback.ShowTalk(userName, message);
-                }
-            }
-        }
-        private void RollUserAndRestart(int roomId)
-        {
-            MyUser newuser = CC.Rooms[roomId].users.First();
-            CC.Rooms[roomId].users.RemoveAt(0);
-            CC.Rooms[roomId].users.Add(newuser);
-            CC.Rooms[roomId].question.update();
-            string s = "";
-            foreach (var item in CC.Rooms[roomId].users)
-            {
-                foreach (var v in CC.Rooms[roomId].users)
-                {
-                    s += v.Name + "," + v.Score.ToString() + ",";
-                }
-            }
-            foreach (var item in CC.Rooms[roomId].users)
-            {
-                item.callback.ShowNewTurn(s,CC.Rooms[roomId].users.First().Name, CC.Rooms[roomId].question.answer, CC.Rooms[roomId].question.tip);
+                user.callback.ShowLogin(userName);
             }
         }
 
-        //public void Info(int roomId,string account)
-        //{
-        //    foreach (var item in CC.Rooms[roomId].users)
-        //    {
-        //        item.callback.ShowInfo(roomId,account);
-        //    }
-        //}
+        public void Talk(string userName, string message)
+        {
+            foreach (var item in CC.Users)
+            {
+                item.callback.ShowTalk(userName, message);
+            }
+        }
+
+        public void Info(string account)
+        {
+            foreach (var item in CC.Users)
+            {
+                item.callback.ShowInfo(account);
+            }
+        }
 
 
 
         /// <summary>用户退出</summary>
-        public void Logout(int roomId, string userName)
+        public void Logout(string userName)
         {
-            MyUser logoutUser = CC.Users[userName];
-            CC.Rooms[roomId].users.Remove(logoutUser);
-            //CC.Users.Remove(logoutUser);
-            foreach (var user in CC.Rooms[roomId].users)
+            MyUser logoutUser = CC.GetUser(userName);
+            foreach (var user in CC.Users)
             {
                 //不需要发给退出用户
-                //if (user.UserName != logoutUser.UserName)
-                //{
+                if (user.UserName != logoutUser.UserName)
+                {
                     user.callback.ShowLogout(userName);
-                //}
+                }
             }
+            CC.Users.Remove(logoutUser);
             logoutUser = null; //将其设置为null后，WCF会自动关闭该客户端
 
         }
@@ -163,8 +113,9 @@ namespace Server
         //进入房间
         public void EnterRoom(string userName, int roomId)
         {
-            MyUser user = CC.Users[userName];
+            MyUser user = CC.GetUser(userName);
             user.inRoom = roomId;
+            user.Score = 0;
             //初始化新房间
             if (CC.Rooms.ContainsKey(roomId) == false)
             {
@@ -184,13 +135,12 @@ namespace Server
                     s += v.Name + "," + v.Score.ToString() + ",";
                 }
                 item.callback.ShowRoom(s);
-                item.callback.ShowLogin(userName);
             }
         }
         public void StartGame(string userName, int roomId)
         {
             //当前用户已准备
-            MyUser user = CC.Users[userName];
+            MyUser user = CC.GetUser(userName);
             user.ready = true;
             //判断当前房间内所有用户是否准备好
             foreach (var item in CC.Rooms[roomId].users)

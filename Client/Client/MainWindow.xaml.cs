@@ -30,7 +30,7 @@ namespace Client
     {
         private ServiceClient client;
         private LoginServiceClient loginclient;
-        public int roomId;
+        public int roomId;//暂用
         public LoginReference.User us;//用户的所有信息
         private User item;//每一个id所属，item可以控制该id下的所有窗口
         //画板相关
@@ -59,7 +59,7 @@ namespace Client
             loginclient = new LoginServiceClient();
             //显示登录
             client.Login(us.Name);
-            //client.Info(roomId,us.Acount); 
+            client.Info(us.Acount); 
             this.textBoxUserName.Content = us.Name;
 
             //初始化墨迹和画板
@@ -100,26 +100,26 @@ namespace Client
         {
             if (e.Key == Key.Enter)
             {
-                client.Talk(roomId,us.Name, this.SendBox.Text);
+                client.Talk(us.Name, this.SendBox.Text);
                 this.SendBox.Text = "";
             }
         }
 
         private void send_Click(object sender, RoutedEventArgs e)
         {
-            client.Talk(roomId,us.Name, this.SendBox.Text);
+            client.Talk(us.Name, this.SendBox.Text);
             this.SendBox.Text = "";
         }
         private void exitBnt_Click(object sender, RoutedEventArgs e)
         {
-            client.Logout(roomId, us.Name);
+            client.Logout(us.Name);
             this.Close();
             item.RoomWindow.Show();
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            client.Logout(roomId, us.Name);
+            client.Logout(us.Name);
             item.RoomWindow.Show();
         }
         #endregion
@@ -138,7 +138,7 @@ namespace Client
 
             client.SendInk(roomId, inkData);
         }
-        public void ShowInk(int roomId ,string inkData)
+        public void ShowInk(string inkData)
         {
             //删除原有的Strokes
             inkcanvas.Strokes.Clear();
@@ -230,7 +230,7 @@ namespace Client
             this.ConversationBox.Text += "[" + userName + "]说：" + message + '\n';
         }
 
-        public void ShowInfo(int roomId, string account)
+        public void ShowInfo(string account)
         {
             //this.U1.Text += " 昵称：" + us.Name + '\n' + " 等级：" + us.Grade + '\n' + '\n';
             LoginReference.User[] usarr = new LoginReference.User[4];
@@ -288,11 +288,7 @@ namespace Client
             for (int i = 0; i+1 < s.Length; i += 2)
             {
                 UserBox.Items.Add(s[i] + "---" + s[i + 1] + "分");
-                if (us.Name == s[i])
-                {
-                    //item.score = int.Parse(s[i + 1]);
-                    ScoreLabel.Content = s[i + 1];
-                }
+                if (us.Name == s[i]) ScoreLabel.Content = s[i + 1];
             }
             //初始画板都不可使用
             inkcanvas.IsEnabled = false;
@@ -323,31 +319,8 @@ namespace Client
                 ConversationBox.Text += "系统提示：请开始抢答\n";
             }
         }
-        public void ShowWin(string userName)
-        {
-            if(userName==us.Name)
-            {
-                ScoreLabel.Content = us.Score;
-                ConversationBox.Text += "系统信息：你赢了！\n";
-            }
-            else
-            {
-                ConversationBox.Text += "系统信息：好遗憾，继续加油！\n";
-            }
-        }
-        public void ShowNewTurn(string roommeg,string userName1, string answer, string tip)
-        {
-            //更新用户列表和积分
-            UserBox.Items.Clear();
-            string[] s = roommeg.Split(',');
-            for (int i = 0; i + 1 < s.Length; i += 2)
-            {
-                UserBox.Items.Add(s[i] + "---" + s[i + 1] + "分");
-                if (us.Name == s[i]) ScoreLabel.Content = s[i + 1];
-            }
-            //重新开始
-            ShowStart(userName1, answer, tip);
-        }
+
+
 
         #endregion
 

@@ -4,7 +4,6 @@
     <xsd:schema targetNamespace="MyService/Imports">
       <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/Service/?xsd=xsd0" namespace="MyService" />
       <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/Service/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/Service/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Server" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IService_test_InputMessage">
@@ -24,6 +23,9 @@
   </wsdl:message>
   <wsdl:message name="IService_Talk_InputMessage">
     <wsdl:part name="parameters" element="tns:Talk" />
+  </wsdl:message>
+  <wsdl:message name="IService_Info_InputMessage">
+    <wsdl:part name="parameters" element="tns:Info" />
   </wsdl:message>
   <wsdl:message name="IService_EnterRoom_InputMessage">
     <wsdl:part name="parameters" element="tns:EnterRoom" />
@@ -71,6 +73,9 @@
     </wsdl:operation>
     <wsdl:operation name="Talk">
       <wsdl:input wsaw:Action="MyService/IService/Talk" message="tns:IService_Talk_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Info">
+      <wsdl:input wsaw:Action="MyService/IService/Info" message="tns:IService_Info_InputMessage" />
     </wsdl:operation>
     <wsdl:operation name="EnterRoom">
       <wsdl:input wsaw:Action="MyService/IService/EnterRoom" message="tns:IService_EnterRoom_InputMessage" />

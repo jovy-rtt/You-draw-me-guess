@@ -51,11 +51,15 @@ namespace Server
         public void Logout(string userName)
         {
             CheckinUser logoutUser = CheckinCC.GetUser(userName);
-            CheckinCC.Users.Remove(logoutUser);
-            foreach (var item in CheckinCC.Users)
+            foreach (var user in CheckinCC.Users)
             {
-                item.Checkincallback.ShowLogout(userName);
+                //不需要发给退出用户
+                if (user.UserName != logoutUser.UserName)
+                {
+                    user.Checkincallback.ShowLogout(userName);
+                }
             }
+            CheckinCC.Users.Remove(logoutUser);
             logoutUser = null; //将其设置为null后，WCF会自动关闭该客户端
 
         }
