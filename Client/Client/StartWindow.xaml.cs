@@ -22,7 +22,6 @@ namespace Client
         public StartWindow()
         {
             InitializeComponent();
-            CC.StartWindow = this;
         }
         //启动四个客户端
         private void btn1_Click(object sender, RoutedEventArgs e)

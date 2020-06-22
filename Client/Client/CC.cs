@@ -9,7 +9,6 @@ namespace Client
     //思路主要是想要用于在其他的界面操作时，可以很灵活的控制其他界面的情况
     public class CC
     {
-        public static StartWindow StartWindow { get; set; }
 
         public static List<User> Users { get; set; }
 
