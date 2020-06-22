@@ -11,6 +11,7 @@ namespace Server
         public string UserName { get; set; }
         public bool ready { get; set; }
         public int inRoom { get; set; }
+        public int score { get; set; }
         public readonly IServiceCallback callback;
         public readonly ICheckinServerCallback Checkincallback;
 
@@ -24,6 +25,10 @@ namespace Server
         {
             this.Name = username;
             this.Checkincallback = Checkincallback;
+        }
+        public void addScore()
+        {
+            score++;
         }
     }
 }

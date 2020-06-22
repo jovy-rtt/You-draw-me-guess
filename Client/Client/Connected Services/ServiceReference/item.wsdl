@@ -24,9 +24,6 @@
   <wsdl:message name="IService_Talk_InputMessage">
     <wsdl:part name="parameters" element="tns:Talk" />
   </wsdl:message>
-  <wsdl:message name="IService_Info_InputMessage">
-    <wsdl:part name="parameters" element="tns:Info" />
-  </wsdl:message>
   <wsdl:message name="IService_EnterRoom_InputMessage">
     <wsdl:part name="parameters" element="tns:EnterRoom" />
   </wsdl:message>
@@ -45,14 +42,17 @@
   <wsdl:message name="IService_ShowTalk_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:ShowTalk" />
   </wsdl:message>
-  <wsdl:message name="IService_ShowInfo_OutputCallbackMessage">
-    <wsdl:part name="parameters" element="tns:ShowInfo" />
-  </wsdl:message>
   <wsdl:message name="IService_ShowRoom_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:ShowRoom" />
   </wsdl:message>
   <wsdl:message name="IService_ShowStart_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:ShowStart" />
+  </wsdl:message>
+  <wsdl:message name="IService_ShowWin_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ShowWin" />
+  </wsdl:message>
+  <wsdl:message name="IService_ShowNewTurn_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ShowNewTurn" />
   </wsdl:message>
   <wsdl:portType name="IService">
     <wsdl:operation name="test">
@@ -70,9 +70,6 @@
     </wsdl:operation>
     <wsdl:operation name="Talk">
       <wsdl:input wsaw:Action="MyService/IService/Talk" message="tns:IService_Talk_InputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="Info">
-      <wsdl:input wsaw:Action="MyService/IService/Info" message="tns:IService_Info_InputMessage" />
     </wsdl:operation>
     <wsdl:operation name="EnterRoom">
       <wsdl:input wsaw:Action="MyService/IService/EnterRoom" message="tns:IService_EnterRoom_InputMessage" />
@@ -92,14 +89,17 @@
     <wsdl:operation name="ShowTalk">
       <wsdl:output wsaw:Action="MyService/IService/ShowTalk" message="tns:IService_ShowTalk_OutputCallbackMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ShowInfo">
-      <wsdl:output wsaw:Action="MyService/IService/ShowInfo" message="tns:IService_ShowInfo_OutputCallbackMessage" />
-    </wsdl:operation>
     <wsdl:operation name="ShowRoom">
       <wsdl:output wsaw:Action="MyService/IService/ShowRoom" message="tns:IService_ShowRoom_OutputCallbackMessage" />
     </wsdl:operation>
     <wsdl:operation name="ShowStart">
       <wsdl:output wsaw:Action="MyService/IService/ShowStart" message="tns:IService_ShowStart_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ShowWin">
+      <wsdl:output wsaw:Action="MyService/IService/ShowWin" message="tns:IService_ShowWin_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ShowNewTurn">
+      <wsdl:output wsaw:Action="MyService/IService/ShowNewTurn" message="tns:IService_ShowNewTurn_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
 </wsdl:definitions>

@@ -56,6 +56,7 @@ namespace Client
                         item = CC.GetUser(us.Acount);
                         item.LoginWindow = this;
                         item.LoginWindow.Close();
+                       // item.MainWindow.ShowLogin(us.Name);
 
                         //再显示登录后的界面，room
                         RoomWindow RW = new RoomWindow(us);
