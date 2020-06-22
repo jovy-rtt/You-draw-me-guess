@@ -50,6 +50,7 @@ namespace Client
             //确定点击了几号房间
             Button bt = e.Source as Button;
             int idx = (int)((bt.Name)[4]) - 48;
+            //Checkinclient.Login(us.Name);
             Checkinclient.Checkin(us.Name, idx);
             //MessageBox.Show("进入" + idx + "号房间");
 

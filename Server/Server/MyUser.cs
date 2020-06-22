@@ -13,6 +13,7 @@ namespace Server
         public int inRoom { get; set; }
         public readonly IServiceCallback callback;
         public readonly ICheckinServerCallback Checkincallback;
+
         public MyUser(string username, IServiceCallback callback)
         {
             this.Name = username;
@@ -24,6 +25,5 @@ namespace Server
             this.Name = username;
             this.Checkincallback = Checkincallback;
         }
-
     }
 }
