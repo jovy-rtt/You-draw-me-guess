@@ -285,7 +285,7 @@ namespace Client
             UserBox.Items.Clear();
             //显示各个选手得分
             string[] s = roommeg.Split(',');
-            for (int i = 0; i < s.Length; i += 2)
+            for (int i = 0; i+1 < s.Length; i += 2)
             {
                 UserBox.Items.Add(s[i] + "---" + s[i + 1] + "分");
                 if (us.Name == s[i]) ScoreLabel.Content = s[i + 1];
