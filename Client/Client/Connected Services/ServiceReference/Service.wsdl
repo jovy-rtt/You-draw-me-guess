@@ -79,6 +79,12 @@
         <soap12:body use="literal" />
       </wsdl:input>
     </wsdl:operation>
+    <wsdl:operation name="StartGame">
+      <soap12:operation soapAction="MyService/IService/StartGame" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
     <wsdl:operation name="ShowInk">
       <soap12:operation soapAction="MyService/IService/ShowInk" style="document" />
       <wsdl:output>
@@ -111,6 +117,12 @@
     </wsdl:operation>
     <wsdl:operation name="ShowRoom">
       <soap12:operation soapAction="MyService/IService/ShowRoom" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowStart">
+      <soap12:operation soapAction="MyService/IService/ShowStart" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>

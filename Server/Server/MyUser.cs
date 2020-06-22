@@ -9,6 +9,8 @@ namespace Server
     public class MyUser:User
     {
         public string UserName { get; set; }
+        public bool ready { get; set; }
+        public int inRoom { get; set; }
         public readonly IServiceCallback callback;
 
         public MyUser(string username, IServiceCallback callback)

@@ -80,7 +80,7 @@
                 <Border BorderBrush="Brown" BorderThickness ="1" CornerRadius="10" Margin="0,310,2,0" >
                     <Grid>
                         <TextBox Name="SendBox"  Background="#FFF5F4E9" BorderThickness="0,0,1,0" FontSize="16" VerticalContentAlignment="Center" VerticalAlignment="Center" Height="26" Margin="9,0,53.333,0" KeyUp="SendBox_KeyUp" />
-                        <Button FontSize="13" BorderThickness="0,0,0,0" Content="SEND" HorizontalAlignment="Right" Margin="0,0,5.333,0" VerticalAlignment="Bottom" Width="43" Height="23" RenderTransformOrigin="-0.014,0.321" Foreground="#FF4E280F" Click="send_Click">
+                        <Button x:Name="sendbtn" FontSize="13" BorderThickness="0,0,0,0" Content="SEND" HorizontalAlignment="Right" Margin="0,0,5.333,0" VerticalAlignment="Bottom" Width="43" Height="23" RenderTransformOrigin="-0.014,0.321" Foreground="#FF4E280F" Click="send_Click">
                             <Button.Background>
                                 <SolidColorBrush Color="#FFF4F5E9" Opacity="0.2"/>
                             </Button.Background>
@@ -125,5 +125,7 @@
             </Grid>
         </Border>
         <Label x:Name="ScoreLabel" Content="" HorizontalAlignment="Left" Margin="549,53,0,0" VerticalAlignment="Top" Height="31" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="41" FontSize="16" FontFamily="HGTX_CNKI" Foreground="#FF9B29AD" FontWeight="Bold"/>
+        <Button x:Name="readybtn" Content="准备" HorizontalAlignment="Left" Margin="521,394,0,0" VerticalAlignment="Top" Width="75" Height="28" Background="#7FF0E793" FontSize="16" Click="Button_Click"/>
+        <Label x:Name="TipLabel" Content="" HorizontalAlignment="Left" Margin="165,394,0,-1.5" VerticalAlignment="Top" Width="196" Height="30" FontSize="16" VerticalContentAlignment="Center"/>
     </Grid>
 </Window>
