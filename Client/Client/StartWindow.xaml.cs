@@ -37,7 +37,7 @@ namespace Client
             LoginWindow w = new LoginWindow();
             w.Left = left;
             w.Top = top;
-            w.Owner = this;
+            //w.Owner = this;
             w.Closed += (sender, e) => this.Activate();
             w.Show();
         }

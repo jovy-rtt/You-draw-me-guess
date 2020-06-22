@@ -55,7 +55,7 @@
         <Image Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,20,0" Height="100" VerticalAlignment="Top" Width="80" Source="/image/小丸子.jpg" />
         <Label Grid.Row="0" Grid.ColumnSpan="2" Content="要找回密码呢，♥亲♥"  FontWeight="Light" Height="50" Width="230" HorizontalAlignment="Left" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="50,0,0,0" Foreground="#FFF14411"></Label>
         <Label Grid.Row="1" Grid.Column="0" Content="账号:" ></Label>
-        <Label Grid.Row="2" Grid.Column="0" Content="手机号:" ></Label>
+        <Label Grid.Row="2" Grid.Column="0" Content="令牌:" ></Label>
         <Label Grid.Row="3" Grid.Column="0" Content="验证码:" ></Label>
         <Label Grid.Row="4" Grid.Column="0" Content="新密码:"></Label>
         <Label Grid.Row="5" Grid.Column="0" Content="再次确认:" Width="100"></Label>

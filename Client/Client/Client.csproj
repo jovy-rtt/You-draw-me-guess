@@ -215,9 +215,6 @@
     <Resource Include="image\game.png" />
   </ItemGroup>
   <ItemGroup>
-    <SplashScreen Include="image\screen.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="image\timg.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -230,7 +227,7 @@
     <Resource Include="image\樱桃小丸子2.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="image\你画我猜.jpg" />
+    <SplashScreen Include="image\你画我猜.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="image\小丸.jpg" />

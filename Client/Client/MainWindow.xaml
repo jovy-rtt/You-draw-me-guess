@@ -25,7 +25,7 @@
                         </Button.Background>
                         <StackPanel Height="51" Width="142" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
                             <Image x:Name="photo1" Height="48"  Width="49" Margin="0,1,0,1.667"/>
-                            <TextBlock x:Name="U1" Foreground="#FF85AEEE" TextWrapping="Wrap" Margin="0,0,0,-166.333" Width="88" />
+                            <TextBlock x:Name="U1" Foreground="#FF85AEEE" TextWrapping="Wrap" Margin="0,0,0,0" Width="90" />
                         </StackPanel>
                     </Button>
                     <Button x:Name="user1Btn2" HorizontalAlignment="Center" VerticalAlignment="Top" Width="152" Height="51"  BorderBrush="White" Foreground="White" Click="user1Btn1_Click">
@@ -34,6 +34,7 @@
                         </Button.Background>
                         <StackPanel Height="51" Width="142" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
                             <Image x:Name="photo2" Height="48"  Width="49" Margin="0,1,0,1.667"/>
+                            <TextBlock x:Name="U2" Foreground="#FF85AEEE" TextWrapping="Wrap" Margin="0,0,0,0" Width="90" />
                         </StackPanel>
                     </Button>
                     <Button x:Name="user1Btn3" HorizontalAlignment="Center" VerticalAlignment="Top" Width="152" Height="51"  BorderBrush="White" Foreground="White" Click="user1Btn1_Click">
@@ -42,6 +43,7 @@
                         </Button.Background>
                         <StackPanel Height="51" Width="142" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
                             <Image x:Name="photo3" Height="48"  Width="49" Margin="0,1,0,1.667"/>
+                            <TextBlock x:Name="U3" Foreground="#FF85AEEE" TextWrapping="Wrap" Margin="0,0,0,0" Width="90" />
                         </StackPanel>
                     </Button>
                     <Button x:Name="user1Btn4" HorizontalAlignment="Center" VerticalAlignment="Top" Width="152" Height="51"  BorderBrush="White" Foreground="White" Click="user1Btn1_Click">
@@ -50,6 +52,7 @@
                         </Button.Background>
                         <StackPanel Height="51" Width="142" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
                             <Image x:Name="photo4" Height="48" Width="49" Margin="0,1,0,1.667"/>
+                            <TextBlock x:Name="U4" Foreground="#FF85AEEE" TextWrapping="Wrap" Margin="0,0,0,0" Width="90" />
                         </StackPanel>
                     </Button>
 

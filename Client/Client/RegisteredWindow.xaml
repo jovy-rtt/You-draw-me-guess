@@ -57,14 +57,14 @@
         <Label Grid.Row="0" Grid.ColumnSpan="2" Content="♥终于等到你了呢♥"  FontWeight="Light" Height="50" Width="230" HorizontalAlignment="Left" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="50,0,0,0" Foreground="#FFF14411"></Label>
         <Image Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,20,0" Height="100" VerticalAlignment="Top" Width="80" Source="/image/小丸子.jpg" />
         <Label Grid.Row="1" Grid.Column="0" Content="账号:" ></Label>
-        <Label Grid.Row="2" Grid.Column="0" Content="名称:" ></Label>
+        <Label Grid.Row="2" Grid.Column="0" Content="昵称:" ></Label>
         <Label Grid.Row="3" Grid.Column="0" Content="性别:" ></Label>
         <Label Grid.Row="4" Grid.Column="0" Content="签名:" ></Label>
         <Label Grid.Row="5" Grid.Column="0" Content="验证码:"></Label>
         <Label Grid.Row="6" Grid.Column="0" Content="密码:" Width="100"></Label>
         <Label Grid.Row="7" Grid.Column="0" Content="再次确认:" Width="100"></Label>
         <TextBox Name="Account" Grid.Column="1" Grid.Row="1"  Text="  输入一个6~10位的账号" FontSize="16" Foreground="#FF868383" MouseEnter="AMouseEnter" MouseLeave="AMouseLeave"/>
-        <TextBox Name="AccountName" Grid.Column="1" Grid.Row="2" Text="  请输入真实姓名" FontSize="16" Foreground="#FF868383"  MouseEnter="AMouseEnter" MouseLeave="AMouseLeave"/>
+        <TextBox Name="AccountName" Grid.Column="1" Grid.Row="2" Text="  请输入昵称" FontSize="16" Foreground="#FF868383"  MouseEnter="AMouseEnter" MouseLeave="AMouseLeave"/>
         <StackPanel Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="20,0,0,0" Grid.Row="3" VerticalAlignment="Center" Width="220" Orientation="Horizontal">
             <RadioButton Name="RadioM" Content="男" Width="80" Height="30" FontSize="20"  Margin="15,0,0,0" VerticalContentAlignment="Center" Foreground="#FFF60C0C" FontWeight="Bold"/>
             <RadioButton Content="女" Width="80" Height="30" FontSize="20" VerticalContentAlignment="Center" Foreground="#FFF60C0C" FontWeight="Bold"/>

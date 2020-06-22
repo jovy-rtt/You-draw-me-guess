@@ -33,6 +33,8 @@ namespace Client
             us = ustmp;
             item = CC.GetUser(us.Acount);
             loginclient = new LoginServiceClient();
+            if (us.Avart == null)
+                us.Avart = "boy.png";
             this.photo.Source = new BitmapImage(new Uri("pack://application:,,,/image/" + us.Avart));
         }
 
