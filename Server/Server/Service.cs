@@ -114,7 +114,8 @@ namespace Server
         public void EnterRoom(string userName, int roomId)
         {
             MyUser user = CC.GetUser(userName);
-            user.Room = roomId;
+            user.inRoom = roomId;
+            user.Score = 0;
             //初始化新房间
             if (CC.Rooms.ContainsKey(roomId) == false)
             {

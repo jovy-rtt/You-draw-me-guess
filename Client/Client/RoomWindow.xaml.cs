@@ -23,7 +23,7 @@ namespace Client
     /// </summary>
     public partial class RoomWindow : Window, ICheckinServerCallback
     {
-       // private ServiceClient client;//服务端调用
+        private ServiceClient client;//服务端调用
         private LoginServiceClient loginclient;
         private CheckinServerClient Checkinclient;
         private User item;//每一个id所属，item可以控制该id下的所有窗口
@@ -58,11 +58,13 @@ namespace Client
             item.RoomWindow.Hide();
             MainWindow mw = new MainWindow(us);
             mw.roomId = idx;
+            mw.us = us;
             item.MainWindow = mw;
             item.MainWindow.Show();
 
             //回调进入房间
-            //client.EnterRoom(username.Text, idx);
+            item.MainWindow.EnterRoom(us.Name, idx);
+            //client.EnterRoom(us.Name, idx);
         }
 
         //用于绑定enter键
