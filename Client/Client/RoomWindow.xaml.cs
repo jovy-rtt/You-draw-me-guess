@@ -45,7 +45,7 @@ namespace Client
             if (us.Avart == null)
                 us.Avart = "boy.png";
             this.photo.Source = new BitmapImage(new Uri("pack://application:,,,/image/" + us.Avart));
-           // Checkinclient.Login(us.Name);
+            Checkinclient.Login(us.Name);
             this.username.Text = us.Name + "快选择一个房间开始游戏吧！";
         }
 
@@ -55,6 +55,7 @@ namespace Client
             //确定点击了几号房间
             Button bt = e.Source as Button;
             int idx = (int)((bt.Name)[4]) - 48;
+            //Checkinclient.Login(us.Name);
             Checkinclient.Checkin(us.Name, idx);
             //MessageBox.Show("进入" + idx + "号房间");
 

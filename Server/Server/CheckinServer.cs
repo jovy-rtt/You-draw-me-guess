@@ -24,12 +24,12 @@ namespace Server
         {
             // throw new NotImplementedException();
             OperationContext context = OperationContext.Current;
-            IServiceCallback callback = context.GetCallbackChannel<IServiceCallback>();
+            ICheckinServerCallback callback = context.GetCallbackChannel<ICheckinServerCallback>();
             MyUser newUser = new MyUser(userName, callback);
             CC.Users.Add(newUser);
             foreach (var user in CC.Users)
             {
-                user.callback.ShowLogin(userName);
+                user.Checkincallback.ShowLogin(userName);
             }
         }
 
@@ -39,7 +39,7 @@ namespace Server
             ICheckinServerCallback callback = context.GetCallbackChannel<ICheckinServerCallback>();
             foreach (var item in CC.Users)
             {
-                item.callback.ShowCheckin(userName, roomnumber);
+                item.Checkincallback.ShowCheckin(userName, roomnumber);
             }
         }
 
@@ -47,7 +47,7 @@ namespace Server
         {
             foreach (var item in CC.Users)
             {
-                item.callback.ShowTalk(userName, message);
+                item.Checkincallback.ShowTalk(userName, message);
             }
         }
 
@@ -59,7 +59,7 @@ namespace Server
                 //不需要发给退出用户
                 if (user.UserName != logoutUser.UserName)
                 {
-                    user.callback.ShowLogout(userName);
+                    user.Checkincallback.ShowLogout(userName);
                 }
             }
             CC.Users.Remove(logoutUser);
