@@ -21,8 +21,8 @@
                 <Grid.Background>
                     <SolidColorBrush Color="#FF5AB0D7" Opacity="0.7"/>
                 </Grid.Background>
-                <Image x:Name="photo" HorizontalAlignment="Left" Height="64" VerticalAlignment="Top" Width="64" Stretch="Fill" />
-                <TextBox x:Name="username" BorderThickness="0,0,0,0" HorizontalAlignment="Left" Margin="64,0,0,0" VerticalAlignment="Top" Width="209" Height="33" FontSize="18" VerticalContentAlignment="Center">
+                <Image x:Name="photo" HorizontalAlignment="Left" Height="73" VerticalAlignment="Top" Width="64" Stretch="Fill" />
+                <TextBox x:Name="username" BorderThickness="0,0,0,0" HorizontalAlignment="Left" Margin="64,0,0,0" VerticalAlignment="Top" Width="577" Height="33" FontSize="18" VerticalContentAlignment="Center">
                     <TextBox.Background>
                         <SolidColorBrush Color="#FF82CCEE" Opacity="0.5"/>
                     </TextBox.Background>
