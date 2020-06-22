@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Client"
         mc:Ignorable="d"
-        Title="RoomWindow" Height="460" Width="800" >
+        Title="RoomWindow" Height="460" Width="810" >
     <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="132*"/>
@@ -16,13 +16,15 @@
                 <ImageBrush AlignmentX="Right" ImageSource="image\timg.jpg" Opacity="0.7" AlignmentY="Bottom"/>
             </Frame.Background>
         </Frame>
-        <DockPanel HorizontalAlignment="Left" Height="422" LastChildFill="False" VerticalAlignment="Top" Width="795" Grid.ColumnSpan="2" Margin="0,0,-1.667,-1.333">
+        <DockPanel HorizontalAlignment="Left" Height="422" LastChildFill="False" VerticalAlignment="Top" Width="800" Grid.ColumnSpan="2" Margin="0,0,-1.667,-1.333">
             <Grid Height="73" VerticalAlignment="Top" DockPanel.Dock="Top" Margin="0,0,-0.333,0">
                 <Grid.Background>
                     <SolidColorBrush Color="#FF5AB0D7" Opacity="0.7"/>
                 </Grid.Background>
-                <Image x:Name="photo" HorizontalAlignment="Left" Height="73" VerticalAlignment="Top" Width="64" Stretch="Fill" />
-                <TextBox x:Name="username" BorderThickness="0,0,0,0" HorizontalAlignment="Left" Margin="64,0,0,0" VerticalAlignment="Top" Width="577" Height="33" FontSize="18" VerticalContentAlignment="Center">
+                <Button HorizontalAlignment="Right" Height="70" VerticalAlignment="Top" Width="70" BorderBrush="{x:Null}" Click="Button_Click">
+                    <Image x:Name="photo" Stretch="Fill" />
+                </Button>
+                <TextBox x:Name="username" Text="欢迎来到你画我猜！预祝您玩的愉快！" BorderThickness="0,0,0,0" Margin="0,0,70,0" HorizontalAlignment="Center" Foreground="Red" VerticalAlignment="Center" Width="571" Height="33" FontSize="18" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
                     <TextBox.Background>
                         <SolidColorBrush Color="#FF82CCEE" Opacity="0.5"/>
                     </TextBox.Background>
@@ -161,15 +163,15 @@
                     </Button>
                 </Grid>
                 <Grid HorizontalAlignment="Left" Height="349" Margin="581,-5,0,0" VerticalAlignment="Top" Width="213">
-                    <TextBlock x:Name="PlayerInfo" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Width="203" Margin="0,0,0,36">
+                    <TextBlock x:Name="PlayerInfo" FontSize="16" HorizontalAlignment="Left" TextWrapping="Wrap" Width="210" Margin="0,0,0,36">
                         <TextBlock.Background>
                             <SolidColorBrush Color="#FFF8F6E2" Opacity="0.8"/>
                         </TextBlock.Background>
                     </TextBlock>
                     <Border BorderBrush="Brown" BorderThickness ="1" CornerRadius="10" Margin="2,278,0,36" RenderTransformOrigin="0.497,-0.027" >
-                        <Grid Margin="-0.333,8.667,0,0">
-                            <TextBox Name="SendBox" Background="#FFF5F4E9" BorderThickness="0,0,1,0" Text="" VerticalAlignment="Center" Height="28" Margin="10,-4,48,0" KeyUp="SendBox_KeyUp" />
-                            <Button x:Name="SendBnt" FontSize="13" BorderThickness="0,0,0,0" Content="SEND" HorizontalAlignment="Right" Margin="0,0,6,6" Width="43" RenderTransformOrigin="-0.014,0.321" Foreground="#FF4E280F" Click="SendBnt_Click" >
+                        <Grid Margin="-0.333,0,0,0">
+                            <TextBox Name="SendBox" FontSize="18" VerticalContentAlignment="Center" Background="#FFF5F4E9" BorderThickness="0,0,1,0" VerticalAlignment="Center" Height="35" Margin="10,0,47.933,-0.067" KeyUp="SendBox_KeyUp" />
+                            <Button x:Name="SendBnt" FontSize="13" BorderThickness="0,0,0,0" Content="SEND" HorizontalAlignment="Right" Margin="0,0,5.933,-0.067" Width="43" RenderTransformOrigin="-0.014,0.321" Foreground="#FF4E280F" Click="SendBnt_Click" >
                                 <Button.Background>
                                     <SolidColorBrush Color="#FFF4F5E9" Opacity="0.2"/>
                                 </Button.Background>

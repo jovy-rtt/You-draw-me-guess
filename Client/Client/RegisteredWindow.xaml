@@ -8,14 +8,13 @@
         Title="Sign_For" Height="600" Width="400" ResizeMode="NoResize"  Closing="Window_Closing" >
     <Grid>
         <Grid.Resources>
-
             <Style TargetType="Button">
                 <EventSetter Event="Click" Handler="Button_Click"></EventSetter>
             </Style>
-
             <Style TargetType="Label">
                 <Setter Property="Height" Value="40"></Setter>
                 <Setter Property="Width" Value="80"></Setter>
+                <Setter Property="FontSize" Value="20"></Setter>
                 <Setter Property="FontWeight" Value="Bold"></Setter>
                 <Setter Property="VerticalAlignment" Value="Center"></Setter>
                 <Setter Property="HorizontalAlignment" Value="Right"></Setter>
@@ -32,6 +31,7 @@
             <Style TargetType="TextBox">
                 <Setter Property="Height" Value="30"></Setter>
                 <Setter Property="Width" Value="220"></Setter>
+                <Setter Property="FontSize" Value="20"></Setter>
                 <Setter Property="Margin" Value="20,0,0,0"></Setter>
                 <Setter Property="VerticalAlignment" Value="Center"></Setter>
                 <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
@@ -43,7 +43,7 @@
             <SolidColorBrush Color="#FFF7E0CC" Opacity="0.4"/>
         </Grid.Background>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="140"></RowDefinition>
             <RowDefinition Height="40"></RowDefinition>
             <RowDefinition Height="45"></RowDefinition>
             <RowDefinition Height="45"></RowDefinition>
@@ -76,18 +76,11 @@
         <PasswordBox Name="PassWord1" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Left" Width="220" Height="30" Margin="20,0,0,0"  VerticalAlignment="Center" VerticalContentAlignment="Center"/>
         <PasswordBox Name="PassWord2" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Left" Width="220" Height="30" Margin="20,0,0,0"  VerticalAlignment="Center" VerticalContentAlignment="Center" PasswordChanged="PassWord2_PasswordChanged" />
         <Image Name="img2" Grid.Column="1" HorizontalAlignment="Right"  Height="30" Grid.Row="7"  Margin="0,0,15,0" Width="30" />
-        <Button Name="bt1" Grid.ColumnSpan="2" Margin="45,25,49.667,0" Content="申请注册"  Grid.Row="8" VerticalAlignment="Top" Width="300" Height="40" HorizontalAlignment="Center" Background="#FF63BBDC" Foreground="#FFF9F9F9" />
-        <Button Name="bt2" Content="帮助" FontSize="15" HorizontalAlignment="Left" Margin="10,0,0,10" Grid.Row="8" VerticalAlignment="Bottom" Width="75" Background="#FFFAEFD7" Foreground="#FFB6A1A1" HorizontalContentAlignment="Left" BorderBrush="{x:Null}"/>
-        <Button Name="bt3" Content="联系我们" FontSize="15" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,10,10" Grid.Row="8" VerticalAlignment="Bottom" Width="75" Background="#FFFBEDD0"  Foreground="#FFB6A1A1" HorizontalContentAlignment="Right" BorderBrush="{x:Null}"/>
-        <Grid Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="100" Margin="5,70,-0.333,0" Grid.Row="8" VerticalAlignment="Top" Width="390">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="83*"/>
-                <ColumnDefinition Width="307*"/>
-            </Grid.ColumnDefinitions>
-            <Image Source="/image/登录.PNG" Stretch="Fill" Grid.ColumnSpan="2" Margin="-10,0,0,0" >
-                <Image.OpacityMask>
-                    <SolidColorBrush Color="Black" Opacity="0.7"/>
-                </Image.OpacityMask>
+        <Button Name="bt1" Grid.ColumnSpan="2" Margin="45,25,49.667,0" Content="申请注册"  Grid.Row="8" VerticalAlignment="Top" Width="300" Height="40" HorizontalAlignment="Center" Background="#FF63BBDC" Foreground="#FFF9F9F9" FontSize="20" FontWeight="Bold" />
+        <Button Name="bt2" Content="帮助" FontSize="15" HorizontalAlignment="Left" Margin="10,0,0,10" Grid.Row="8" VerticalAlignment="Bottom" Width="75" Background="#FFFCF3EB" Foreground="#FFB6A1A1" HorizontalContentAlignment="Left" BorderBrush="{x:Null}"/>
+        <Button Name="bt3" Content="联系我们" FontSize="15" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,10,10" Grid.Row="8" VerticalAlignment="Bottom" Width="75" Background="#FFFCF3EB"  Foreground="#FFB6A1A1" HorizontalContentAlignment="Right" BorderBrush="{x:Null}"/>
+        <Grid Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="100" Margin="0,15,0,0" Grid.Row="0" VerticalAlignment="Top" Width="390">
+            <Image Source="/image/登录.PNG" Stretch="Fill" Opacity="0.8" Margin="0,0,0,0" >
             </Image>
         </Grid>
     </Grid>
