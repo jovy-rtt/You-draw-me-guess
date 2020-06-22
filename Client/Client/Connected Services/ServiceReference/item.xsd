@@ -57,6 +57,14 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="StartGame">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="roomId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="ShowInk">
     <xs:complexType>
       <xs:sequence>
@@ -97,6 +105,15 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ShowStart">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName1" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="answer" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="tip" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

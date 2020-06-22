@@ -10,12 +10,18 @@ namespace Client
     public class User
     {     
         public string id { get; set; }
+        public int inRoom { get; set; }
+        public int Score { get; set; }
         public LoginWindow LoginWindow { get; set; }
        
         public  MainWindow MainWindow { get; set; }
         
         public  RoomWindow RoomWindow { get; set; }
 
+        public void addScore()
+        {
+            Score++;
+        }
         public User(string id)
         {
             this.id = id;

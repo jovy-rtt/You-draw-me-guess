@@ -56,6 +56,12 @@ namespace Client.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/EnterRoom")]
         System.Threading.Tasks.Task EnterRoomAsync(string userName, int roomId);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/StartGame")]
+        void StartGame(string userName, int roomId);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/StartGame")]
+        System.Threading.Tasks.Task StartGameAsync(string userName, int roomId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -78,6 +84,9 @@ namespace Client.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/ShowRoom")]
         void ShowRoom(string userName);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/ShowStart")]
+        void ShowStart(string userName1, string answer, string tip);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -162,6 +171,14 @@ namespace Client.ServiceReference {
         
         public System.Threading.Tasks.Task EnterRoomAsync(string userName, int roomId) {
             return base.Channel.EnterRoomAsync(userName, roomId);
+        }
+        
+        public void StartGame(string userName, int roomId) {
+            base.Channel.StartGame(userName, roomId);
+        }
+        
+        public System.Threading.Tasks.Task StartGameAsync(string userName, int roomId) {
+            return base.Channel.StartGameAsync(userName, roomId);
         }
     }
 }
