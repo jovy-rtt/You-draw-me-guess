@@ -276,6 +276,10 @@ namespace Client
         #endregion
 
         #region 游戏的回调函数实现
+        public void EnterRoom(string userName,int rooomId)
+        {
+            client.EnterRoom(userName, roomId);
+        }
         public void ShowRoom(string roommeg)
         {
             UserBox.Items.Clear();
