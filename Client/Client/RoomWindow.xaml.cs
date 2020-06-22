@@ -41,7 +41,6 @@ namespace Client
                 us.Avart = "boy.png";
             this.photo.Source = new BitmapImage(new Uri("pack://application:,,,/image/" + us.Avart));
             Checkinclient.Login(us.Name);
-            this.username.Text = us.Name + "快选择一个房间开始游戏吧！";
         }
 
         //进入房间
@@ -50,9 +49,7 @@ namespace Client
             //确定点击了几号房间
             Button bt = e.Source as Button;
             int idx = (int)((bt.Name)[4]) - 48;
-            //Checkinclient.Login(us.Name);
             Checkinclient.Checkin(us.Name, idx);
-            //MessageBox.Show("进入" + idx + "号房间");
 
             //设置大厅隐藏，打开游戏
             item.RoomWindow.Hide();
@@ -70,7 +67,17 @@ namespace Client
         //用于绑定enter键
         private void SendBox_KeyUp(object sender, KeyEventArgs e)
         {
+            if(e.Key==Key.Enter)
+            {
+                Checkinclient.Talk(us.Name, this.SendBox.Text);
+                this.SendBox.Text = "";
+            }
+        }
 
+        private void SendBnt_Click(object sender, RoutedEventArgs e)
+        {
+            Checkinclient.Talk(us.Name, this.SendBox.Text);
+            this.SendBox.Text = "";
         }
 
         //退出游戏
@@ -81,22 +88,29 @@ namespace Client
 
         }
 
+        //显示玩家信息
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            PlayerInfo PI = new PlayerInfo(us);
+            PI.ShowDialog();
+        }
+
         #region 聊天室的回调函数实现
 
         public void ShowLogin(string loginUserName)
         {
-            this.PlayerInfo.Text += "[" + loginUserName + "]" + "进入游戏" + '\n';
+            this.PlayerInfo.Text += "[" + loginUserName + "]" + "进入大厅" + '\n';
         }
 
         /// <summary>其他用户退出</summary>
         public void ShowLogout(string userName)
         {
-            this.PlayerInfo.Text += "[" + userName + "]" + "退出游戏" + '\n';
+            this.PlayerInfo.Text += "[" + userName + "]" + "退出大厅" + '\n';
         }
 
         public void ShowCheckin(string userName, int roomnumber)
         {
-            this.PlayerInfo.Text += "[" + userName + "]说：" + "进入了"+roomnumber+"号房间" + '\n';
+            this.PlayerInfo.Text += "[" + userName + "]" + "进入了"+roomnumber+"号房间" + '\n';
         }
 
         public void ShowTalk(string userName, string message)
@@ -104,14 +118,11 @@ namespace Client
             this.PlayerInfo.Text += "[" + userName + "]说：" + message + '\n';
         }
 
-        private void SendBnt_Click(object sender, RoutedEventArgs e)
-        {
-            Checkinclient.Talk(us.Name, this.SendBox.Text);
-            this.SendBox.Text = "";
-        }
+
+
 
         #endregion
 
-
+        
     }
 }
