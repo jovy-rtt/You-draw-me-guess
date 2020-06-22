@@ -45,6 +45,10 @@ namespace Server
         //进入房间
         [OperationContract(IsOneWay = true)]
         void EnterRoom(string userName, int roomId);
+
+        //开始游戏
+        [OperationContract(IsOneWay = true)]
+        void StartGame(string userName, int roomId);
         #endregion
 
     }
@@ -78,7 +82,34 @@ namespace Server
         //回调进入房间
         [OperationContract(IsOneWay = true)]
         void ShowRoom(string userName);
+
+        //回调开始游戏
+        [OperationContract(IsOneWay = true)]
+        void ShowStart(string userName1,string answer,string tip);
         #endregion
+    }
+    [DataContract]
+    public class questions
+    {
+        [DataMember]
+        public string answer { get; set; }
+        [DataMember]
+        public string tip { get; set; }
+        private Random r=new Random();
+        public questions()
+        {
+            int num = r.Next(1, 20 + 1);
+            MyDbEntities myDbEntities = new MyDbEntities();
+            var q = from t in myDbEntities.Questions
+                    where t.Id == num
+                    select t;
+            if(q.Count()>0)
+            {
+                var Q = q.First();
+                answer = Q.Question;
+                tip = Q.Tip;
+            }
+        }
     }
 
     [DataContract]
@@ -89,6 +120,7 @@ namespace Server
         [DataMember]
         public List<MyUser> users { get; set; }
         [DataMember]
-        public Questions question { get; set; }
+        public questions question { get; set; }
+        
     }
 }

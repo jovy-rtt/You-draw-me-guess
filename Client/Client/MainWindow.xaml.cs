@@ -30,7 +30,7 @@ namespace Client
     {
         private ServiceClient client;
         private LoginServiceClient loginclient;
-        public int room;//暂用
+        public int roomId;//暂用
         public LoginReference.User us;//用户的所有信息
         private User item;//每一个id所属，item可以控制该id下的所有窗口
         //画板相关
@@ -136,7 +136,7 @@ namespace Client
             StrokeCollection sc = inkcanvas.Strokes;
             string inkData = (new StrokeCollectionConverter()).ConvertToString(sc);
 
-            client.SendInk(room, inkData);
+            client.SendInk(roomId, inkData);
         }
         public void ShowInk(string inkData)
         {
@@ -204,7 +204,7 @@ namespace Client
                     inkcanvas.Strokes.Clear();
                     StrokeCollection sc = inkcanvas.Strokes;
                     string inkData = (new StrokeCollectionConverter()).ConvertToString(sc);
-                    client.SendInk(room, inkData);
+                    client.SendInk(roomId, inkData);
                     break;
             }
         }
@@ -242,23 +242,48 @@ namespace Client
         #region 游戏的回调函数实现
         public void ShowRoom(string roommeg)
         {
-            //UserBox.Items.Clear();
+            UserBox.Items.Clear();
             //显示各个选手得分
-            //string[] s = roommeg.Split(',');
-            //for (int i = 0; i < s.Length; i += 2)
-            //{
-            //    UserBox.Items.Add(s[i] + "---" + s[i + 1] + "分");
-            //    if (UserName == s[i]) ScoreLabel.Content = s[i + 1];
-            //}
+            string[] s = roommeg.Split(',');
+            for (int i = 0; i < s.Length; i += 2)
+            {
+                UserBox.Items.Add(s[i] + "---" + s[i + 1] + "分");
+                if (us.Name == s[i]) ScoreLabel.Content = s[i + 1];
+            }
             //初始画板都不可使用
-            //inkcanvas.IsEnabled = false;
+            inkcanvas.IsEnabled = false;
         }
-
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            readybtn.IsEnabled = false;
+            readybtn.Content = "已准备";
+            client.StartGame(us.Name, roomId);
+        }
+        public void ShowStart(string userName1, string answer, string tip)
+        {
+            inkcanvas.Strokes.Clear();
+            //画图者
+            if(us.Name==userName1)
+            {
+                inkcanvas.IsEnabled = true;
+                sendbtn.IsEnabled = false;
+                TipLabel.Content = "题目：" + answer;
+                ConversationBox.Text += "系统提示：请开始绘画\n";
+            }
+            //猜图者
+            else
+            {
+                inkcanvas.IsEnabled = false;
+                sendbtn.IsEnabled = true;
+                TipLabel.Content = "提示：" + tip;
+                ConversationBox.Text += "系统提示：请开始抢答\n";
+            }
+        }
 
 
 
         #endregion
 
-        
+
     }
 }
