@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Client"
         mc:Ignorable="d"
-        Title="你画我猜" Height="450" Width="804" Loaded="Window_Loaded" Closing="Window_Closing">
+        Title="你画我猜" Height="460" Width="804" Loaded="Window_Loaded" Closing="Window_Closing">
     <Grid>
         <Frame x:Name="frame1" Margin="0,3,0.333,-2" BorderThickness="2" BorderBrush="#FFA6C9FD" NavigationUIVisibility="Hidden" >
             <Frame.Background>
@@ -118,7 +118,7 @@
                 </Button>
             </Grid>
         </DockPanel>
-        <Border BorderBrush="Brown" BorderThickness ="1" CornerRadius="10" Margin="712,392,0.333,4.667" >
+        <Border BorderBrush="Brown" BorderThickness ="1" CornerRadius="10" Margin="712,392,0.333,10" >
             <Grid Margin="0.667,-4.333,-1,5">
                 <Button x:Name="exitBnt" FontSize="13" BorderThickness="0,0,0,0" Content="EXIT" Margin="16,3,0,-5.334" VerticalAlignment="Top" Height="23" RenderTransformOrigin="-0.014,0.321" Foreground="#FF4E280F" Click="exitBnt_Click" >
                     <Button.Background>

@@ -53,7 +53,6 @@ namespace Server
             if (CC.Users == null)
             {
                 CC.Users = new List<MyUser>();
-
             }
         }
 

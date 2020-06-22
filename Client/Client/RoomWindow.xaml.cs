@@ -59,7 +59,7 @@ namespace Client
             item.MainWindow.Show();
 
             //回调进入房间
-            client.EnterRoom(username.Text, idx);
+            //client.EnterRoom(username.Text, idx);
         }
 
         //用于绑定enter键
