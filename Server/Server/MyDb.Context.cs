@@ -25,7 +25,7 @@ namespace Server
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<User> User { get; set; }
         public virtual DbSet<Questions> Questions { get; set; }
+        public virtual DbSet<User> User { get; set; }
     }
 }

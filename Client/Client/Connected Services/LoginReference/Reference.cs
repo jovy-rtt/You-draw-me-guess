@@ -26,7 +26,7 @@ namespace Client.LoginReference {
         private string AcountField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private byte[] AvartField;
+        private string AvartField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int GradeField;
@@ -36,6 +36,12 @@ namespace Client.LoginReference {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PasswordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> RoomField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> ScoreField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string SignField;
@@ -64,7 +70,7 @@ namespace Client.LoginReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public byte[] Avart {
+        public string Avart {
             get {
                 return this.AvartField;
             }
@@ -111,6 +117,32 @@ namespace Client.LoginReference {
                 if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
                     this.PasswordField = value;
                     this.RaisePropertyChanged("Password");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Room {
+            get {
+                return this.RoomField;
+            }
+            set {
+                if ((this.RoomField.Equals(value) != true)) {
+                    this.RoomField = value;
+                    this.RaisePropertyChanged("Room");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Score {
+            get {
+                return this.ScoreField;
+            }
+            set {
+                if ((this.ScoreField.Equals(value) != true)) {
+                    this.ScoreField = value;
+                    this.RaisePropertyChanged("Score");
                 }
             }
         }

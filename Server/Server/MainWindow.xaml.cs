@@ -20,11 +20,10 @@ namespace Server
     {
 
         //该窗口是用于手动控制“你画我猜”应用程序的服务端，仅用于启动以及停止监听
-        //by 朱孟祥
 
         private ServiceHost host1;
         private ServiceHost host2;
-        private ServiceHost host3;
+        
 
         public MainWindow()
         {
@@ -51,13 +50,7 @@ namespace Server
                 textBlock1.Text += v.ListenUri.ToString() + "\n";
             }
 
-            host3 = new ServiceHost(typeof(CheckinService));
-            host3.Open();
-            //textBlock1.Text += "本机服务已启动，监听的Uri为：\n";
-            foreach (var v in host3.Description.Endpoints)
-            {
-                textBlock1.Text += v.ListenUri.ToString() + "\n";
-            }
+            
         }
 
         //关闭服务
@@ -65,7 +58,6 @@ namespace Server
         {
             host1.Close();
             host2.Close();
-            host3.Close();
             textBlock1.Text += "本机服务已关闭\n";
             ChangeState(btnStart, true, btnStop, false);
         }
@@ -93,13 +85,6 @@ namespace Server
                 if (host2.State == CommunicationState.Opened)
                 {
                     host2.Close();
-                }
-            }
-            if (host3 != null)
-            {
-                if (host3.State == CommunicationState.Opened)
-                {
-                    host3.Close();
                 }
             }
         }

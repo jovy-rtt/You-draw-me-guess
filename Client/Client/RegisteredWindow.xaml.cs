@@ -22,10 +22,6 @@ namespace Client
     /// </summary>
     public partial class RegisteredWindow : Window
     {
-        //id所属
-        public string id { get; set; }
-        //对象
-        private User item;
         //验证码
         private string Verification;
         private LoginServiceClient client;
@@ -118,8 +114,8 @@ namespace Client
         //关闭窗口事件
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            item = CC.GetUser(id);
-            item.LoginWindow.Show();
+            LoginWindow LW = new LoginWindow();
+            LW.Show();
         }
 
 

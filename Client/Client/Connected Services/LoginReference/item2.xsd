@@ -3,10 +3,12 @@
   <xs:complexType name="User">
     <xs:sequence>
       <xs:element minOccurs="0" name="Acount" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Avart" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="Avart" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Grade" type="xs:int" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Room" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Score" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="Sign" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>

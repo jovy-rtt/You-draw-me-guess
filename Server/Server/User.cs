@@ -16,10 +16,10 @@ namespace Server
     {
         public string Acount { get; set; }
         public string Password { get; set; }
-        public byte[] Avart { get; set; }
+        public string Name { get; set; }
+        public string Avart { get; set; }
         public int Grade { get; set; }
         public string Sign { get; set; }
-        public string Name { get; set; }
         public Nullable<int> Score { get; set; }
         public Nullable<int> Room { get; set; }
     }

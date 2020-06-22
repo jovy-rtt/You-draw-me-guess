@@ -24,12 +24,12 @@ namespace Client
         public PlayerInfo(LoginReference.User us)
         {
             InitializeComponent();
+            this.account.Text = us.Acount;
             this.name.Text = us.Name;
             this.level.Text = us.Grade.ToString();
             this.sign.Text = us.Sign;
-
+            this.photo.Source = new BitmapImage(new Uri("pack://application:,,,/image/"+us.Avart));
         }
 
-        
     }
 }

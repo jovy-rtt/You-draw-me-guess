@@ -20,7 +20,7 @@
           <Property Name="Acount" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Avart" Type="image" />
+          <Property Name="Avart" Type="nvarchar" MaxLength="50" />
           <Property Name="Grade" Type="int" Nullable="false" />
           <Property Name="Sign" Type="nvarchar(max)" />
           <Property Name="Score" Type="int" />
@@ -34,22 +34,9 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MyDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="User">
-          <Key>
-            <PropertyRef Name="Acount" />
-          </Key>
-          <Property Name="Acount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Avart" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="Grade" Type="Int32" Nullable="false" />
-          <Property Name="Sign" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Score" Type="Int32" />
-          <Property Name="Room" Type="Int32" />
-        </EntityType>
         <EntityContainer Name="MyDbEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="User" EntityType="Self.User" />
           <EntitySet Name="Questions" EntityType="MyDbModel.Questions" />
+          <EntitySet Name="User" EntityType="MyDbModel.User" />
         </EntityContainer>
         <EntityType Name="Questions">
           <Key>
@@ -59,32 +46,45 @@
           <Property Name="Question" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Tip" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Acount" />
+          </Key>
+          <Property Name="Acount" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Avart" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Grade" Type="Int32" Nullable="false" />
+          <Property Name="Sign" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Score" Type="Int32" />
+          <Property Name="Room" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="MyDbModelStoreContainer" CdmEntityContainer="MyDbEntities">
-          <EntitySetMapping Name="User">
-            <EntityTypeMapping TypeName="MyDbModel.User">
-              <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="Room" ColumnName="Room" />
-                <ScalarProperty Name="Score" ColumnName="Score" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Acount" ColumnName="Acount" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Avart" ColumnName="Avart" />
-                <ScalarProperty Name="Grade" ColumnName="Grade" />
-                <ScalarProperty Name="Sign" ColumnName="Sign" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Questions">
             <EntityTypeMapping TypeName="MyDbModel.Questions">
               <MappingFragment StoreEntitySet="Questions">
                 <ScalarProperty Name="Tip" ColumnName="Tip" />
                 <ScalarProperty Name="Question" ColumnName="Question" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="MyDbModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Room" ColumnName="Room" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="Sign" ColumnName="Sign" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+                <ScalarProperty Name="Avart" ColumnName="Avart" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Acount" ColumnName="Acount" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

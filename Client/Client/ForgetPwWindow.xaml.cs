@@ -23,10 +23,7 @@ namespace Client
     /// </summary>
     public partial class ForgetPwWindow : Window
     {
-        //id所属
-        public string id { get; set; }
-        //对象
-        private User item;
+        
         //验证码
         private string Verification;
         private LoginServiceClient client;
@@ -52,8 +49,8 @@ namespace Client
         //Closing事件
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            item = CC.GetUser(id);
-            item.LoginWindow.Show();
+            LoginWindow LW = new LoginWindow();
+            LW.Show();
         }
 
 

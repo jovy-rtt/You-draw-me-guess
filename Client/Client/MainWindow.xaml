@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Client"
         mc:Ignorable="d"
-        Title="你画我猜" Height="450" Width="804" Loaded="Window_Loaded">
+        Title="你画我猜" Height="450" Width="804" Loaded="Window_Loaded" Closing="Window_Closing">
     <Grid>
         <Frame x:Name="frame1" Margin="0,3,0.333,-2" BorderThickness="2" BorderBrush="#FFA6C9FD" NavigationUIVisibility="Hidden" >
             <Frame.Background>
@@ -24,7 +24,7 @@
                             <SolidColorBrush Color="#FFDDDDDD" Opacity="0.2"/>
                         </Button.Background>
                         <StackPanel Height="51" Width="142" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
-                            <Image x:Name="photo1" Height="48" Source="image/3.png" Width="49" Margin="0,1,0,1.667"/>
+                            <Image x:Name="photo1" Height="48"  Width="49" Margin="0,1,0,1.667"/>
                             <TextBlock x:Name="U1" Foreground="#FF85AEEE" TextWrapping="Wrap" Margin="0,0,0,-166.333" Width="88" />
                         </StackPanel>
                     </Button>
@@ -33,7 +33,7 @@
                             <SolidColorBrush Color="#FFDDDDDD" Opacity="0.2"/>
                         </Button.Background>
                         <StackPanel Height="51" Width="142" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
-                            <Image x:Name="photo2" Height="48" Source="image/2.png" Width="49" Margin="0,1,0,1.667"/>
+                            <Image x:Name="photo2" Height="48"  Width="49" Margin="0,1,0,1.667"/>
                         </StackPanel>
                     </Button>
                     <Button x:Name="user1Btn3" HorizontalAlignment="Center" VerticalAlignment="Top" Width="152" Height="51"  BorderBrush="White" Foreground="White" Click="user1Btn1_Click">
@@ -41,7 +41,7 @@
                             <SolidColorBrush Color="#FFDDDDDD" Opacity="0.2"/>
                         </Button.Background>
                         <StackPanel Height="51" Width="142" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
-                            <Image x:Name="photo3" Height="48" Source="image/1.png" Width="49" Margin="0,1,0,1.667"/>
+                            <Image x:Name="photo3" Height="48"  Width="49" Margin="0,1,0,1.667"/>
                         </StackPanel>
                     </Button>
                     <Button x:Name="user1Btn4" HorizontalAlignment="Center" VerticalAlignment="Top" Width="152" Height="51"  BorderBrush="White" Foreground="White" Click="user1Btn1_Click">
@@ -49,7 +49,7 @@
                             <SolidColorBrush Color="#FFDDDDDD" Opacity="0.2"/>
                         </Button.Background>
                         <StackPanel Height="51" Width="142" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
-                            <Image x:Name="photo4" Height="48" Source="image/4.png" Width="49" Margin="0,1,0,1.667"/>
+                            <Image x:Name="photo4" Height="48" Width="49" Margin="0,1,0,1.667"/>
                         </StackPanel>
                     </Button>
 
@@ -64,6 +64,8 @@
                         <SolidColorBrush Color="#FFF2D738" Opacity="0.6"/>
                     </Label.Background>
                 </Label>
+                <Label Name="textBoxUserName"  HorizontalContentAlignment="Right" FontSize="12" Margin="0,392,66,0" Foreground="Red"/>
+                <Label   HorizontalContentAlignment="Left" FontSize="12" Margin="101,392,10,0" Content="在线"/>
             </Grid>
             <InkCanvas x:Name="inkcanvas" Width="436" VerticalAlignment="Center" Height="308" Margin="0,85,0,29" MouseUp="ink_MouseUp">
                 <InkCanvas.Background>
@@ -77,7 +79,7 @@
                 <TextBlock Name="ConversationBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="310" Width="194" Focusable="True"/>
                 <Border BorderBrush="Brown" BorderThickness ="1" CornerRadius="10" Margin="0,310,2,0" >
                     <Grid>
-                        <TextBox Name="SendBox" Background="#FFF5F4E9" BorderThickness="0,0,1,0" Text="" VerticalAlignment="Center" Height="26" Margin="9,0,53.333,0" />
+                        <TextBox Name="SendBox"  Background="#FFF5F4E9" BorderThickness="0,0,1,0" FontSize="16" VerticalContentAlignment="Center" VerticalAlignment="Center" Height="26" Margin="9,0,53.333,0" KeyUp="SendBox_KeyUp" />
                         <Button FontSize="13" BorderThickness="0,0,0,0" Content="SEND" HorizontalAlignment="Right" Margin="0,0,5.333,0" VerticalAlignment="Bottom" Width="43" Height="23" RenderTransformOrigin="-0.014,0.321" Foreground="#FF4E280F" Click="send_Click">
                             <Button.Background>
                                 <SolidColorBrush Color="#FFF4F5E9" Opacity="0.2"/>
@@ -113,16 +115,6 @@
                 </Button>
             </Grid>
         </DockPanel>
-        <TextBox x:Name="textBoxUserName" BorderThickness="0,0,0,0" Opacity="20" HorizontalAlignment="Left" Height="23" Margin="0,397,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="62">
-            <TextBox.Background>
-                <SolidColorBrush Color="White" Opacity="0.2"/>
-            </TextBox.Background>
-        </TextBox>
-        <TextBox HorizontalAlignment="Left" BorderThickness="0,0,0,0" Opacity="10" Height="23" Margin="62,397,0,0" TextWrapping="Wrap" Text="在线" VerticalAlignment="Top" Width="33">
-            <TextBox.Background>
-                <SolidColorBrush Color="White" Opacity="0.2"/>
-            </TextBox.Background>
-        </TextBox>
         <Border BorderBrush="Brown" BorderThickness ="1" CornerRadius="10" Margin="712,392,0.333,4.667" >
             <Grid Margin="0.667,-4.333,-1,5">
                 <Button x:Name="exitBnt" FontSize="13" BorderThickness="0,0,0,0" Content="EXIT" Margin="16,3,0,-5.334" VerticalAlignment="Top" Height="23" RenderTransformOrigin="-0.014,0.321" Foreground="#FF4E280F" Click="exitBnt_Click" >

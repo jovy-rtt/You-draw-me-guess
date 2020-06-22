@@ -12,14 +12,16 @@
                 <ImageBrush AlignmentX="Right" ImageSource="image\小丸.jpg" Opacity="0.6" AlignmentY="Bottom"/>
             </Frame.Background>
         </Frame>
-        <StackPanel HorizontalAlignment="Left" Height="104" Margin="42,42,0,0" VerticalAlignment="Top" Width="90" Background="White"  >
-            <Image  Height="99"/>
+        <StackPanel HorizontalAlignment="Left" Height="100" Margin="42,42,0,0" VerticalAlignment="Top" Width="90" Background="White"  >
+            <Image x:Name="photo" Height="100"/>
         </StackPanel>
-        <Label Content="昵称：" HorizontalAlignment="Left" Margin="182,59,0,0" VerticalAlignment="Top"/>
-        <Label Content="等级：" HorizontalAlignment="Left" Margin="182,109,0,0" VerticalAlignment="Top"/>
-        <Label Content="个性签名：" HorizontalAlignment="Left" Margin="42,191,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="name" HorizontalAlignment="Left" Height="23" Margin="244,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
-        <TextBox x:Name="level" HorizontalAlignment="Left" Height="23" Margin="244,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox Name="sign" HorizontalAlignment="Left" Height="66" Margin="113,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="251"/>
+        <Label Content="账号："  HorizontalAlignment="Left" Margin="182,40,0,0" VerticalAlignment="Top"/>
+        <Label Content="昵称：" HorizontalAlignment="Left" Margin="182,80,0,0" VerticalAlignment="Top"/>
+        <Label Content="等级：" HorizontalAlignment="Left" Margin="182,120,0,0" VerticalAlignment="Top"/>
+        <Label Content="个性签名：" HorizontalAlignment="Left" Margin="42,190,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="account"  Foreground="Red" FontSize="13" VerticalContentAlignment="Center"  HorizontalAlignment="Left" Height="23" Margin="230,40,0,0"  VerticalAlignment="Top" Width="120" Background="White" IsEnabled="False" />
+        <TextBox x:Name="name" Foreground="Red" FontSize="13" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="23" Margin="230,80,0,0" VerticalAlignment="Top" Width="120" Background="White" IsEnabled="False" />
+        <TextBox x:Name="level" Foreground="Red" FontSize="13" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="23" Margin="230,120,0,0" VerticalAlignment="Top" Width="120" Background="White" IsEnabled="False"/>
+        <TextBox Name="sign"  Foreground="Red" FontSize="13" VerticalContentAlignment="Top" HorizontalAlignment="Left" Height="66" Margin="113,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="251" Background="White" IsEnabled="False"/>
     </Grid>
 </Window>

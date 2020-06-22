@@ -18,7 +18,7 @@
         </Frame>
         <DockPanel HorizontalAlignment="Left" Height="422" LastChildFill="False" VerticalAlignment="Top" Width="795" Grid.ColumnSpan="2" Margin="0,0,-1.667,-1.333">
             <Grid Height="64" VerticalAlignment="Top" DockPanel.Dock="Top">
-                <Image x:Name="photo" HorizontalAlignment="Left" Height="64" VerticalAlignment="Top" Width="64" Source="image/girl.png"/>
+                <Image x:Name="photo" HorizontalAlignment="Left" Height="64" VerticalAlignment="Top" Width="64" />
                 <TextBox x:Name="username" BorderThickness="0,0,0,0" HorizontalAlignment="Left" Margin="64,0,0,0" VerticalAlignment="Top" Width="209" Height="33" FontSize="18" VerticalContentAlignment="Center" Background="#FFFBF9E6">
 
                 </TextBox>
@@ -162,7 +162,7 @@
                     </TextBlock>
                     <Border BorderBrush="Brown" BorderThickness ="1" CornerRadius="10" Margin="0,300,2,10" RenderTransformOrigin="0.497,-0.027" >
                         <Grid>
-                            <TextBox Name="SendBox" Background="#FFF5F4E9" BorderThickness="0,0,1,0" Text="" VerticalAlignment="Center" Height="26" Margin="9,0,53.333,0" />
+                            <TextBox Name="SendBox" Background="#FFF5F4E9" BorderThickness="0,0,1,0" Text="" VerticalAlignment="Center" Height="26" Margin="9,0,53.333,0" KeyUp="SendBox_KeyUp" />
                             <Button FontSize="13" BorderThickness="0,0,0,0" Content="SEND" HorizontalAlignment="Right" Margin="0,0,5.333,0" VerticalAlignment="Bottom" Width="43" Height="23" RenderTransformOrigin="-0.014,0.321" Foreground="#FF4E280F" >
                                 <Button.Background>
                                     <SolidColorBrush Color="#FFF4F5E9" Opacity="0.2"/>

@@ -31,36 +31,37 @@ namespace Client
         private ServiceClient client;
         private LoginServiceClient loginclient;
         public int room;//暂用
-        public string id { get; set; }//id所属
-        public string account { get; set; }
-        public LoginReference.User us;
-
-        private User item;//对象
-
-        public MainWindow()
-        { 
-            InitializeComponent();
-            client = new ServiceClient(new InstanceContext(this));
-            loginclient = new LoginServiceClient();
-            //bool flag = client.test();
-            //MessageBox.Show(flag.ToString());
-        }
-
-        
-
+        public LoginReference.User us;//用户的所有信息
+        private User item;//每一个id所属，item可以控制该id下的所有窗口
         //画板相关
         private DrawingAttributes inkDA;
         private Color currentColor;
 
+        //传参方式的变化
+        public MainWindow(LoginReference.User ustmp)
+        { 
+            InitializeComponent();
+            us = ustmp;
+            item = CC.GetUser(us.Acount);
+        }
+
+        
+
+        
+
         /*----------------------------------------------------- 分割线  ----------------------------------------------------------------*/
         #region 客户端内的方法
-        //画板相关
+        //画板相关+聊天室登录信息显示
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //创建客户端代理类
-            InstanceContext context = new InstanceContext(this);
-            client = new ServiceClient(context);
-            client.Login("test");
+            //初始化两个服务端接口
+            client = new ServiceClient(new InstanceContext(this));
+            loginclient = new LoginServiceClient();
+            //显示登录
+            client.Login(us.Name);
+            client.Info(us.Acount);
+            this.textBoxUserName.Content = us.Name;
+
             //初始化墨迹和画板
             currentColor = Colors.Red;
             inkDA = new DrawingAttributes()
@@ -93,15 +94,33 @@ namespace Client
         {
 
         }
+
+        //用于绑定enter建
+        private void SendBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.Key==Key.Enter)
+            {
+                client.Talk(us.Name, this.SendBox.Text);
+                this.SendBox.Text = "";
+            }
+        }
+
         private void send_Click(object sender, RoutedEventArgs e)
         {
-            client.Talk(UserName, this.SendBox.Text);
-            client.Info(account);
+            client.Talk(us.Name, this.SendBox.Text);
+            this.SendBox.Text = "";
         }
         private void exitBnt_Click(object sender, RoutedEventArgs e)
         {
-            client.Logout(textBoxUserName.Text);
+            client.Logout(us.Name);
             this.Close();
+            item.RoomWindow.Show();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            client.Logout(us.Name);
+            item.RoomWindow.Show();
         }
         #endregion
 
@@ -194,11 +213,6 @@ namespace Client
 
         /*----------------------------------------------------- 分割线  ----------------------------------------------------------------*/
         #region 聊天室的回调函数实现
-        public string UserName
-        {
-            get { return textBoxUserName.Text; }
-            set { textBoxUserName.Text = value; }
-        }
 
         public void ShowLogin(string loginUserName)
         {
@@ -218,7 +232,6 @@ namespace Client
 
         public void ShowInfo(string account)
         {
-             us = loginclient.Userinfo(account);
             this.U1.Text += "  昵称：" + us.Name + '\n' + "  等级：" + us.Grade + '\n' + '\n';
         }
 
@@ -241,8 +254,11 @@ namespace Client
             //inkcanvas.IsEnabled = false;
         }
 
-      
+
+
 
         #endregion
+
+        
     }
 }

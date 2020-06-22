@@ -1,4 +1,5 @@
-﻿using Client.ServiceReference;
+﻿using Client.LoginReference;
+using Client.ServiceReference;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,19 +21,19 @@ namespace Client
     /// </summary>
     public partial class RoomWindow : Window
     {
-        private ServiceClient client;
-        //id所属
-        public string id { get; set; }
-        public string account { get; set; }
-        //对象
-        private User item;
-        //上面哪两个对于登录信息有用，勿删
+        private ServiceClient client;//服务端调用
+        private LoginServiceClient loginclient;
+        private User item;//每一个id所属，item可以控制该id下的所有窗口
+        public LoginReference.User us;//用户的所有信息
 
-        
-        public RoomWindow()
+
+        public RoomWindow(LoginReference.User ustmp)
         {
             InitializeComponent();
-
+            us = ustmp;
+            item = CC.GetUser(us.Acount);
+            loginclient = new LoginServiceClient();
+            this.photo.Source = new BitmapImage(new Uri("pack://application:,,,/image/" + us.Avart));
         }
 
         public string UserName
@@ -47,19 +48,22 @@ namespace Client
             Button bt = e.Source as Button;
             int idx = (int)((bt.Name)[4]) - 48;
             MessageBox.Show("进入" + idx + "号房间");
-            item = CC.GetUser(id);
-            //设置大厅关闭，打开游戏
-            this.Close();
-            MainWindow mw = new MainWindow();
+
+            //设置大厅隐藏，打开游戏
+            item.RoomWindow.Hide();
+            MainWindow mw = new MainWindow(us);
             mw.room = idx;
-            mw.id = id;
             item.MainWindow = mw;
-            mw.account = account;
             item.MainWindow.Show();
 
             //回调进入房间
             //client.EnterRoom(username.Text, idx);
         }
 
+        //用于绑定enter键
+        private void SendBox_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
     }
 }

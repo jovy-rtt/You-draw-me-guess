@@ -23,33 +23,15 @@ namespace Client
     public partial class LoginWindow : Window
     {
         //全局变量
-        private string id = "";
-        private User item;
-        private LoginServiceClient client;
+        private User item;//每一个id所属，item可以控制该id下的所有窗口
+        private LoginServiceClient client;//服务端接口
+        private LoginReference.User us;//该用户的所有信息
         public LoginWindow()
         {
             InitializeComponent();
-            init();
+            client = new LoginServiceClient();
         }
 
-        //初始化
-        private void init()
-        {
-            client = new LoginServiceClient();
-            if (CC.Users == null)
-            {
-                CC.Users = new List<User>();
-            }
-            Random rm = new Random();
-            for (int i = 0; i < 20; i++)
-            {
-                id+=rm.Next(0,10).ToString();
-            }
-            User newuser = new User(id);
-            CC.Users.Add(newuser);
-            item = CC.GetUser(id);
-            item.LoginWindow = this;
-        }
 
         //所有button事件
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -58,16 +40,25 @@ namespace Client
             {
                 try
                 {
+                    //登录检测，true则为登录成功
                     bool flag = client.Login(account.Text, passward.Password);
-                    //bool flag =  client.test();
-                    //bool flag = true;
                     if (flag)
                     {
+                        //登录成功首先获取到该用户的所有信息，然后为传参做准备
+                        us = client.Userinfo(account.Text);
+                        //生成该用户的关联窗体的关系
+                        if (CC.Users == null)
+                        {
+                            CC.Users = new List<User>();
+                        }
+                        User newuser = new User(us.Acount);
+                        CC.Users.Add(newuser);
+                        item = CC.GetUser(us.Acount);
+                        item.LoginWindow = this;
                         item.LoginWindow.Close();
+
                         //再显示登录后的界面，room
-                        RoomWindow RW = new RoomWindow();
-                        RW.id = id;
-                        RW.account = account.Text;
+                        RoomWindow RW = new RoomWindow(us);
                         item.RoomWindow = RW;
                         item.RoomWindow.Show();
                     }
@@ -84,19 +75,15 @@ namespace Client
             }
             else if (e.Source == forgetPw)//忘记密码事件
             {
-                item.LoginWindow.Hide();
+                this.Close();
                 ForgetPwWindow FP = new ForgetPwWindow();
-                item.ForgetPwWindow = FP;
-                item.ForgetPwWindow.id = id;
-                item.ForgetPwWindow.Show();
+                FP.Show();
             }
             else if (e.Source == sign_for)//注册事件
             {
-                item.LoginWindow.Hide();
+                this.Close();
                 RegisteredWindow RW = new RegisteredWindow();
-                item.RegisteredWindow = RW;
-                item.RegisteredWindow.id = id;
-                item.RegisteredWindow.Show();
+                RW.Show();
             }
         }
     }
