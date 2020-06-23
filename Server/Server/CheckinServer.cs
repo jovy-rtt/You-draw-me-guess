@@ -52,9 +52,10 @@ namespace Server
         {
             CheckinUser logoutUser = CheckinCC.GetUser(userName);
             CheckinCC.Users.Remove(logoutUser);
-            foreach (var item in CheckinCC.Users)
+            foreach (var user in CheckinCC.Users)
             {
-                item.Checkincallback.ShowLogout(userName);
+                
+                    user.Checkincallback.ShowLogout(userName);
             }
             logoutUser = null; //将其设置为null后，WCF会自动关闭该客户端
 

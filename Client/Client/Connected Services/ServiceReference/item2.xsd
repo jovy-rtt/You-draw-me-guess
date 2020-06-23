@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Server" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Server" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:complexType name="ArrayOfUserData">
+  <xs:complexType name="ArrayOfUserdata">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserData" nillable="true" type="tns:UserData" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Userdata" nillable="true" type="tns:Userdata" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfUserData" nillable="true" type="tns:ArrayOfUserData" />
-  <xs:complexType name="UserData">
+  <xs:element name="ArrayOfUserdata" nillable="true" type="tns:ArrayOfUserdata" />
+  <xs:complexType name="Userdata">
     <xs:sequence>
       <xs:element minOccurs="0" name="Acount" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Avart" nillable="true" type="xs:string" />
@@ -17,5 +17,5 @@
       <xs:element minOccurs="0" name="Sign" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="UserData" nillable="true" type="tns:UserData" />
+  <xs:element name="Userdata" nillable="true" type="tns:Userdata" />
 </xs:schema>
