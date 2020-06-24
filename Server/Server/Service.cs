@@ -104,10 +104,35 @@ namespace Server
 
         public void Talk(string userName, string message)
         {
-            foreach (var item in CC.Users)
+            MyUser user = CC.GetUser(userName);
+            string ans = CC.Rooms[user.inRoom].question.answer;
+            if (message == ans)
             {
-                item.callback.ShowTalk(userName, message);
+                foreach (var item in CC.Rooms[user.inRoom].users)
+                {
+                    if (item.Name == userName)
+                    {
+                        item.callback.ShowTalk("系统消息", "你猜中了");
+                    }
+                    else
+                    {
+                        item.callback.ShowTalk("系统消息", string.Format("{0}猜中了", item.Name));
+                    }
+                    item.callback.ShowWin(userName, CC.Rooms[user.inRoom].users.First().Name);
+                }
+                RollUserAndRestart(user.inRoom);
             }
+            else
+            {
+                foreach (var item in CC.Rooms[user.inRoom].users)
+                {
+                    item.callback.ShowTalk(userName, message);
+                }
+            }
+            //foreach (var item in CC.Users)
+            //{
+            //    item.callback.ShowTalk(userName, message);
+            //}
         }
 
         /// <summary>用户退出</summary>
@@ -163,12 +188,12 @@ namespace Server
             //给该房间的所有用户发送最新用户消息
             foreach (var item in CC.Rooms[roomId].users)
             {
-                string s = "";
-                foreach (var v in CC.Rooms[roomId].users)
-                {
-                    s += v.Name + "," + v.Score.ToString() + ",";
-                }
-                item.callback.ShowRoom(s);
+                //string s = "";
+                //foreach (var v in CC.Rooms[roomId].users)
+                //{
+                //    s += v.Name + "," + v.Score.ToString() + ",";
+                //}
+                item.callback.ShowRoom();
             }
         }
         public void StartGame(string userName, int roomId)
@@ -186,7 +211,25 @@ namespace Server
                 item.callback.ShowStart(CC.Rooms[roomId].users.First().Name, CC.Rooms[roomId].question.answer, CC.Rooms[roomId].question.tip);
             }
         }
-
+        private void RollUserAndRestart(int roomId)
+        {
+            MyUser newuser = CC.Rooms[roomId].users.First();
+            CC.Rooms[roomId].users.RemoveAt(0);
+            CC.Rooms[roomId].users.Add(newuser);
+            CC.Rooms[roomId].question.update();
+            string s = "";
+            foreach (var item in CC.Rooms[roomId].users)
+            {
+                foreach (var v in CC.Rooms[roomId].users)
+                {
+                    s += v.Name + "," + v.Score.ToString() + ",";
+                }
+            }
+            foreach (var item in CC.Rooms[roomId].users)
+            {
+                item.callback.ShowNewTurn(s, CC.Rooms[roomId].users.First().Name, CC.Rooms[roomId].question.answer, CC.Rooms[roomId].question.tip);
+            }
+        }
         #endregion
 
     }
