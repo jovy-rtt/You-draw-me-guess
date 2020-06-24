@@ -300,5 +300,13 @@
   <ItemGroup>
     <Resource Include="image\登录.PNG" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\音乐.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bgm.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

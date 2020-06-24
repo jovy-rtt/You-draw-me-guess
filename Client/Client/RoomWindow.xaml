@@ -193,6 +193,14 @@
                 </Grid>
             </Grid>
         </DockPanel>
+        <Border Background="White" CornerRadius="40" BorderBrush="Black" BorderThickness="1"  HorizontalAlignment="Left" Margin="7,380,0,13.667" Width="39">
+            <Button  Name="music" BorderThickness="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="31" Height="26"  BorderBrush="White" Foreground="White" Click="music_Click" Margin="1.667,3.667,3.333,0">
+                <Button.Background>
+                    <SolidColorBrush Color="#FFDDDDDD" Opacity="0.2"/>
+                </Button.Background>
+                <Image Source="/image/音乐.jpg" Width="27" />
+            </Button>
+        </Border>
 
     </Grid>
 </Window>

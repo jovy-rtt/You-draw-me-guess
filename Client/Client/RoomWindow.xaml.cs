@@ -28,7 +28,7 @@ namespace Client
         private CheckinServerClient Checkinclient;
         private User item;//每一个id所属，item可以控制该id下的所有窗口
         public LoginReference.User us;//用户的所有信息
-
+        MediaPlayer player = new MediaPlayer();
 
         public RoomWindow(LoginReference.User ustmp)
         {
@@ -41,6 +41,10 @@ namespace Client
                 us.Avart = "boy.png";
             this.photo.Source = new BitmapImage(new Uri("pack://application:,,,/image/" + us.Avart));
             Checkinclient.Login(us.Name);
+            //音效
+            
+            player.Open(new Uri("bgm.mp3", UriKind.Relative));
+            player.Play();
         }
 
         //进入房间
@@ -95,6 +99,7 @@ namespace Client
             PI.ShowDialog();
         }
 
+
         #region 聊天室的回调函数实现
 
         public void ShowLogin(string loginUserName)
@@ -121,8 +126,17 @@ namespace Client
 
 
 
+
         #endregion
 
-        
+       public int musiccount = 0;
+        private void music_Click(object sender, RoutedEventArgs e)
+        {
+            musiccount++;
+            if (musiccount % 2 == 1)
+                player.Stop();
+            else
+                player.Play();
+        }
     }
 }
