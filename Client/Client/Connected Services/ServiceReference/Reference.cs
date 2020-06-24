@@ -220,10 +220,16 @@ namespace Client.ServiceReference {
         void ShowInfo(Client.ServiceReference.Userdata[] userdatas);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/ShowRoom")]
-        void ShowRoom(string userName);
+        void ShowRoom();
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/ShowStart")]
         void ShowStart(string userName1, string answer, string tip);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/ShowWin")]
+        void ShowWin(string userName, string userName0);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/ShowNewTurn")]
+        void ShowNewTurn(string roommeg, string userName1, string answer, string tip);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]

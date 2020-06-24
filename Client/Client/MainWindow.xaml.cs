@@ -300,19 +300,21 @@ namespace Client
         {
             client.EnterRoom(userName, roomId);
         }
-        public void ShowRoom(string roommeg)
+        public void ShowRoom()
         {
             //这个地方是为了显示用户列表的，不能清空
             //UserBox.Items.Clear();
             //显示各个选手得分
-            string[] s = roommeg.Split(',');
-            for (int i = 0; i+1 < s.Length; i += 2)
-            {
-               // UserBox.Items.Add(s[i] + "---" + s[i + 1] + "分");
-                if (us.Name == s[i]) ScoreLabel.Content = s[i + 1];
-            }
+            //string[] s = roommeg.Split(',');
+            //for (int i = 0; i+1 < s.Length; i += 2)
+            //{
+            //   // UserBox.Items.Add(s[i] + "---" + s[i + 1] + "分");
+            //    if (us.Name == s[i]) ScoreLabel.Content = s[i + 1];
+            //}
             //初始画板都不可使用
+            ScoreLabel.Content = 0;
             inkcanvas.IsEnabled = false;
+            clear.IsEnabled = false;
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -323,6 +325,7 @@ namespace Client
         public void ShowStart(string userName1, string answer, string tip)
         {
             inkcanvas.Strokes.Clear();
+            //ScoreLabel.Content = 0;
             //画图者
             if(us.Name==userName1)
             {
@@ -341,7 +344,35 @@ namespace Client
                 ConversationBox.Text += "系统提示：请开始抢答\n";
             }
         }
-
+        public void ShowWin(string userName,string userName0)
+        {
+            if (userName == us.Name)
+            {
+                ScoreLabel.Content = int.Parse(ScoreLabel.Content.ToString())+1;
+                ConversationBox.Text += "系统信息：你赢了！\n";
+            }
+            else if(us.Name==userName0)
+            {
+                ConversationBox.Text += "系统信息：有人猜到了！\n";
+            }
+            else
+            {
+                ConversationBox.Text += "系统信息：好遗憾，继续加油！\n";
+            }
+        }
+        public void ShowNewTurn(string roommeg, string userName1, string answer, string tip)
+        {
+            //更新用户列表和积分
+            //UserBox.Items.Clear();
+            //string[] s = roommeg.Split(',');
+            //for (int i = 0; i + 1 < s.Length; i += 2)
+            //{
+            //    UserBox.Items.Add(s[i] + "---" + s[i + 1] + "分");
+            //    if (us.Name == s[i]) ScoreLabel.Content = s[i + 1];
+            //}
+            //重新开始
+            ShowStart(userName1, answer, tip);
+        }
 
 
         #endregion

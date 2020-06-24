@@ -82,11 +82,17 @@ namespace Server
         #region 游戏的回调接口
         //回调进入房间
         [OperationContract(IsOneWay = true)]
-        void ShowRoom(string userName);
+        void ShowRoom();
 
         //回调开始游戏
         [OperationContract(IsOneWay = true)]
         void ShowStart(string userName1,string answer,string tip);
+        //回调胜利
+        [OperationContract(IsOneWay = true)]
+        void ShowWin(string userName,string userName0);
+        //回调开始新游戏
+        [OperationContract(IsOneWay = true)]
+        void ShowNewTurn(string roommeg, string userName1, string answer, string tip);
         #endregion
     }
     [DataContract]
@@ -99,12 +105,16 @@ namespace Server
         private Random r=new Random();
         public questions()
         {
+            update();
+        }
+        public void update()
+        {
             int num = r.Next(1, 20 + 1);
             MyDbEntities myDbEntities = new MyDbEntities();
             var q = from t in myDbEntities.Questions
                     where t.Id == num
                     select t;
-            if(q.Count()>0)
+            if (q.Count() > 0)
             {
                 var Q = q.First();
                 answer = Q.Question;
