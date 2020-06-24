@@ -36,6 +36,7 @@ namespace Client
         //画板相关
         private DrawingAttributes inkDA;
         private Color currentColor;
+        string TipCheck;
 
         //传参方式的变化
         public MainWindow(LoginReference.User ustmp)
@@ -226,7 +227,14 @@ namespace Client
 
         public void ShowTalk(string userName, string message)
         {
-            this.ConversationBox.Text += "[" + userName + "]说：" + message + '\n';
+            if(message != TipCheck)
+            {
+                this.ConversationBox.Text += "[" + userName + "]说：" + message + '\n';
+            }
+            else
+            {
+                this.ConversationBox.Text += userName + "回答正确";
+            }
         }
 
         //还有一点小bug，点击只会出现自己的信息卡
@@ -322,6 +330,7 @@ namespace Client
                 sendbtn.IsEnabled = false;
                 TipLabel.Content = "题目：" + answer;
                 ConversationBox.Text += "系统提示：请开始绘画\n";
+                TipCheck = answer;
             }
             //猜图者
             else
