@@ -56,7 +56,7 @@ namespace Server
             }
         }
 
-        public void Login(string userName)
+        public void Login(int id,string userName)
         {
             // throw new NotImplementedException();
             OperationContext context = OperationContext.Current;
@@ -78,27 +78,32 @@ namespace Server
             newUser.Room = tmp.Room;
             newUser.Score = tmp.Score;
             newUser.Sign = tmp.Sign;
+            newUser.id = id;
 
             CC.Users.Add(newUser);
-
             List<Userdata> userdatas = new List<Userdata>();
             foreach (var item in CC.Users)
             {
-                Userdata t = new Userdata();
-                t.Acount = item.Acount;
-                t.Avart = item.Avart;
-                t.Grade = item.Grade;
-                t.Name = item.Name;
-                t.Room = item.Room;
-                t.Score = item.Score;
-                t.Sign = item.Sign;
-                userdatas.Add(t);
+                if (item.id == id)
+                {
+                    Userdata t = new Userdata();
+                    t.Acount = item.Acount;
+                    t.Avart = item.Avart;
+                    t.Grade = item.Grade;
+                    t.Name = item.Name;
+                    t.Room = item.Room;
+                    t.Score = item.Score;
+                    t.Sign = item.Sign;
+                    userdatas.Add(t);
+                }
             }
-
-            foreach (var user in CC.Users)
+            foreach (var item in CC.Users)
             {
-                user.callback.ShowLogin(userName);
-                user.callback.ShowInfo(userdatas);
+                if(item.id==id)
+                {
+                    item.callback.ShowLogin(userName);
+                    item.callback.ShowInfo(userdatas);
+                }
             }
         }
 
@@ -129,14 +134,11 @@ namespace Server
                     item.callback.ShowTalk(userName, message);
                 }
             }
-            //foreach (var item in CC.Users)
-            //{
-            //    item.callback.ShowTalk(userName, message);
-            //}
+            
         }
 
         /// <summary>用户退出</summary>
-        public void Logout(string userName)
+        public void Logout(int id,string userName)
         {
             MyUser logoutUser = CC.GetUser(userName);
             CC.Users.Remove(logoutUser);
@@ -144,20 +146,26 @@ namespace Server
             List<Userdata> userdatas = new List<Userdata>();
             foreach (var item in CC.Users)
             {
-                Userdata t = new Userdata();
-                t.Acount = item.Acount;
-                t.Avart = item.Avart;
-                t.Grade = item.Grade;
-                t.Name = item.Name;
-                t.Room = item.Room;
-                t.Score = item.Score;
-                t.Sign = item.Sign;
-                userdatas.Add(t);
+                if (item.id == id)
+                {
+                    Userdata t = new Userdata();
+                    t.Acount = item.Acount;
+                    t.Avart = item.Avart;
+                    t.Grade = item.Grade;
+                    t.Name = item.Name;
+                    t.Room = item.Room;
+                    t.Score = item.Score;
+                    t.Sign = item.Sign;
+                    userdatas.Add(t);
+                }
             }
-            foreach (var user in CC.Users)
+            foreach (var item in CC.Users)
             {
-                user.callback.ShowLogout(userName);
-                user.callback.ShowInfo(userdatas);
+                if (item.id == id)
+                {
+                    item.callback.ShowLogout(userName);
+                    item.callback.ShowInfo(userdatas);
+                }
             }
             logoutUser = null; //将其设置为null后，WCF会自动关闭该客户端
 

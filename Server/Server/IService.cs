@@ -28,10 +28,10 @@ namespace Server
 
         #region 聊天室的服务接口
         [OperationContract(IsOneWay = true)]
-        void Login(string userName);
+        void Login(int id,string userName);
 
         [OperationContract(IsOneWay = true)]
-        void Logout(string userName);
+        void Logout(int id,string userName);
 
         [OperationContract(IsOneWay = true)]
         void Talk(string userName, string message);

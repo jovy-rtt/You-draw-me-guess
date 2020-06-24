@@ -33,10 +33,14 @@ namespace Client
         public int roomId;//暂用
         public LoginReference.User us;//用户的所有信息
         private User item;//每一个id所属，item可以控制该id下的所有窗口
+        private Userdata[] userdatas;
+
         //画板相关
         private DrawingAttributes inkDA;
         private Color currentColor;
         string TipCheck;
+
+
 
         //传参方式的变化
         public MainWindow(LoginReference.User ustmp)
@@ -58,7 +62,7 @@ namespace Client
             client = new ServiceClient(new InstanceContext(this));
             loginclient = new LoginServiceClient();
             //显示登录
-            client.Login(us.Name);
+            client.Login(roomId,us.Name);
             this.textBoxUserName.Content = us.Name;
 
             //初始化墨迹和画板
@@ -77,22 +81,103 @@ namespace Client
         //用户信息显示
         private void user1Btn1_Click(object sender, RoutedEventArgs e)
         {
-            Button item = e.Source as Button;
-            if (item != null)
+            try
             {
-                //this.U1.Source = new Uri(item.Tag.ToString(), UriKind.Relative);
-                PlayerInfo pi = new PlayerInfo(us);
-                pi.ShowDialog();
+                LoginReference.User tmp;
+                string acc = "";
+                for (int i = 0; i < userdatas.Length; i++)
+                {
+                    if (U1.Text.Contains(userdatas[i].Name))
+                    {
+                        acc = userdatas[i].Acount;
+                    }
+                }
+                Button item = e.Source as Button;
+                if (item != null)
+                {
+                    tmp = loginclient.Userinfo(acc);
+                    //this.U1.Source = new Uri(item.Tag.ToString(), UriKind.Relative);
+                    PlayerInfo pi = new PlayerInfo(tmp);
+                    pi.ShowDialog();
+                }
             }
+            catch { }
         }
 
         private void user1Btn2_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                LoginReference.User tmp;
+                string acc = "";
+                for (int i = 0; i < userdatas.Length; i++)
+                {
+                    if (U2.Text.Contains(userdatas[i].Name))
+                    {
+                        acc = userdatas[i].Acount;
+                    }
+                }
+                Button item = e.Source as Button;
+                if (item != null)
+                {
+                    tmp = loginclient.Userinfo(acc);
+                    //this.U1.Source = new Uri(item.Tag.ToString(), UriKind.Relative);
+                    PlayerInfo pi = new PlayerInfo(tmp);
+                    pi.ShowDialog();
+                }
+            }
+            catch { }
         }
         private void user1Btn3_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                LoginReference.User tmp;
+                string acc = "";
+                for (int i = 0; i < userdatas.Length; i++)
+                {
+                    if (U3.Text.Contains(userdatas[i].Name))
+                    {
+                        acc = userdatas[i].Acount;
+                    }
+                }
+                Button item = e.Source as Button;
+                if (item != null)
+                {
+                    tmp = loginclient.Userinfo(acc);
+                    //this.U1.Source = new Uri(item.Tag.ToString(), UriKind.Relative);
+                    PlayerInfo pi = new PlayerInfo(tmp);
+                    pi.ShowDialog();
+                }
+            }
+            catch { }
+        }
+        private void user1Btn4_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                LoginReference.User tmp;
+                string acc = "";
+                for (int i = 0; i < userdatas.Length; i++)
+                {
+                    if (U4.Text.Contains(userdatas[i].Name))
+                    {
+                        acc = userdatas[i].Acount;
+                    }
+                }
+                Button item = e.Source as Button;
+                if (item != null)
+                {
+                    tmp = loginclient.Userinfo(acc);
+                    //this.U1.Source = new Uri(item.Tag.ToString(), UriKind.Relative);
+                    PlayerInfo pi = new PlayerInfo(tmp);
+                    pi.ShowDialog();
+                }
+            }
+            catch
+            {
 
+            }
         }
 
         //用于绑定enter建
@@ -112,14 +197,14 @@ namespace Client
         }
         private void exitBnt_Click(object sender, RoutedEventArgs e)
         {
-            client.Logout(us.Name);
+            client.Logout(roomId,us.Name);
             this.Close();
             item.RoomWindow.Show();
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            client.Logout(us.Name);
+            client.Logout(roomId,us.Name);
             item.RoomWindow.Show();
         }
         #endregion
@@ -240,6 +325,7 @@ namespace Client
         //还有一点小bug，点击只会出现自己的信息卡
         public void ShowInfo(Userdata[] mydata)
         {
+            userdatas = mydata;
             //this.U1.Text += " 昵称：" + us.Name + '\n' + " 等级：" + us.Grade + '\n' + '\n';
             Userdata[] usarr = new Userdata[4];
             int cnt = 0;
@@ -375,8 +461,9 @@ namespace Client
         }
 
 
+
         #endregion
 
-
+        
     }
 }

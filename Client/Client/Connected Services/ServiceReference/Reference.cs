@@ -171,16 +171,16 @@ namespace Client.ServiceReference {
         System.Threading.Tasks.Task SendInkAsync(int room, string ink);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/Login")]
-        void Login(string userName);
+        void Login(int id, string userName);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/Login")]
-        System.Threading.Tasks.Task LoginAsync(string userName);
+        System.Threading.Tasks.Task LoginAsync(int id, string userName);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/Logout")]
-        void Logout(string userName);
+        void Logout(int id, string userName);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/Logout")]
-        System.Threading.Tasks.Task LogoutAsync(string userName);
+        System.Threading.Tasks.Task LogoutAsync(int id, string userName);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="MyService/IService/Talk")]
         void Talk(string userName, string message);
@@ -276,20 +276,20 @@ namespace Client.ServiceReference {
             return base.Channel.SendInkAsync(room, ink);
         }
         
-        public void Login(string userName) {
-            base.Channel.Login(userName);
+        public void Login(int id, string userName) {
+            base.Channel.Login(id, userName);
         }
         
-        public System.Threading.Tasks.Task LoginAsync(string userName) {
-            return base.Channel.LoginAsync(userName);
+        public System.Threading.Tasks.Task LoginAsync(int id, string userName) {
+            return base.Channel.LoginAsync(id, userName);
         }
         
-        public void Logout(string userName) {
-            base.Channel.Logout(userName);
+        public void Logout(int id, string userName) {
+            base.Channel.Logout(id, userName);
         }
         
-        public System.Threading.Tasks.Task LogoutAsync(string userName) {
-            return base.Channel.LogoutAsync(userName);
+        public System.Threading.Tasks.Task LogoutAsync(int id, string userName) {
+            return base.Channel.LogoutAsync(id, userName);
         }
         
         public void Talk(string userName, string message) {

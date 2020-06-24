@@ -28,7 +28,7 @@
                             <TextBlock x:Name="U1" Foreground="#FF85AEEE" TextWrapping="Wrap" Margin="0,0,0,0" Width="90" />
                         </StackPanel>
                     </Button>
-                    <Button x:Name="user1Btn2" HorizontalAlignment="Center" VerticalAlignment="Top" Width="152" Height="51"  BorderBrush="White" Foreground="White" Click="user1Btn1_Click">
+                    <Button x:Name="user1Btn2" HorizontalAlignment="Center" VerticalAlignment="Top" Width="152" Height="51"  BorderBrush="White" Foreground="White" Click="user1Btn2_Click">
                         <Button.Background>
                             <SolidColorBrush Color="#FFDDDDDD" Opacity="0.2"/>
                         </Button.Background>
@@ -37,7 +37,7 @@
                             <TextBlock x:Name="U2" Foreground="#FF85AEEE" TextWrapping="Wrap" Margin="0,0,0,0" Width="90" />
                         </StackPanel>
                     </Button>
-                    <Button x:Name="user1Btn3" HorizontalAlignment="Center" VerticalAlignment="Top" Width="152" Height="51"  BorderBrush="White" Foreground="White" Click="user1Btn1_Click">
+                    <Button x:Name="user1Btn3" HorizontalAlignment="Center" VerticalAlignment="Top" Width="152" Height="51"  BorderBrush="White" Foreground="White" Click="user1Btn3_Click">
                         <Button.Background>
                             <SolidColorBrush Color="#FFDDDDDD" Opacity="0.2"/>
                         </Button.Background>
@@ -46,7 +46,7 @@
                             <TextBlock x:Name="U3" Foreground="#FF85AEEE" TextWrapping="Wrap" Margin="0,0,0,0" Width="90" />
                         </StackPanel>
                     </Button>
-                    <Button x:Name="user1Btn4" HorizontalAlignment="Center" VerticalAlignment="Top" Width="152" Height="51"  BorderBrush="White" Foreground="White" Click="user1Btn1_Click">
+                    <Button x:Name="user1Btn4" HorizontalAlignment="Center" VerticalAlignment="Top" Width="152" Height="51"  BorderBrush="White" Foreground="White" Click="user1Btn4_Click">
                         <Button.Background>
                             <SolidColorBrush Color="#FFDDDDDD" Opacity="0.2"/>
                         </Button.Background>

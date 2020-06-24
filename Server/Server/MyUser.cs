@@ -13,7 +13,7 @@ namespace Server
         public int inRoom { get; set; }
         public readonly IServiceCallback callback;
         public readonly ICheckinServerCallback Checkincallback;
-
+        public int id { get; set; }//聊天接口房间号
         public MyUser(string username, IServiceCallback callback)
         {
             this.Name = username;
