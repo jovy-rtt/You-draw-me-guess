@@ -312,14 +312,7 @@ namespace Client
 
         public void ShowTalk(string userName, string message)
         {
-            if(message != TipCheck)
-            {
-                this.ConversationBox.Text += "[" + userName + "]说：" + message + '\n';
-            }
-            else
-            {
-                this.ConversationBox.Text += userName + "回答正确";
-            }
+            this.ConversationBox.Text += "[" + userName + "]说：" + message + '\n';
         }
 
         //还有一点小bug，点击只会出现自己的信息卡
@@ -415,6 +408,7 @@ namespace Client
             //画图者
             if(us.Name==userName1)
             {
+                clear.IsEnabled = true;
                 inkcanvas.IsEnabled = true;
                 sendbtn.IsEnabled = false;
                 TipLabel.Content = "题目：" + answer;
